@@ -69,7 +69,8 @@ const EditorialText = (props) => {
             })}
           </div>
           {isButtonVisible ? 
-            <div className={`${styles['editorialText-btn']}`}>
+            //<div className={`${styles['editorialText-btn']}`}>
+            <div>
               {React.Children.map(children, function (child) {
                 if (child.type.name !== 'RichText') {
                   return (child)
