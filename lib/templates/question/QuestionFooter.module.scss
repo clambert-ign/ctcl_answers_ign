@@ -1,0 +1,95 @@
+@import "../assets/styles/global.scss";
+
+.control-panel {
+  border-top: 1px solid #c3c4ca;
+  background-color: var(--control-panel-background-color, #fff);
+}
+
+.control-panel__content {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    min-width: 175px;
+  }
+
+  @include media(extraSmall) {
+    display: block;
+    a {
+      margin-bottom: 24px;
+    }
+    a:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @include media(small) {
+    a {
+      min-width: auto;
+    }
+  }
+
+  @include media(medium) {
+    padding: 0 72px;
+    height: 99px;
+    margin: auto;
+    max-width: 784px;
+  }
+
+  @include media(large) {
+    height: 99px;
+    max-width: 944px;
+    margin: auto;
+    padding: 0;
+  }
+
+  @include media(extraLarge) {
+    height: 99px;
+    max-width: 1104px;
+    margin: auto;
+    padding: 0 96px;
+  }
+
+  @include media(extraExtraLarge) {
+    padding: 0;
+    height: 99px;
+    margin: auto;
+    max-width: 1312px;
+  }
+}
+
+.control-panel__content__buttons {
+  a {
+    min-width: 156px;
+  }
+  a:first-child {
+    min-width: 100px;
+    margin-right: 24px;
+  }
+
+  @include media(extraSmall) {
+    display: block;
+
+    a {
+      justify-content: center;
+    }
+    
+    a:first-child {
+      margin-right: 0;
+    }
+  }
+
+  @include media(small) {
+    a {
+      margin-right: 24px;
+      min-width: auto;
+    }
+  }
+}
+
+[dir="rtl"] .control-panel__content__buttons {
+  a:first-child {
+    margin-right: 0;
+    margin-left: 24px;
+  }
+}

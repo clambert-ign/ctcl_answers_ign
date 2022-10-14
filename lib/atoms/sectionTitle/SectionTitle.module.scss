@@ -1,0 +1,31 @@
+@import '../../assets/styles/global.scss';
+
+.sectionTitle {
+  font-family: var(--base-font-family);
+  font-size: var(--st-font-size, var(--base-font-size));
+  font-weight: var(--st-font-weight, var(--base-font-weight));
+  line-height: var(--st-line-height, var(--base-line-height));
+  color: var(--st-text-color, var(--base-font-color));  
+  justify-content: left;
+  text-align: left;
+      
+  p {
+    margin: 0 0 32px;
+  }
+  
+  h1,h2,h3,h4,h5,h6 {
+    color: var(--st-text-color, var(--base-font-color));
+    font-size: var(--st-headline-font-size, 64px);
+    font-weight:  var(--st-headline-font-weight, 700);
+    line-height:  var(--st-headline-line-height, 76.8px);
+    margin: 0 0 16px 0;
+  }
+  
+  .sectionTitle--center {
+    justify-content: center;
+    text-align: center;    
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}

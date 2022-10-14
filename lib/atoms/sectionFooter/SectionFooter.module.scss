@@ -1,0 +1,12 @@
+@import '../../assets/styles/global.scss';
+
+.sectionFooter {
+  font-family: var(--base-font-family);
+  font-size: var(--sf-font-size, var(--base-font-size));
+  font-weight: var(--sf-font-weight, var(--base-font-weight));
+  line-height: var(--sf-line-height, var(--base-line-height));
+  color: var(--sf-text-color, var(--base-font-color));
+
+  display: block;
+  margin: 8px 0 0 0;
+}

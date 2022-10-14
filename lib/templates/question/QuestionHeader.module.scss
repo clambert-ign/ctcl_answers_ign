@@ -1,0 +1,101 @@
+@import "../assets/styles/global.scss";
+
+.nav-background {
+  width: 100%;
+  background-color: var(--question-header-background, #fff);
+}
+
+.nav {
+  margin: auto;
+  padding: 25px 24px;
+  display: flex;
+  justify-content: space-between;
+  height: 54px;
+
+  @include media(medium) {
+    max-width: 784px;
+    margin: auto;
+    height: 46px;
+    padding: 25px 72px;
+  }
+
+  @include media(large) {
+    max-width: 944px;
+    height: 46px;
+    padding: 25px;
+  }
+
+  @include media(extraLarge) {
+    max-width: 1104px;
+    margin: auto;
+    height: 46px;
+    padding: 25px 96px;
+  }
+
+  @include media(extraExtraLarge) {
+    height: 46px;
+    padding: 25px 0;
+    max-width: 1312px;
+  }
+}
+
+.nav__logos {
+  display: flex;
+  align-items: center;
+
+  @include media(extraSmall, small) {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+.nav__your-logo {
+  margin-right: 25px;
+
+  @include media(extraSmall, small) {
+    height: 24px;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.nav__main-logo {
+  @include media(extraSmall, small) {
+    height: 14px;
+  }
+}
+
+[dir="rtl"] .nav__your-logo {
+  margin-right: 0;
+  margin-left: 25px;
+}
+
+.nav__exit-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #6267a1;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0;
+  font-family: var(--base-font-family);
+
+  @include media(extraSmall, small) {
+    align-items: start;
+    svg {
+      margin-top: 2px;
+    }
+  }
+
+  svg {
+    margin-left: 10px;
+  }
+}
+
+[dir="rtl"] .nav__exit-button {
+  svg {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,88 @@
+@import "../../../assets/styles/global.scss";
+
+.textarea {
+  font-family: var(--base-font-family);
+  font-size: var(--textarea-font-size, 16px);
+  font-weight: var(--textarea-font-weight, 600);
+  color: var(--textarea-text-color, var(--base-font-color));
+  display: inline-grid;
+  grid-template-rows: 1fr;
+  gap: 4px;
+}
+
+.textarea .textarea-wrapper {
+  display: inline-flex;
+}
+
+.textarea .textarea-wrapper {
+  
+  textarea {
+    width: 100%;
+    color: var(--textarea-text-color, var(--base-font-color));
+    font-weight: 200;
+    background-color: var(--textarea-bgcolor, #f5f5f6);
+    border: 2px solid var(--textarea-border-color, #f5f5f6);
+    border-radius: var(--textarea-border-radius, 8px);
+    padding: 14px;  
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: 0;
+
+    &:focus {
+      border: 2px solid var(--textarea-focus-bgcolor, #6267A1);
+      caret-color: var(--textarea-focus-bgcolor, #6267A1);
+    }
+  }
+}
+
+.textarea .textarea-footer-wrapper {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+
+  .textarea-text {
+    font-size: var(--textarea-text-font-size, 12px);
+    font-weight: var(--textarea-text-font-weight, 400);
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+} 
+
+.textarea-disabled {
+  color: var(--textarea-disabled, #888995);
+  cursor: not-allowed;
+
+  textarea {
+    cursor: not-allowed;
+  }
+}
+
+.textarea-error {
+  color: var(--textarea-error-color, #b00020);
+  .textarea-wrapper {
+    textarea, textarea:focus {
+      caret-color: var(--textarea-error-color, #b00020);
+      border: 2px solid var(--textarea-error-color, #b00020);
+      color: var(--textarea-error-color, #b00020);
+      
+      &:focus {
+        border: 2px solid var(--textarea-error-color, #b00020);
+        caret-color: var(--textarea-error-color, #b00020);
+      }
+    }
+    textarea::placeholder {
+      color: var(--textarea-error-color, #b00020);
+    }
+    svg {
+      position: relative;
+      top: calc(50% - 10px);
+      left: 10px;
+      path {
+        fill: var(--textarea-error-color, #b00020);
+      }
+    }
+  }
+}

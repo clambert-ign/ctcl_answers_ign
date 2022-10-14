@@ -1,0 +1,229 @@
+@import '../../assets/styles/global.scss';
+
+.contentCard {
+  background-color: var(--cc-bgcolor, transparent);
+  border-radius: var(--cc-border-radius, 8px);
+  filter: drop-shadow(0px 7px 30px rgba(50, 50, 50, 0.2));
+  padding: 32px 0;
+  margin: 0 0 10px;
+  display: inline-grid;
+  grid-template-columns: auto;
+  gap: 10px;
+
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: repeat(var(--cc-column-count, 1), 1fr);
+  }
+    
+  h1,h2,h3,h4,h5,h6 {
+    font-size: var(--cc-item-headline-font-size, 28px);
+    font-weight: var(--cc-item-headline-font-weight, 600);
+    line-height: var(--cc-item-headline-line-height, 33.6px);
+    margin: 0 0 8px 0;
+  }
+  
+  .subheadline {
+    font-size: var(--cc-item-subheadline-font-size, 24px);
+    font-weight: var(--cc-item-subheadline-font-weight, 400);
+    line-height: var(--cc-item-subheadline-line-height, 38.4px);
+    margin: 0 0 16px 0;
+  }
+}
+
+.contentCardItem {
+  font-family: var(--base-font-family);
+  font-size: var(--cc-item-font-size, 16px);
+  font-weight: var(--cc-item-font-weight, 200);
+  line-height: var(--cc-item-line-height, 25.6px);
+  color: var(--cc-item-text-color, #fff);
+  border-radius: var(--cc-item-border-radius, 8px);
+  background-color: var(--cc-item-bgcolor, #6267A1);
+
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "ccimage" "cccontent";
+    
+
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "ccimage cccontent";
+  }  
+}
+
+.contentCardItem-image {
+  height: 100%;
+  img {
+    display: block;
+    width: 100%;
+    border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
+    
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      grid-area: ccimage;
+      border-radius: var(--cc-item-2col-image-left-border-radius, 8px 0 0 8px);
+    }
+  }
+}
+
+.contentCardItem-content {
+  padding: 24px 16px 32px;
+
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-area: cccontent;
+    padding: 32px 24px;
+  }
+
+  p {
+    margin: 0 0 32px;
+  }
+
+  a {
+    color: var(--cc-item-text-color, #fff);
+  }
+}
+
+.contentCardItem-content-label {
+  display: inline-block;
+  margin: 0 0 8px;
+  font-size: var(--cc-item-label-font-size, 16px);
+  font-weight: var(--cc-item-label-font-weight, 400);
+  line-height: var(--cc-item-label-line-height, 25.6px);
+}
+
+.contentCardItem--right {
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-template-areas: "cccontent ccimage";
+  }  
+  .contentCardItem-image {
+    img {
+      border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
+      
+      @include media (medium, large, extraLarge, extraExtraLarge) {
+        border-radius: var(--cc-item-2col-image-right-border-radius, 0 8px 8px 0);
+      }
+    }
+  }
+}
+
+.contentCard--multiple {
+  .contentCardItem {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "ccimage" "cccontent";
+  }
+  .contentCardItem-image {
+    img {
+      border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
+    }
+  }
+}
+
+.contentCardItem-content-btn {
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    width: unset;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: flex-start;
+    row-gap: 24px;
+  }
+}
+
+.contentCardItem-content-btn-primary {
+  a {
+    color: var(--cc-item-primary-btn-text-color, var(--primary-btn-text-color));
+    background-color: var(--cc-item-primary-btn-bgcolor, var(--primary-btn-bgcolor));
+    border: solid 3px var(--cc-item-primary-btn-border-color, var(--primary-btn-border-color));
+    margin: 0 0 24px;
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: var(--cc-item-primary-btn-hover-text-color, var(--primary-btn-hover-text-color));
+      background-color: var(--cc-item-primary-btn-hover-bgcolor, var(--primary-btn-hover-bgcolor));
+      border: solid 3px var(--cc-item-primary-btn-hover-border-color, var(--primary-btn-hover-border-color));
+      
+      svg {
+        fill: var(--cc-item-primary-btn-hover-text-color, var(--primary-btn-hover-text-color));
+      }
+    }
+    &:active {
+      color: var(--cc-item-primary-btn-active-text-color, var(--primary-btn-active-text-color));
+      background-color: var(--cc-item-primary-btn-active-bgcolor, var(--primary-btn-active-bgcolor));
+      border: solid 3px var(--cc-item-primary-btn-active-border-color, var(--primary-btn-active-border-color));
+      
+      svg {
+        fill: var(--cc-item-primary-btn-active-text-color, var(--primary-btn-active-text-color));
+      }
+    }
+    svg {
+      fill: var(--cc-item-primary-btn-text-color, var(--primary-btn-text-color));
+    }
+  }
+}
+
+.contentCardItem-content-btn-secondary {
+  a {
+    color: var(--cc-item-secondary-btn-text-color, var(--secondary-btn-text-color));
+    background-color: var(--cc-item-secondary-btn-bgcolor, var(--secondary-btn-bgcolor));
+    border: solid 3px var(--cc-item-secondary-btn-border-color, var(--secondary-btn-border-color));
+    margin: 0 0 24px;
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: var(--cc-item-secondary-btn-hover-text-color, var(--secondary-btn-hover-text-color));
+      background-color: var(--cc-item-secondary-btn-hover-bgcolor, var(--secondary-btn-hover-bgcolor));
+      border: solid 3px var(--cc-item-secondary-btn-hover-border-color, var(--secondary-btn-hover-border-color));
+      
+      svg {
+        fill: var(--cc-item-secondary-btn-hover-text-color, var(--secondary-btn-hover-text-color));
+      }
+    }
+    &:active {
+      color: var(--cc-item-secondary-btn-active-text-color, var(--secondary-btn-active-text-color));
+      background-color: var(--cc-item-secondary-btn-active-bgcolor, var(--secondary-btn-active-bgcolor));
+      border: solid 3px var(--cc-item-secondary-btn-active-border-color, var(--secondary-btn-active-border-color));
+      
+      svg {
+        fill: var(--cc-item-secondary-btn-active-text-color, var(--secondary-btn-active-text-color));
+      }
+    }
+    svg {
+      fill: var(--cc-item-secondary-btn-text-color, var(--secondary-btn-text-color));
+    }
+  }
+}
+
+.contentCardItem-content-btn-tertiary {
+  a {
+    color: var(--cc-item-tertiary-btn-text-color, var(--tertiary-btn-text-color));
+    margin: 0 0 24px;
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: var(--cc-item-tertiary-btn-hover-text-color, var(--tertiary-btn-hover-text-color));
+      svg {
+        fill: var(--cc-item-tertiary-btn-hover-text-color, var(--tertiary-btn-hover-text-color));
+      }
+    }
+    &:active {
+      color: var(--cc-item-tertiary-btn-active-text-color, var(--tertiary-btn-active-text-color));
+      background-color: var(--cc-item-tertiary-btn-active-bgcolor, var(--tertiary-btn-active-bgcolor));
+      svg {
+        fill: var(--cc-item-tertiary-btn-active-text-color, var(--tertiary-btn-active-text-color));
+      }
+    }
+    svg {
+      fill: var(--cc-item-tertiary-btn-text-color, var(--tertiary-btn-text-color));
+    }
+  }
+}

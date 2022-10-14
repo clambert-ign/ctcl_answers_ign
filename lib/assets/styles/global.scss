@@ -1,0 +1,7 @@
+/* 
+  TASK: Need to update to @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
+  Required for certain languages where original font fails to render correctly. New font has different font weight so these will need to be adjusted as well.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import './mixin.scss';
+

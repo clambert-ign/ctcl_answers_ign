@@ -1,0 +1,13 @@
+@import "../../assets/styles/global.scss";
+
+.contentCardContainer {
+    margin-bottom: 16px;
+
+    @include media(extraLarge) {
+        margin-bottom: 24px;
+    }
+
+    @include media(extraExtraLarge) {
+        margin-bottom: 32px;
+    }
+}

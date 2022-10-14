@@ -1,0 +1,69 @@
+@import "../../../assets/styles/global.scss";
+
+.switch {
+  font-family: var(--base-font-family);
+  font-size: var(--switch-font-size, 16px);
+  font-weight: var(--switch-font-weight, 600);
+  color: var(--switch-text-color, var(--base-font-color));
+  padding: 10px 0 0;
+}
+
+.switch-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 32px;
+  margin: 0 0 0 16px;
+  top: -5px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-off-bgcolor, #888995);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: var(--switch-border-radius, 60px);
+  }
+  
+  .switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--switch-button-color, #fff);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: var(--switch-button-border-radius, 32px);
+  }
+  
+  input:checked + .switch-slider {
+    background-color: var(--switch-on-bgcolor, #6267A1);
+  }
+  
+  input:checked + .switch-slider:before {
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
+  }
+}
+
+.switch-disabled {
+  color: var(--switch-disabled, #888995);
+  cursor: not-allowed;
+
+  .switch-slider {
+    cursor: not-allowed;
+  }
+}

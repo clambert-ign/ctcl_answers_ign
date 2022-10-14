@@ -1,0 +1,77 @@
+@import "../../../assets/styles/global.scss";
+
+.input {
+  font-family: var(--base-font-family);
+  font-size: var(--input-font-size, 16px);
+  font-weight: var(--input-font-weight, 600);
+  color: var(--input-text-color, var(--base-font-color));
+  display: inline-grid;
+  grid-template-rows: 1fr;
+  gap: 4px;
+}
+
+.input .input-wrapper {
+  display: inline-flex;
+}
+
+.input .input-wrapper-input {
+  color: var(--input-text-color, var(--base-font-color));
+  font-weight: 200;
+  background-color: var(--input-bgcolor, #f5f5f6);
+  border: 2px solid var(--input-border-color, #f5f5f6);
+  border-radius: var(--input-border-radius, 8px);
+  padding: 14px;
+
+  input {
+    background-color: transparent;
+    border: 0;
+  }  
+  &:focus-within {
+    border: 2px solid var(--input-focus-bgcolor, #6267A1);
+    caret-color: var(--input-focus-bgcolor, #6267A1);
+  }
+}
+
+.input .input-text {
+  font-size: var(--input-text-font-size, 12px);
+  font-weight: var(--input-text-font-weight, 400);
+}
+
+.input-disabled {
+  color: var(--input-disabled, #888995);
+  cursor: not-allowed;
+
+  input {
+    cursor: not-allowed;
+  }
+}
+
+.input-error {
+  color: var(--input-error-color, #b00020);
+  .input-wrapper-input {
+    border: 2px solid var(--input-error-color, #b00020);
+    input, input:focus {
+      caret-color: var(--input-error-color, #b00020);
+      border: 0;
+      color: var(--input-error-color, #b00020);
+    }
+    input::placeholder {
+      color: var(--input-error-color, #b00020);
+    }
+    svg.input-eye-icon path {
+      fill: var(--input-error-color, #b00020);
+    }
+    &:focus-within {
+      border: 2px solid var(--input-error-color, #b00020);
+      caret-color: var(--input-error-color, #b00020);
+    }
+  }
+  svg.input-error-icon {
+    position: relative;
+    top: 18px;
+    left: 10px;
+    path {
+      fill: var(--input-error-color, #b00020);
+    }
+  }
+}

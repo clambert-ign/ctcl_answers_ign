@@ -1,0 +1,193 @@
+@import "../../../assets/styles/global.scss";
+
+.checkbox {
+  font-family: var(--base-font-family);
+  font-size: var(--chkbox-font-size, 16px);
+  font-weight: var(--chkbox-font-weight, 600);
+  color: var(--chkbox-text-color, var(--base-font-color));
+  background-color: var(--chkbox-bgcolor, #f5f5f6);
+  border: 2px solid var(--chkbox-border-color, #f5f5f6);
+  border-radius: var(--chkbox-border-radius, 8px);
+  padding: 16px 16px 16px 52px;  
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:focus-within {
+    border: 2px solid var(--chkbox-chkmark-chked-border-color, #6267a1);
+  }
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-text {
+  margin: 0 0 0 8px;
+}
+
+.checkbox-description {
+  display: block;
+  font-size:  var(--chkbox-description-font-size, 14px);
+  font-weight: var(--chkbox-description-font-weight, 300);
+  margin: 10px 0 0 8px;
+}
+
+.checkbox-checkmark {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 0;
+  left: 16px;
+  bottom: 0; 
+  right: 0;
+  margin: auto 0;
+  padding: 0;
+  background-color: var(--chkbox-chkmark-bgcolor, transparent);
+  border-radius: var(--chkbox-chkmark-border-radius, 4px);
+  border: 2px solid var(--chkbox-chkmark-border-color, #6267a1);
+  overflow: auto;
+}
+
+.checkbox:hover input ~ .checkbox-checkmark {
+  background-color: transparent;
+}
+
+.checkbox input:checked ~ .checkbox-checkmark {
+  background-color: var(--chkbox-chkmark-chked-bgcolor, #6267a1); 
+}
+
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+.checkbox .checkbox-checkmark:after {
+  left: 11px;
+  top: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--chkbox-chkmark-chked-color, #fff);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-checked {
+  border: 2px solid var(--chkbox-chkmark-chked-border-color, #6267a1);
+}
+
+.checkbox-tile, .checkbox-image {
+  width: 160px;
+  text-align: center;
+  padding: 24px;
+  
+  img {
+    margin: 75px 0 20px;
+    width: 40%;
+  }
+
+  .checkbox-checkmark {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 24px;
+    left: calc(100% - 56px);
+    bottom: 0; 
+    right: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--chkbox-chkmark-bgcolor, transparent);
+    border-radius: var(--chkbox-chkmark-border-radius, 4px);
+    border: 2px solid var(--chkbox-chkmark-border-color, #6267a1);
+    overflow: auto;
+  }
+
+  .checkbox-text {
+    display: block;
+    margin: 0 0 8px;
+  }
+
+  .checkbox-description {
+    margin: 0;
+  }
+}
+
+.checkbox-image {
+  img {
+    margin: 55px 0 15px;
+    width: 100%;
+  }
+}
+
+.checkbox-error {
+  border: 2px solid var(--chkbox-error-border-color, #b00020);
+
+  .checkbox-checkmark {
+    border: 2px solid var(--chkbox-error-chkmark-border-color, #b00020);
+  }
+}
+
+.checkbox-error-text {
+  font-family: var(--base-font-family);
+  font-size: var(--chkbox-error-font-size, 12px);
+  font-weight: var(--chkbox-error-font-weight, 400);
+  color: var(--chkbox-error-text-color, #b00020);
+}
+
+.checkbox-disabled {
+  color: var(--chkbox-disabled, #888995);
+  cursor: not-allowed;
+
+  .checkbox-checkmark {
+    border-color: var(--chkbox-chk-disabled, #888995);  
+  }
+}
+
+[dir="rtl"] .checkbox {
+  padding: 16px 52px 16px 16px;
+
+  .checkbox-text {
+    margin: 0 8px 0 0;
+  }
+  
+  .checkbox-description {
+    margin: 10px 8px 0 0;
+  }
+
+  .checkbox-checkmark {
+    right: 16px;
+    left: 0;
+  }
+}
+
+[dir="rtl"] .checkbox-tile {
+  padding: 24px;
+
+  .checkbox-text {
+    margin: 0 0 08px ;
+  }
+  
+  .checkbox-description {
+    margin: 10px 0 0 8pxs;
+  }
+
+  .checkbox-checkmark {
+    right: calc(100% - 56px);
+    left: 0;
+  }
+}

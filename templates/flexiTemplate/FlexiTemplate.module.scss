@@ -1,0 +1,8 @@
+@import "../../lib/assets/global.scss";
+@import "../../lib/assets/colors.scss";
+
+.column {
+    border: solid 1px var(--border-color);
+    background-color: var(--background-color);
+    color: var(--color-primary)
+}

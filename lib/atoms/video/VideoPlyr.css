@@ -1,0 +1,78 @@
+.plyr--video .plyr__controls {
+  padding: 0 12px 12px 17px;
+
+  --plyr-video-controls-background: none;
+  --plyr-color-main: #000;
+  --plyr-control-spacing: 8px;
+  --plyr-control-radius: 0;
+  --plyr-video-control-color: #fff;
+  --plyr-video-control-color-hover: #fff;
+  --plyr-video-control-background-hover: transparent;
+  --plyr-range-thumb-background: #fff;
+  --plyr-range-fill-background: rgba(255, 255, 255, 0.6);
+  --plyr-video-progress-buffered-background: rgba(255, 255, 255, 0.2);
+  --plyr-video-range-track-background: rgba(255, 255, 255, 0.4);
+  --plyr-range-thumb-height: 12px;
+  --plyr-range-track-height: 2px;
+  --plyr-control-icon-size: 12px;
+}
+
+.plyr__controls .plyr__controls__item:first-child {
+  padding-left: 0;
+}
+
+.plyr--video .plyr__controls__item.plyr__time {
+  color: #fff;;
+}
+
+.plyr--video .plyr__poster {
+  background-size: cover;
+}
+
+.plyr--video.plyr--stopped.plyr__poster-enabled .plyr__poster, .plyr--video.plyr--paused.plyr__poster-enabled .plyr__poster {
+  opacity: 0.5;
+  background-color: #000;
+}
+
+.plyr--video.plyr--paused video , .plyr--video.plyr--paused .plyr__captions, .plyr--video.plyr--paused .plyr__controls {
+  opacity: 0;
+}
+
+.plyr--full-ui.plyr--video .plyr__control--overlaid {
+  border: 5px solid white;
+  background-color: transparent;
+}
+
+.plyr--paused.plyr__poster-enabled .plyr__poster {
+  animation: videoFadeIn 1s;
+  -webkit-animation: videoFadeIn 1s;
+  -moz-animation: videoFadeIn 1s;
+  -o-animation: videoFadeIn 1s;
+  -ms-animation: videoFadeIn 1s;
+}
+
+@keyframes videoFadeIn {
+  0% {opacity:0;}
+  100% {opacity:0.5;}
+}
+
+@-moz-keyframes videoFadeIn {
+  0% {opacity:0;}
+  100% {opacity:0.5;}
+}
+
+@-webkit-keyframes videoFadeIn {
+  0% {opacity:0;}
+  100% {opacity:0.5;}
+}
+
+@-o-keyframes videoFadeIn {
+  0% {opacity:0;}
+  100% {opacity:0.5;}
+}
+
+@-ms-keyframes videoFadeIn {
+  0% {opacity:0;}
+  100% {opacity:0.5;}
+}
+

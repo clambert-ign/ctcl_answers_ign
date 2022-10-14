@@ -1,0 +1,141 @@
+@import "../../assets/styles/global.scss";
+
+.editorialText {
+  font-family: var(--base-font-family);
+  font-size: var(--et-font-size, 16px);
+  font-weight: var(--et-font-weight, 200);
+  line-height: var(--et-line-height, 25.6px);
+  color: var(--et-text-color, var(--base-font-color));
+  padding: 0;
+  text-align: var(--et-text-align, left);
+
+  h1,h2,h3,h4,h5,h6 {
+    font-size: var(--et-headline-font-size, 28px);
+    font-weight:  var(--et-headline-font-weight, 400);
+    line-height:  var(--et-headline-line-height, 33.6px);
+    margin:  var(--et-headline-margin, 0 0 24px 0);
+  }
+    
+  .editorialText-caption {
+    font-size: var(--et-caption-font-size, 16px);
+    font-weight: var(--et-caption-font-weight, 600);
+    line-height: var(--et-caption-line-height, 25.6px);
+    margin: 0 0 24px;
+  }
+
+  .editorialText-content {
+    margin: 0 0 24px;
+    column-count: var(--et-text-column-count, 1);
+
+    &:last-child {
+      margin: 0;
+    }
+    p {
+      margin: 0 0 24px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+    ol {
+      margin-top: 0;
+      display: inline-block;
+    }
+    ul {
+      margin-top: 0;
+      display: inline-block;
+    }
+    a {
+      text-decoration: none;
+    }
+    sup {
+      font-size: var(--et-sup-font-size, 12px);
+      font-weight: var(--et-sup-font-weight, 700);
+      padding: 0 3px 0 0;
+
+      a {
+        font-size: var(--et-sup-font-size, 12px);
+      }
+    }
+    sub {
+      font-size: var(--et-sub-font-size, 12px);
+      font-weight: var(--et-sub-font-weight, 700);
+      padding: 0 3px 0 0;
+
+      a {
+        font-size: var(--et-sub-font-size, 12px);
+      }
+    }
+    mark {
+      font-weight: var(--et-mark-font-weight, 600);
+      color: var(--et-mark-text-color, #000);
+      background-color: var(--et-mark-bgcolor, #ffff00);
+      padding: 0 3px;
+    }
+  }
+
+  .editorialText-btn {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      width: unset;
+      display: inline-flex;
+      flex-wrap: wrap;
+      column-gap: 32px;
+      justify-content: flex-start;
+      row-gap: 24px;
+    }
+
+    --primary-btn-font-size: 16px;
+    --primary-btn-font-weight: 700;
+    --primary-btn-line-height: 19.2px;
+    --primary-btn-text-color: #fff;
+    --primary-btn-bgcolor: #6267A1;
+    --primary-btn-border-color: #6267A1;
+    --primary-btn-hover-text-color: #fff;
+    --primary-btn-hover-bgcolor: #757AB5;
+    --primary-btn-hover-border-color: #757AB5;
+    --primary-btn-active-text-color: #6267A1;
+    --primary-btn-active-bgcolor: #fff;
+    --primary-btn-active-border-color: #fff;
+    --primary-btn-focus-text-color: #4B4C53;
+    --primary-btn-focus-bgcolor: #FFDD00;
+    --primary-btn-focus-border-color: #FFDD00;
+    --primary-btn-disabled-text-color: #4B4C53;
+    --primary-btn-disabled-bgcolor: #F5F5F6;
+    --primary-btn-disabled-border-color: #F5F5F6;
+    --secondary-btn-font-size: 16px;
+    --secondary-btn-font-weight: 700;
+    --secondary-btn-line-height: 19.2px;
+    --secondary-btn-text-color: #6267A1;
+    --secondary-btn-bgcolor: transparent;
+    --secondary-btn-border-color: #6267A1;
+    --secondary-btn-hover-text-color: #fff;
+    --secondary-btn-hover-bgcolor: #6267A1;
+    --secondary-btn-hover-border-color: #6267A1;
+    --secondary-btn-active-text-color: #6267A1;
+    --secondary-btn-active-bgcolor: #F5F5F6;
+    --secondary-btn-active-border-color: #F5F5F6;
+    --secondary-btn-focus-text-color: #4B4C53;
+    --secondary-btn-focus-bgcolor: #FFDD00;
+    --secondary-btn-focus-border-color: #FFDD00;
+    --secondary-btn-disabled-text-color: #4B4C53;
+    --secondary-btn-disabled-bgcolor: transparent;
+    --secondary-btn-disabled-border-color: #4B4C53;
+    --tertiary-btn-font-size: 16px;
+    --tertiary-btn-font-weight: 700;
+    --tertiary-btn-line-height: 19.2px;
+    --tertiary-btn-text-color: #6267A1;
+    --tertiary-btn-bgcolor: transparent;
+    --tertiary-btn-hover-text-color: #6267A1;
+    --tertiary-btn-hover-bgcolor: transparent;
+    --tertiary-btn-active-text-color: #6267A1;
+    --tertiary-btn-active-bgcolor: #F5F5F6;
+    --tertiary-btn-focus-text-color: #4B4C53;
+    --tertiary-btn-focus-bgcolor: #FFDD00;
+    --tertiary-btn-disabled-text-color: #4B4C53;
+  }
+}

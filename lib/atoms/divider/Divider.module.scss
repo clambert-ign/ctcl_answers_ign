@@ -1,0 +1,51 @@
+@import '../../assets/styles/global.scss';
+
+.divider {
+  hr {
+    width: 100%;
+    height: var(--div-height, 1px);
+    margin: var(--div-margin, 32px 0);
+    background-color: var(--div-bgcolor, #4B4C53);
+    border: 0;
+  }
+}
+
+.divider-animate {
+  animation: slideInFromLeft  var(--div-animation-duration,1.5s) linear;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }    
+  100% {       
+    width: 100%;
+  }
+}
+
+@-moz-keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }    
+  100% {       
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }    
+  100% {       
+    width: 100%;
+  }
+}
+
+@-o-keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }    
+  100% {       
+    width: 100%;
+  }
+}

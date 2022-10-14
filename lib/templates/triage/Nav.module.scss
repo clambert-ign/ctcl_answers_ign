@@ -1,0 +1,46 @@
+@import "../../assets/mixin.scss";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  margin: 0 auto;
+  width: auto;
+
+  @include media(medium) {
+    width: 784px;
+  }
+
+  @include media(large) {
+    width: 944px;
+  }
+
+  @include media(extraLarge) {
+    width: 1104px;
+  }
+  @include media(extraExtraLarge) {
+    padding: 0;
+    max-width: 1312px;
+  }
+
+  @include media(extraSmall, small) {
+    padding: 0 24px;
+    flex-direction: column;
+  }
+}
+
+.nav__your-logo {
+  padding: 25px 0;
+
+  @media (min-width: 0px) and (max-width: 831px) {
+    padding-bottom: 16px;
+  }
+}
+
+.nav__main-logo {
+  padding: 36px 0;
+
+  @media (min-width: 0px) and (max-width: 831px) {
+    padding: 0;
+  }
+}

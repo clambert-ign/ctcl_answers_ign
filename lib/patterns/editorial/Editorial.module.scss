@@ -1,0 +1,21 @@
+@import "../../assets/styles/global.scss";
+
+.editorial {
+  padding: 0 0 32px;
+  font-family: var(--base-font-family);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: repeat(var(--ed-column-count, 1), 1fr);
+  }
+  @include media (medium) {
+    column-gap: 16px;
+  }
+  @include media (large) {
+    column-gap: 24px;
+  }
+  @include media (extraLarge, extraExtraLarge) {
+    column-gap: 32px;
+  }
+}

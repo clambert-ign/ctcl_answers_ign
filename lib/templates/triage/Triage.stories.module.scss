@@ -1,0 +1,16 @@
+@import "../assets/styles/global.scss";
+
+.triage {
+	font-family: var(--base-font-family);
+	--cc-background-color: #F5F5F6;
+	--cc-title-color: #4b4c53;
+	--cc-text-color: #4b4c53;
+
+	@include media(large, extraLarge, extraExtraLarge) {
+        min-height: 100vh;
+    }
+}
+
+.triage-content-cards {
+	margin-top: 96px;
+}

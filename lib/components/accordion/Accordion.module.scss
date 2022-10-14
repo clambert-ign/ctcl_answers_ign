@@ -1,0 +1,151 @@
+@import "../../assets/styles/global.scss";
+
+.accordion {
+  font-family: var(--base-font-family);
+  color: var(--ac-text-color, var(--base-font-color));
+  padding: 32px 0;
+}
+
+.headline {
+  font-size: var(--ac-headline-font-size, 28px);
+  font-weight: var(--ac-headline-font-weight, 400);
+  line-height: var(--ac-headline-line-height, 33.6px);
+  margin: 0 0 24px 0;
+}
+
+.accordion dt {
+  position: relative;
+  margin: 16px 0 32px;
+
+  a {
+    width: calc(100% - 38px);
+    max-width: unset;
+    justify-content: left;
+    box-shadow: none;
+    color: var(--ac-item-text-color, #fff);
+    background-color: var(--ac-item-bgcolor, #6267A1);
+    border-color: var(--ac-item-border-color, #6267A1);
+    @include transition(color, background-color, border-color, box-shadow);
+
+    span {
+      color: var(--ac-item-text-color, #fff);
+    }
+
+    svg {
+      path {
+        @include transition(fill);
+        fill: var(--ac-item-text-color, #fff);
+      }
+    }
+
+    &:hover, &:active {
+      color: var(--ac-item-hover-text-color, #fff);
+      background-color: var(--ac-item-hover-bgcolor, #6267A1);
+      border-color: var(--ac-item-hover-border-color, #6267A1);
+      box-shadow: none;
+        
+      span {
+        color: var(--ac-item-hover-text-color, #fff);
+      }
+      svg {
+        path {
+          fill: var(--ac-item-hover-text-color, #fff);
+        }
+      }
+    }
+  }
+
+  .chevron svg {
+    position: absolute;
+    top: 28px;
+    right: 20px;
+    
+    path {
+      @include transition(fill);
+      fill: var(--ac-item-text-color, #fff);
+    }
+  }
+
+  &:hover {
+    .chevron svg {
+      path {
+        fill: var(--ac-item-hover-text-color, #fff);
+      }
+    }
+  }
+
+}
+
+.accordion dt.closed {
+  margin: 16px 0;
+
+  .chevron svg {
+    path {
+      fill: var(--ac-item-closed-text-color, #4B4C53);
+    }
+  }
+  &:hover {    
+    .chevron svg {
+      path {
+        fill: var(--ac-item-closed-hover-text-color, #fff);
+      }
+    }
+  }
+  a {
+    color: var(--ac-item-closed-text-color, #4B4C53);
+    background-color: var(--ac-item-closed-bgcolor, #F5F5F6);
+    border-color: var(--ac-item-closed-border-color, #F5F5F6);
+    @include transition(color, background-color, border-color, box-shadow);
+    
+    span {
+      color: var(--ac-item-closed-text-color, #4B4C53);
+    }
+    svg {
+      path {
+        @include transition(fill 0.25s);
+        fill: var(--ac-item-closed-text-color, #4B4C53);
+      }
+    }    
+    &:hover, &:active {
+      box-shadow: none;
+      color: var(--ac-item-closed-hover-text-color, #fff);
+      background-color: var(--ac-item-closed-hover-bgcolor, #6267A1);
+      border-color: var(--ac-item-closed-hover-border-color, #6267A1);
+
+      span {
+        color: var(--ac-item-closed-hover-text-color, #fff);
+      }      
+      svg {
+        path {
+          fill: var(--ac-item-closed-hover-text-color, #fff);
+        }
+      }
+    }
+  
+    &:focus-visible {
+      background-color: var(--primary-btn-focus-bgcolor);
+      color:  var(--primary-btn-focus-text-color);
+      box-shadow: none;
+      outline: 0;
+      border: solid 3px var(--primary-btn-focus-border-color);
+
+      span {
+        color:  var(--primary-btn-focus-text-color);
+      }
+      svg {
+        path {
+          fill: var(--primary-btn-focus-text-color);
+        }
+      }
+    }
+  }
+}
+
+.accordion dd {
+  margin: 0 0 32px;
+  display: block;
+}
+
+.accordion dd.closed {
+  display: none;
+}

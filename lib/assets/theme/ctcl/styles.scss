@@ -1,0 +1,76 @@
+/*
+  Import base theme css props for approved KANSO components
+*/ 
+
+@import './designTokens/base.scss';
+@import './designTokens/atoms.scss';
+@import './designTokens/components.scss';
+@import './designTokens/patterns.scss';
+
+/*
+  Add custom styles below
+*/
+
+.body {
+  font-family: var(--base-font-family);
+  color: var(--base-font-color);
+  margin: 0;
+
+  img {
+    max-width: 100%;
+  }   
+}
+
+.pageSection.Homepage_Page_section_1 {
+  background-color: #000;
+}
+
+// Page Section: Demo style overrides
+.pageSection.demo-black {
+  background-color: #000;
+  border: 10px solid yellow;
+  --st-text-color: #fff;
+  --et-text-color: #fff;
+  --tertiary-btn-text-color: #fff;
+  --tertiary-btn-hover-text-color: #fff;
+  --et-mark-text-color: #000;
+  --et-mark-bgcolor: #ffff00;
+  --et-secondary-btn-bgcolor: transparent;
+  --et-secondary-btn-text-color: #fff;
+  --et-secondary-btn-border-color: #fff;
+  --et-secondary-btn-hover-bgcolor: var(--secondary-btn-hover-bgcolor);
+  --et-secondary-btn-hover-text-color: var(--secondary-btn-hover-text-color);
+  --et-secondary-btn-hover-border-color: var(--secondary-btn-hover-border-color);
+  --et-secondary-btn-active-bgcolor: var(--secondary-btn-active-bgcolor);
+  --et-secondary-btn-active-text-color: var(--secondary-btn-active-text-color);
+  --et-secondary-btn-active-border-color: var(--secondary-btn-active-border-color);
+  --et-tertiary-btn-text-color: #fff;
+  --et-tertiary-btn-hover-bgcolor: var(--tertiary-btn-hover-bgcolor);
+  --et-tertiary-btn-hover-text-color: var(--tertiary-btn-hover-text-color);
+  --et-tertiary-btn-active-bgcolor: var(--tertiary-btn-active-bgcolor);
+  --et-tertiary-btn-active-text-color: var(--tertiary-btn-active-text-color);
+}
+
+.pageSection.demo-purple {
+  background-color: #6267A1;
+  --st-text-color: #fff;
+  --et-text-color: #fff;
+  --tertiary-btn-text-color: #fff;
+  --tertiary-btn-hover-text-color: #fff;
+  --et-mark-text-color: #000;
+  --et-mark-bgcolor: #ffff00;
+  --et-secondary-btn-bgcolor: transparent;
+  --et-secondary-btn-text-color: #fff;
+  --et-secondary-btn-border-color: #fff;
+  --et-secondary-btn-hover-bgcolor: var(--secondary-btn-hover-bgcolor);
+  --et-secondary-btn-hover-text-color: var(--secondary-btn-hover-text-color);
+  --et-secondary-btn-hover-border-color: var(--secondary-btn-hover-border-color);
+  --et-secondary-btn-active-bgcolor: var(--secondary-btn-active-bgcolor);
+  --et-secondary-btn-active-text-color: var(--secondary-btn-active-text-color);
+  --et-secondary-btn-active-border-color: var(--secondary-btn-active-border-color);
+  --et-tertiary-btn-text-color: #fff;
+  --et-tertiary-btn-hover-bgcolor: var(--tertiary-btn-hover-bgcolor);
+  --et-tertiary-btn-hover-text-color: var(--tertiary-btn-hover-text-color);
+  --et-tertiary-btn-active-bgcolor: var(--tertiary-btn-active-bgcolor);
+  --et-tertiary-btn-active-text-color: var(--tertiary-btn-active-text-color);
+}

@@ -1,0 +1,144 @@
+@import "../assets/styles/global.scss";
+
+.flexi-template-level-0 {
+  --editorial-title-color: #6267a1;
+  --hero-header-image-width: auto;
+  --hero-header-image-width-l: auto;
+  --cc-background-color: #fff;
+  --cc-title-color: #4b4c53;
+  --section-title-subtext-color: #4b4c53;
+  --section-title-color: #6267a1;
+}
+
+.section-title {
+  padding-top: 64px;
+  padding-bottom: 32px;
+  @include media(extraSmall,small){
+    padding-top: unset;
+  }
+}
+
+
+.editorial-buttons {
+  a + a {
+    margin-top: 24px;
+
+    @include media(small, medium, large, extraLarge, extraExtraLarge) {
+      margin-top: 0;
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+  }
+}
+
+.editorial-large-paragragh {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 38px;
+  letter-spacing: 0;
+}
+
+.flexi-footer {
+  margin-top: 64px;
+}
+
+.flexi-background-homepage {
+  background: url("../../assets/images/Ellipse\ 7.png");
+  background-repeat: no-repeat;
+  background-size: 100% 1450px;
+  margin-top: 60px;
+
+  @include media(extraSmall, small) {
+    background-size: cover;
+    background-position-x: center;
+  }
+}
+
+.editorial-fullbleed {
+  background: url("../../assets/images/editorial-full-bleed-right.png");
+  background-position: right;
+  background-repeat: no-repeat;
+
+  @include media(extraSmall, small) {
+    background: none;
+  }
+  @include media(medium) {
+    background-size: 53%;
+  }
+  @include media(large) {
+    background-size: 56%;
+  }
+}
+
+.editorial-fullbleed-left {
+  background: url("../../assets/images/editorial-full-bleed-left.png");
+  background-position: left;
+  background-repeat: no-repeat;
+
+  @include media(extraSmall) {
+    background: none;
+  }
+  @include media(small) {
+    background: none;
+  }
+  @include media(medium) {
+    background-size: 53%;
+  }
+  @include media(large) {
+    background-size: 56%;
+  }
+}
+
+[dir="rtl"] .editorial-fullbleed {
+  background-position: left;
+}
+
+[dir="rtl"] .editorial-fullbleed-left {
+  background-position: right;
+}
+
+.editorial-fullbleed-mobile {
+  display: none;
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  margin-right: -24px;
+
+  @include media(extraSmall) {
+    display: block;
+  }
+  @include media(small) {
+    display: block;
+  }
+}
+
+.editorial-image-caption {
+  font-family: var(--base-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: #4B4C53;
+  @include media(extraSmall) {
+    display: none;
+  }
+  @include media(small) {
+    display: none;
+  }
+}
+
+.editorial-image-caption-mobile {
+  font-family: var(--base-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0;
+  display: none;
+  color: #4B4C53;
+
+  @include media(extraSmall) {
+    display: block;
+  }
+  @include media(small) {
+    display: block;
+  }
+}

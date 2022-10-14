@@ -1,0 +1,115 @@
+@import "../../assets/styles/global.scss";
+
+.tabs {
+  font-family: var(--base-font-family);
+  color: var(--tab-text-color, var(--base-font-color));
+  padding: 32px 0;
+  margin: 0 auto;
+  text-align: center;
+
+  h1,h2,h3,h4,h5,h6 {
+    font-size: var(--tab-headline-font-size, 28px);
+    font-weight: var(--tab-headline-font-weight, 400);
+    line-height: var(--tab-headline-line-height, 33.6px);
+    margin: 0 0 24px 0;
+  }  
+}
+
+.tabList-wrapper {
+  position: relative;
+}
+
+.tabList-wrapper ul {
+  list-style-type: none;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--tab-list-column-count), auto);
+  align-items: center;
+  justify-content: center;  
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tabList-wrapper ul a {
+  border-radius: 0;
+  background-color: var(--tab-list-bgcolor, transparent);
+  color: var(--tab-list-color, #4B4C53);
+  border: 0;
+  border-bottom: 2px solid var(--tab-list-border-color, #C3C4CA);
+  box-shadow: unset;
+  padding: 16px 24px;
+
+  &:hover {
+    background-color: var(--tab-list-hover-bgcolor, transparent);
+    color: var(--tab-list-hover-color, #6267A1);
+    border: 0;
+    border-bottom: 2px solid var(--tab-list-hover-border-color, #C3C4CA);
+    box-shadow: unset;
+  }
+
+  &:active {
+    background-color: var(--tab-list-active-bgcolor, #F5F5F6);
+    color: var(--tab-list-active-color, #6267A1);
+    border: 0;
+    border-bottom: 2px solid var(--tab-list-active-border-color, #C3C4CA);
+    box-shadow: unset;
+  }
+}
+
+.tabList-wrapper ul li.active {
+  a {
+    color: var(--tab-list-selected-color, #6267A1);
+    border-bottom: 2px solid var(--tab-list-selected-border-color, #6267A1);
+  }
+}
+
+ul.tabList--scroll {
+  overflow-x: scroll;
+  justify-content: left;
+  align-items: left;
+  margin: 0 20px;
+}
+
+.tabList-scroll-icon--left {
+  position: absolute;
+  left: 0;
+  padding: 20px 20px 20px 0;
+  background-color: var(--tab-list-scroll-left-bgcolor, #fff);
+
+  svg {
+    path {
+      fill: var(--tab-list-scroll-left-color, #4B4C53);
+    }
+  }
+}
+
+.tabList-scroll-icon--right {
+  position: absolute;
+  right: 0;
+  padding: 20px 0 20px 20px;
+  background-color: var(--tab-list-scroll-right-bgcolor, #fff);
+
+  svg {
+    path {
+      fill: var(--tab-list-scroll-right-color, #4B4C53);
+    }
+  }
+}
+
+.tabContent {
+  text-align: left;
+
+  &--open {
+    margin: 0;
+    display: block;
+  }
+
+  &--closed {
+    display: none;
+  }
+}

@@ -1,0 +1,272 @@
+@import "../../assets/styles/global.scss";
+
+.btn {
+  font-family: var(--base-font-family);
+  width: auto;
+  max-width: 166px;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  display: inline-grid;
+
+  padding: 16px;
+  border-radius: 8px;
+  text-align: unset;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  @include transition(color, background-color, border, box-shadow);
+
+  svg {
+    margin: 3px 0 0;
+    @include transition(fill);
+  }
+
+  //buttons need to be full width on mobile  
+  @include media(extraSmall, small) {
+    display: grid;
+    max-width: unset;
+    justify-content: center;
+  }
+}
+
+.btn-primary {
+  font-size: var(--primary-btn-font-size, 16px);   
+  font-weight:  var(--primary-btn-font-weight, 700);    
+  line-height: var(--primary-btn-line-height, 19.2px);
+  box-shadow: 0px 6px 24px -4px rgba(98, 103, 161, 0.7);
+  background-color: var(--primary-btn-bgcolor);
+  border: solid 3px var(--primary-btn-border-color);
+  color:  var(--primary-btn-text-color);
+
+  svg {
+    fill: var(--primary-btn-text-color);
+  }
+  &:hover {
+    background-color: var(--primary-btn-hover-bgcolor);
+    box-shadow: 0px 6px 14px -4px rgba(98, 103, 161, 0.6);
+    border: solid 3px var(--primary-btn-hover-border-color);
+    color:  var(--primary-btn-hover-text-color);
+    svg {
+      fill: var(--primary-btn-hover-text-color);
+    }
+  }
+  &:focus-visible {
+    background-color: var(--primary-btn-focus-bgcolor);
+    color:  var(--primary-btn-focus-text-color);
+    box-shadow: none;
+    outline: 0;
+    border: solid 3px var(--primary-btn-focus-border-color);
+
+    svg {
+      fill: var(--primary-btn-focus-text-color);
+    }
+  }
+  &:active {
+    background-color: var(--primary-btn-active-bgcolor);
+    color:  var(--primary-btn-active-text-color);
+    box-shadow: 0px 6px 14px -4px rgba(98, 103, 161, 0.6);
+    border: solid 3px var(--primary-btn-active-border-color);
+
+    svg {
+      fill: var(--primary-btn-active-text-color);
+    }
+  }
+  
+  &-icon {
+    &--left {
+      grid-template-areas: "a b";
+      grid-template-columns: fit-content(100%) fit-content(100%);
+      column-gap: 8px;  
+
+      span:first-child {
+        grid-area: a;
+      }  
+      span:last-child {
+        grid-area: b;
+      }
+    }
+    &--right {
+      grid-template-areas: "b a";
+      grid-template-columns: fit-content(100%) fit-content(100%);
+      column-gap: 8px;
+
+      span:first-child {
+        grid-area: a;
+      }
+      span:last-child {
+        grid-area: b;
+      }
+    }
+  }
+
+  &-disabled {
+    background-color: var(--primary-btn-disabled-bgcolor);
+    color: var(--primary-btn-disabled-text-color);
+    box-shadow: none;
+    cursor: not-allowed;
+    pointer-events: none;
+    border: solid 3px var(--primary-btn-disabled-border-color);
+
+    svg {
+      fill: var(--primary-btn-disabled-text-color);
+    }
+  }
+}
+
+.btn-secondary {
+  font-size: var(--secondary-btn-font-size, 16px);   
+  font-weight:  var(--secondary-btn-font-weight, 700);    
+  line-height: var(--secondary-btn-line-height, 19.2px);
+  color: var(--secondary-btn-text-color);
+  background-color: var(--secondary-btn-bgcolor);
+  border: solid 3px var(--secondary-btn-border-color);
+  
+  svg {
+    fill: var(--secondary-btn-text-color);
+  }
+  &:hover {
+    background-color: var(--secondary-btn-hover-bgcolor);
+    color: var(--secondary-btn-hover-text-color);
+    border: solid 3px var(--secondary-btn-hover-border-color);
+
+    svg {
+      fill: var(--secondary-btn-hover-text-color);
+    }
+  }
+  &:focus-visible {
+    background-color: var(--secondary-btn-focus-bgcolor);
+    color: var(--secondary-btn-focus-text-color);
+    box-shadow: none;
+    outline: 0;
+    border: solid 3px var(--secondary-btn-focus-border-color);
+
+    svg {
+      fill: var(--secondary-btn-focus-text-color);
+    }
+  }
+  &:active {
+    border: solid 3px var(--secondary-btn-active-border-color);
+    background-color: var(--secondary-btn-active-bgcolor);
+    color: var(--secondary-btn-active-text-color);
+    box-shadow: none;
+
+    svg {
+      fill: var(--secondary-btn-active-text-color);
+    }
+  }
+  
+  &-icon {
+    &--left {
+      grid-template-areas: "a b";
+      grid-template-columns: fit-content(100%) fit-content(100%);
+      column-gap: 8px;
+      
+      span:first-child {
+        grid-area: a;
+      }
+      span:last-child {
+        grid-area: b;
+      }
+    }
+
+    &--right {
+      grid-template-areas: "b a";
+      grid-template-columns: fit-content(100%) fit-content(100%);
+      column-gap: 8px;
+      
+      span:first-child {
+        grid-area: a;
+      }
+      span:last-child {
+        grid-area: b;
+      }
+    }
+  }
+
+  &-disabled {
+    background-color: var(--secondary-btn-disabled-bgcolor);
+    color: var(--secondary-btn-disabled-text-color);
+    box-shadow: none;
+    border: solid 3px var(--secondary-btn-disabled-border-color);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    svg {
+      fill: var(--secondary-btn-disabled-text-color);
+    }
+  }
+}
+
+.btn-tertiary {
+  font-size: var(--tertiary-btn-font-size, 16px);   
+  font-weight: var(--tertiary-btn-font-weight, 700);    
+  line-height: var(--tertiary-btn-line-height, 19.2px);
+  max-width: unset;
+  width: unset;
+  color: var(--tertiary-btn-text-color);
+  background-color: var(--tertiary-btn-bgcolor);
+  padding: 0;
+  border-radius: 0;
+  align-items: left;
+  justify-content: left;
+  display: inline;
+
+  svg {
+    fill: var(--tertiary-btn-text-color);
+    margin: 2px 0 0;
+  }
+  &:hover {
+    color: var(--tertiary-btn-hover-text-color);
+    background-color: var(--tertiary-btn-hover-bgcolor);
+    text-decoration: underline;
+
+    svg {
+      fill: var(--tertiary-btn-hover-text-color);
+    }
+  }
+  &:active {
+    text-decoration: underline;
+    background-color: var(--tertiary-btn-active-bgcolor);
+    color: var(--tertiary-btn-active-text-color);
+
+    svg {
+      fill: var(--tertiary-btn-active-text-color);
+    }
+  }
+  &:focus-visible {
+    text-decoration: none;
+    background-color: var(--tertiary-btn-focus-bgcolor);
+    color: var(--tertiary-btn-focus-text-color);
+    border: 0;
+    outline: 0;
+
+    svg {
+      fill: var(--tertiary-btn-focus-text-color);
+    }
+  }
+
+  &-icon {
+    &--left {
+      svg {
+        padding: 0 4px;
+      }
+    }
+
+    &--right {
+      svg {
+        padding: 0 4px;
+      }
+    }
+  }
+  
+  &-disabled {
+    color: var(--tertiary-btn-disabled-text-color);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    svg {
+      fill: var(--tertiary-btn-disabled-text-color);
+    }
+  }
+}

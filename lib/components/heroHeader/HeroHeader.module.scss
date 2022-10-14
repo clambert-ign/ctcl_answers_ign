@@ -1,0 +1,351 @@
+@import "../../assets/styles/global.scss";
+
+.heroHeader {
+  font-family: var(--base-font-family);
+  font-size: var(--hh-font-size, var(--base-font-size));
+  font-weight:var(--hh-font-weight, var(--base-font-weight));
+  line-height: var(--hh-line-height, var(--base-line-height));
+  color: var(--hh-text-color, var(--base-font-color));
+  background-color: var(--hh-bgcolor, #6267A1);   
+  position: relative;
+  text-align: center;  
+  padding: 36px 24px;
+  width: -webkit-fill-available;
+    
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    padding: 64px 72px;
+  }
+
+  display: inline-grid;
+  grid-template-columns:0fr 12fr 0fr;
+  grid-template-areas: "b a c";
+
+  @include media(large) {
+    grid-template-columns: 1fr 10fr 1fr;
+  }
+
+  @include media(extraLarge, extraExtraLarge) {
+    grid-template-columns: 2fr 8fr 2fr;
+  }
+ 
+  .heroHeader-headline {
+    h1,h2,h3,h4,h5,h6 {
+      font-size: var(--hh-headline-font-size, 42px); 
+      font-weight: var(--hh-headline-font-weight, 700);
+      line-height: var(--hh-headline-line-height, 50.4px);  
+      color: var(--hh-text-color, var(--base-font-color));
+      margin: 0 0 16px 0;
+  
+      @include media(medium, large, extraLarge, extraExtraLarge) {
+        font-size: var(--hh-headline-font-size-lg, 64px); 
+        font-weight: var(--hh-headline-font-weight-lg, 700);
+        line-height: var(--hh-headline-line-height-lg, 76.8px);
+      }
+    }
+  }  
+}
+
+.heroHeader-left {
+  text-align: center;
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    text-align: left;
+  }
+}
+
+.heroHeader-background {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  --mv-poster-border-radius: var(--hh-bgvideo-radius, 0);
+
+  img {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    opacity: var(--hh-bgimage-opacity, 0.9);
+    object-fit: cover;
+    object-position: 50%;
+    border-radius: var(--hh-bgimage-radius, 0);
+
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+      object-fit: fill;
+    }
+  }
+  &-video {
+    div {
+      border-radius: 0px;    
+      min-height: 100%;
+      height: 100vh;  
+    }
+    video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      border-radius: var(--hh-bgvideo-radius, 0);
+      opacity: var(--hh-bgvideo-opacity, 0.7);
+      min-height: 100%;
+      
+      @include media(medium, large, extraLarge, extraExtraLarge) {
+        object-fit: fill;
+        height: 100vh;
+      }
+    }
+
+  }
+}
+
+.heroHeader-content {
+  grid-area: a;
+  position: relative;
+
+  nav {
+    a {
+      text-decoration: none;
+      color: var(--hh-backlink-text-color, var(--base-font-color));
+      margin: 0 0 20px;
+      
+      svg {
+        path {
+          fill: var(--hh-backlink-text-color, var(--base-font-color));
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: var(--hh-backlink-hover-text-color, var(--base-font-color));
+    
+        svg {
+          path {
+            fill: var(--hh-backlink-hover-text-color, #000);
+          }
+        }
+      }
+      
+      &:active {
+        text-decoration: none;
+        color: var(--hh-backlink-active-text-color, var(--base-font-color));
+        background-color: var(--hh-backlink-active-bgcolor, #000);
+        
+        svg {
+          path {
+              fill: var(--hh-backlink-active-text-color, #000);
+          }
+        }
+      }
+    }
+  }
+}
+
+.heroHeader-content-title {
+  font-size: var(--hh-title-font-size, 28px); 
+  font-weight: var(--hh-title-font-weight, 400);
+  line-height: var(--hh-title-line-height, 33.6px);
+  margin: 0 0 16px 0;
+}
+
+.heroHeader-content-description {
+  font-size: var(--hh-description-font-size, 24px); 
+  font-weight: var(--hh-description-font-weight, 200);
+  line-height: var(--hh-description-line-height, 38.6px);
+  margin: 0 0 48px;
+}
+
+
+.showSide {
+  text-align: left;
+  grid-template-columns: 12fr;
+  grid-template-areas: 
+  "c"
+  "a"
+  "b";
+
+  @include media(medium) {
+    grid-template-areas: "b a c";
+    grid-template-columns: 0fr 7fr 5fr;
+  }
+
+  @include media(large) {
+    grid-template-areas: "b a c";
+    grid-template-columns: 0fr 7fr 5fr;
+  }
+  
+  @include media(extraLarge, extraExtraLarge) {
+    grid-template-areas: "b a c";
+    grid-template-columns: 0fr 7fr 5fr;
+  }
+  
+  .heroHeader-content-sidemedia {
+    grid-area: c;
+    text-align: left;
+    margin: auto;
+    z-index: 1;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--hh-sidemedia-title-text-color, #fff);
+      font-size: var(--hh-sidemedia-title-font-size, 42px); 
+      font-weight: var(--hh-sidemedia-title-font-weight, 700);
+      line-height: var(--hh-sidemedia-title-line-height, 50.4px);
+    }
+
+    p {
+      color: var(--hh-sidemedia-caption-text-color, #fff);
+      font-size: var(--hh-sidemedia-caption-font-size, 16px); 
+      font-weight: var(--hh-sidemedia-caption-font-weight, 200);
+      line-height: var(--hh-sidemedia-caption-line-height, 25.6px);
+    }
+
+    img {
+      width: 100%;
+    }
+   
+    a {
+      color: var(--hh-sidemedia-teriary-link-text-color, var(--tertiary-btn-text-color));
+  
+      &:hover {
+        color: var(--hh-sidemedia-teriary-link-hover-text-color, var(--tertiary-btn-hover-text-color));
+        svg {
+          fill: var(--hh-sidemedia-teriary-link-hover-text-color, var(--tertiary-btn-hover-text-color));
+        }
+      }
+      &:active {
+        color: var(--hh-sidemedia-teriary-link-active-text-color, var(--tertiary-btn-active-text-color));
+        background-color: var(--hh-sidemedia-teriary-link-active-bgcolor, var(--tertiary-btn-active-bgcolor));
+        svg {
+          fill: var(--hh-sidemedia-teriary-link-active-text-color, var(--tertiary-btn-active-text-color));
+        }
+      }
+      svg {
+        fill: var(--hh-sidemedia-teriary-link-text-color, var(--tertiary-btn-text-color));
+      }
+    }
+
+    @include media(extraSmall,small){
+      padding: 0 0 20px;
+    }   
+  }
+
+  .heroHeader-content {
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+        padding: 0 50px 0 0;
+    }
+  }
+}
+
+.heroHeader-content-btn {
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    width: unset;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: flex-start;
+    row-gap: 24px;
+  }            
+}
+
+.heroHeader-content-btn-primary {
+  a {
+    color: var(--hh-primary-btn-text-color, var(--primary-btn-text-color));
+    background-color: var(--hh-primary-btn-bgcolor, var(--primary-btn-bgcolor));
+    border: solid 3px var(--hh-primary-btn-border-color, var(--primary-btn-border-color));
+    margin: 0 0 24px;
+    
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: var(--hh-primary-btn-hover-text-color, var(--primary-btn-hover-text-color));
+      background-color: var(--hh-primary-btn-hover-bgcolor, var(--primary-btn-hover-bgcolor));
+      border: solid 3px var(--hh-primary-btn-hover-border-color, var(--primary-btn-hover-border-color));
+      
+      svg {
+        fill: var(--hh-primary-btn-hover-text-color, var(--primary-btn-hover-text-color));
+      }
+    }
+    &:active {
+      color: var(--hh-primary-btn-active-text-color, var(--primary-btn-active-text-color));
+      background-color: var(--hh-primary-btn-active-bgcolor, var(--primary-btn-active-bgcolor));
+      border: solid 3px var(--hh-primary-btn-active-border-color, var(--primary-btn-active-border-color));
+      
+      svg {
+        fill: var(--hh-primary-btn-active-text-color, var(--primary-btn-active-text-color));
+      }
+    }
+    svg {
+      fill: var(--hh-primary-btn-text-color, var(--primary-btn-text-color));
+    }
+  }
+}
+
+.heroHeader-content-btn-secondary {
+  a {
+    color: var(--hh-secondary-btn-text-color, --secondary-btn-text-color);
+    background-color: var(--hh-secondary-btn-bgcolor, var(--secondary-btn-bgcolor));
+    border: solid 3px var(--hh-secondary-btn-border-color, var(--secondary-btn-border-color));
+    margin: 0 0 24px;
+
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: var(--hh-secondary-btn-hover-text-color, var(--secondary-btn-hover-text-color));
+      background-color: var(--hh-secondary-btn-hover-bgcolor, var(--secondary-btn-hover-bgcolor));
+      border: solid 3px var(--hh-secondary-btn-hover-border-color, var(--secondary-btn-hover-border-color));
+      
+      svg {
+        fill: var(--hh-secondary-btn-hover-text-color, var(--secondary-btn-hover-text-color));
+      }
+    }
+    &:active {
+      color: var(--hh-secondary-btn-active-text-color, var(--secondary-btn-active-text-color));
+      background-color: var(--hh-secondary-btn-active-bgcolor, var(--secondary-btn-active-bgcolor));
+      border: solid 3px var(--hh-secondary-btn-active-border-color, var(--secondary-btn-active-border-color));
+      
+      svg {
+        fill: var(--hh-secondary-btn-active-text-color, var(--secondary-btn-active-text-color));
+      }
+    }
+    svg {
+      fill: var(--hh-secondary-btn-text-color, var(--secondary-btn-text-color));
+    }
+  }
+}
+
+.heroHeader-content-btn-tertiary {
+  a {
+    color: var(--hh-tertiary-btn-text-color, var(--tertiary-btn-text-color));
+    margin: 0 0 24px;
+
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+
+    &:hover {
+      color: var(--hh-tertiary-btn-hover-text-color, var(--tertiary-btn-hover-text-color));
+      svg {
+        fill: var(--hh-tertiary-btn-hover-text-color, var(--tertiary-btn-hover-text-color));
+      }
+    }
+    &:active {
+      color: var(--hh-tertiary-btn-active-text-color, var(--tertiary-btn-active-text-color));
+      background-color: var(--hh-tertiary-btn-active-bgcolor, var(--tertiary-btn-active-bgcolor));
+      svg {
+        fill: var(--hh-tertiary-btn-active-text-color, var(--tertiary-btn-active-text-color));
+      }
+    }
+    svg {
+      fill: var(--hh-tertiary-btn-text-color, var(--tertiary-btn-text-color));
+    }
+  }
+}

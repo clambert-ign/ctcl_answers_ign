@@ -1,0 +1,401 @@
+/*
+  KANSO default theme design tokens for approved KANSO library Atoms only.
+*/
+
+:root {
+
+  //Buttons & Links
+  --primary-btn-font-size: 16px;
+  --primary-btn-font-weight: 700;
+  --primary-btn-line-height: 19.2px;
+  --primary-btn-text-color: #fff;
+  --primary-btn-bgcolor: #6267A1;
+  --primary-btn-border-color: #6267A1;
+  --primary-btn-hover-text-color: #fff;
+  --primary-btn-hover-bgcolor: #757AB5;
+  --primary-btn-hover-border-color: #757AB5;
+  --primary-btn-active-text-color: #6267A1;
+  --primary-btn-active-bgcolor: #fff;
+  --primary-btn-active-border-color: #fff;
+  --primary-btn-focus-text-color: #4B4C53;
+  --primary-btn-focus-bgcolor: #FFDD00;
+  --primary-btn-focus-border-color: #FFDD00;
+  --primary-btn-disabled-text-color: #4B4C53;
+  --primary-btn-disabled-bgcolor: #F5F5F6;
+  --primary-btn-disabled-border-color: #F5F5F6;
+  --secondary-btn-font-size: 16px;
+  --secondary-btn-font-weight: 700;
+  --secondary-btn-line-height: 19.2px;
+  --secondary-btn-text-color: #6267A1;
+  --secondary-btn-bgcolor: transparent;
+  --secondary-btn-border-color: #6267A1;
+  --secondary-btn-hover-text-color: #fff;
+  --secondary-btn-hover-bgcolor: #6267A1;
+  --secondary-btn-hover-border-color: #6267A1;
+  --secondary-btn-active-text-color: #6267A1;
+  --secondary-btn-active-bgcolor: #F5F5F6;
+  --secondary-btn-active-border-color: #F5F5F6;
+  --secondary-btn-focus-text-color: #4B4C53;
+  --secondary-btn-focus-bgcolor: #FFDD00;
+  --secondary-btn-focus-border-color: #FFDD00;
+  --secondary-btn-disabled-text-color: #4B4C53;
+  --secondary-btn-disabled-bgcolor: transparent;
+  --secondary-btn-disabled-border-color: #4B4C53;
+  --tertiary-btn-font-size: 16px;
+  --tertiary-btn-font-weight: 700;
+  --tertiary-btn-line-height: 19.2px;
+  --tertiary-btn-text-color: #6267A1;
+  --tertiary-btn-bgcolor: transparent;
+  --tertiary-btn-hover-text-color: #6267A1;
+  --tertiary-btn-hover-bgcolor: transparent;
+  --tertiary-btn-active-text-color: #6267A1;
+  --tertiary-btn-active-bgcolor: #F5F5F6;
+  --tertiary-btn-focus-text-color: #4B4C53;
+  --tertiary-btn-focus-bgcolor: #FFDD00;
+  --tertiary-btn-disabled-text-color: #4B4C53;
+
+  //Audio
+  --ma-font-size: 16px;
+  --ma-font-weight: 200;
+  --ma-text-color: #4B4C53;
+  --ma-bgcolor: #f5f5f6;
+  --ma-border-radius: 8px;
+  --ma-label-font-size: 14px;
+  --ma-label-font-weight: 300;
+  --ma-headline-font-size: 24px;
+  --ma-headline-font-weight: 600;
+  --ma-headline-line-height: 38px;
+  --ma-poster-border-radius: 8px;
+  --ma-plyr-bgcolor: #f5f5f6;
+  --ma-plyr-control-color: #6267A1;
+  --ma-plyr-control-color-hover: #6267A1;
+  --ma-plyr-time-color: #4B4C53;
+  // --ma-transcript-text-color: #6267A1;
+  // --ma-transcript-hover-text-color: #6267A1;
+  // --ma-transcript-active-text-color: #6267A1;
+  // --ma-transcript-active-bgcolor: #F5F5F6;
+
+  //Video
+  --mv-font-size: 16px;
+  --mv-font-weight: 200;
+  --mv-text-color: #4B4C53;
+  --mv-headline-font-size: 24px;
+  --mv-headline-font-weight: 400;
+  --mv-headline-line-height: 38px;
+  --mv-poster-border-radius: 8px;
+  --mv-caption-font-size: 16px;
+  --mv-caption-font-weight: 300;
+  --mv-caption-line-height: 22.4px;
+  // --mv-transcript-text-color: magenta;
+  // --mv-transcript-hover-text-color: magenta;
+  // --mv-transcript-active-text-color: magenta;
+  // --mv-transcript-active-bgcolor: purple;
+
+  //Image
+  --mi-font-size: 16px;
+  --mi-font-weight: 200;
+  --mi-text-color: #4B4C53;
+  --mi-headline-font-size: 24px;
+  --mi-headline-font-weight: 600;
+  --mi-headline-line-height: 38px;
+  --mi-border-radius: 8px;
+  --mi-caption-font-size: 16px;
+  --mi-caption-font-weight: 600;
+  --mi-caption-line-height: 22.4px;
+  // --mi-mediaDownload-text-color: magenta;
+  // --mi-mediaDownload-hover-text-color: magenta;
+  // --mi-mediaDownload-active-text-color: magenta;
+  // --mi-mediaDownload-active-bgcolor: purple;
+
+  //Divider
+  --div-bgcolor: #4B4C53;
+  --div-margin: 32px 0;
+  --div-height: 1px;
+  --div-duration: 1.2s;
+
+  //Section Title
+  --st-text-color: #4B4C53;
+  --st-font-size: 24px;
+  --st-font-weight:  200;
+  --st-line-height: 38.4px;
+  --st-headline-font-size: var(--base-h2-size);
+  --st-headline-font-weight: var(--base-h2-weight);
+  --st-headline-line-height: var(--base-h2-line-height);
+
+  //Section Footer
+  --sf-text-color: #4B4C53;
+  --sf-font-size: 14px;
+  --sf-font-weight: 300;
+  --sf-line-height: 22.4px;
+
+  //Callout Quote
+  --cq-font-size: 16px;
+  --cq-font-weight: 600;
+  --cq-line-height: 26.5px;
+  --cq-text-color: #4B4C53;
+  --cq-quote-image-color: #C3C4CA;
+  --cq-divider-color: #C3C4CA;
+  --cq-quote-font-size: 24px;
+  --cq-quote-font-weight: 600;
+  --cq-quote-line-height: 38.4px;
+  --cq-quote-text-color: #6267A1;
+  --cq-role-font-size: 14px;
+  --cq-role-font-weight: 300;
+  --cq-role-line-height: 22.4px;
+
+  //Editorial Text
+  --et-font-size: 16px;
+  --et-font-weight: 200;
+  --et-line-height: 25.6px;
+  --et-text-color: #4B4C53;
+  --et-text-align: left;
+  --et-sup-font-size: 12px;
+  --et-sup-font-weight: 700;
+  --et-sub-font-size: 12px;
+  --et-sub-font-weight: 700;
+  --et-mark-font-weight:600;
+  --et-mark-text-color: #000;
+  --et-mark-bgcolor: #ffff00;
+  --et-caption-font-size: 16px;
+  --et-caption-font-weight: 600;
+  --et-caption-line-height: 25.6px;
+  --et-headline-font-size: 28px;
+  --et-headline-font-weight: 400;
+  --et-headline-line-height: 33.6px;
+  --et-headline-margin: 0 0 24px 0;
+  --et-primary-btn-font-weight: var(--primary-btn-font-weight);
+  --et-primary-btn-line-height: var(--primary-btn-line-height);
+  --et-primary-btn-bgcolor: var(--primary-btn-bgcolor);
+  --et-primary-btn-text-color: var(--primary-btn-text-color);
+  --et-primary-btn-border-color: var(--primary-btn-border-color);
+  --et-primary-btn-hover-bgcolor: var(--primary-btn-hover-bgcolor);
+  --et-primary-btn-hover-text-color: var(--primary-btn-hover-text-color);
+  --et-primary-btn-hover-border-color: var(--primary-btn-hover-border-color);
+  --et-primary-btn-active-bgcolor: var(--primary-btn-active-bgcolor);
+  --et-primary-btn-active-text-color: var(--primary-btn-active-text-color);
+  --et-primary-btn-active-border-color: var(--primary-btn-active-border-color);
+  --et-secondary-btn-font-weight: var(--secondary-btn-font-weight);
+  --et-secondary-btn-line-height: var(--secondary-btn-line-height);
+  --et-secondary-btn-bgcolor: var(--secondary-btn-bgcolor);
+  --et-secondary-btn-text-color: var(--secondary-btn-text-color);
+  --et-secondary-btn-border-color: var(--secondary-btn-border-color);
+  --et-secondary-btn-hover-bgcolor: var(--secondary-btn-hover-bgcolor);
+  --et-secondary-btn-hover-text-color: var(--secondary-btn-hover-text-color);
+  --et-secondary-btn-hover-border-color: var(--secondary-btn-hover-border-color);
+  --et-secondary-btn-active-bgcolor: var(--secondary-btn-active-bgcolor);
+  --et-secondary-btn-active-text-color: var(--secondary-btn-active-text-color);
+  --et-secondary-btn-active-border-color: var(--secondary-btn-active-border-color);
+  --et-tertiary-btn-font-weight: var(--tertiary-btn-font-weight);
+  --et-tertiary-btn-line-height: var(--tertiary-btn-line-height);
+  --et-tertiary-btn-text-color: var(--tertiary-btn-text-color);
+  --et-tertiary-btn-hover-bgcolor: var(--tertiary-btn-hover-bgcolor);
+  --et-tertiary-btn-hover-text-color: var(--tertiary-btn-hover-text-color);
+  --et-tertiary-btn-active-bgcolor: var(--tertiary-btn-active-bgcolor);
+  --et-tertiary-btn-active-text-color: var(--tertiary-btn-active-text-color);
+        
+  //List
+  --list-font-size: 16px;
+  --list-font-weight: 200;
+  --list-line-height: 25.6px;
+  --list-text-color: #4b4c53;
+  --list-ul-item-padding: 16px 0 8px 16px;
+  --list-ol-item-padding: 16px 0 8px 40px;
+  --list-item-border-color: transparent;
+  --list-item-before-content-position: 10px;
+  --list-item-before-font-size: 16px;
+  --list-item-tertiary-btn-font-size: 16px;
+  --list-item-tertiary-btn-text-color: #6267a1;
+  --list-item-tertiary-btn-hover-text-color: #6267a1;
+  --list-item-tertiary-btn-active-text-color: #6267a1;
+  --list-item-tertiary-btn-active-bgcolor: #f5f5f6;
+
+  //Checkbox
+  --chkbox-font-size: 16px;
+  --chkbox-font-weight: 600;
+  --chkbox-text-color: #4B4C53;
+  --chkbox-bgcolor:#f5f5f6;
+  --chkbox-border-color:#f5f5f6;
+  --chkbox-border-radius: 8px;
+  --chkbox-description-font-size: 14px;
+  --chkbox-description-font-weight: 300;
+  --chkbox-chkmark-bgcolor: transparent;
+  --chkbox-chkmark-border-radius: 4px;
+  --chkbox-chkmark-border-color: #6267a1;
+  --chkbox-chkmark-chked-bgcolor: #6267a1;
+  --chkbox-chkmark-chked-color: #fff;
+  --chkbox-chkmark-chked-border-color: #6267a1;
+  --chkbox-disabled: #888995;
+  --chkbox-chk-disabled: #888995;
+
+  //Datepicker (Calendar)
+  --date-font-size: 16px;
+  --date-font-weight: 600;
+  --date-text-color: #4B4C53;
+  --date-bgcolor: #f5f5f6;
+  --date-border-color: #f5f5f6;
+  --date-border-radius: 8px;
+  --date-nav-color: #6267A1;
+  --date-month-color: #6267A1;
+  --date-day-hover-outline: #6267A1;
+  --date-day-hover-border-radius: 1rem;
+  --date-day-name-font-weight: 700;
+  --date-day-border-radius: 1rem;
+  --date-day-bgcolor: #6267A1;
+  --date-day-font-weight: 400;
+  --date-day-color: #fff;
+  --date-day-today-bgcolor: #6267A1;
+  --date-day-today-color: #fff;
+  --date-input-text-color: #6267A1;
+  --date-focus-bgcolor: #6267A1;
+  --date-focus-caret-color: #6267A1;
+  --date-text-font-size: 12px;
+  --date-text-font-weight: 400;
+  --date-disabled: #888995;
+  --date-disabled-focus-bgcolor: #f5f5f6;
+  --date-error-color: #b00020;
+
+  //Datepicker (Dropdown)
+  --dddate-font-size: 16px;
+  --dddate-font-weight: 600;
+  --dddate-text-color: #4B4C53;
+  --dddate-text-font-size: 12px;
+  --dddate-text-font-weight: 400;
+  --dddate-disabled: #888995;
+  --dddate-error-color: #b00020;
+
+  //Dropdown List
+  --ddlist-font-size: 16px;
+  --ddlist-font-weight: 600;
+  --ddlist-text-color: #4B4C53;
+  --ddlist-control-color: #6267A1;
+  --ddlist-control-bgcolor: #f5f5f6;
+  --ddlist-control-border-color: #f5f5f6;
+  --ddlist-control-border-radius: 8px;
+  --ddlist-control-focus-border-color: #6267A1;
+  --ddlist-menu-border-color: #F5F5F6;
+  --ddlist-menu-bgcolor: #F5F5F6;
+  --ddlist-menu-border-radius: 8px;
+  --ddlist-option-bgcolor: #F5F5F6;
+  --ddlist-option-hover-bgcolor: #6267A1;
+  --ddlist-option-hover-border-radius: 8px;
+  --ddlist-option-selected-bgcolor: #6267A1;
+  --ddlist-option-selected-border-radius: 8px;
+  --ddlist-option-selected-tick-color: #fff;
+  --ddlist-text-font-size: 12px;
+  --ddlist-text-font-weight: 400;
+  --ddlist-disabled-color: #888995;
+  --ddlist-error-color: #b00020;
+
+  //Input
+  --input-font-size: 16px;
+  --input-font-weight: 600;
+  --input-text-color: #4B4C53;
+  --input-bgcolor: #f5f5f6;
+  --input-border-color: #f5f5f6;
+  --input-border-radius: 8px;
+  --input-text-font-size: 12px;
+  --input-text-font-weight: 400;
+  --input-disabled: #888995;
+  --input-error-color: #b00020;
+  
+  //Radio
+  --radio-font-size: 16px;
+  --radio-font-weight: 600;
+  --radio-text-color: #4B4C53;
+  --radio-bgcolor:#f5f5f6;
+  --radio-border-color:#f5f5f6;
+  --radio-border-radius: 8px;
+  --radio-description-font-size: 14px;
+  --radio-description-font-weight: 300;
+  --radio-chkmark-bgcolor: transparent;
+  --radio-chkmark-border-radius: 16px;
+  --radio-chkmark-border-color: #6267a1;
+  --radio-chkmark-chked-bgcolor: #6267a1;
+  --radio-chkmark-chked-color: #fff;
+  --radio-chkmark-chked-border-color: #6267a1;
+  --radio-disabled: #888995;
+  --radio-chk-disabled: #888995;
+
+  //Slider
+  --slider-font-size: 16px;
+  --slider-font-weight: 600;
+  --slider-text-color: #4B4C53;
+  --slider-bgcolor: #C3C4CA;
+  --slider-fill: #757AB5;
+  --slider-border-radius: 8px;
+  --slider-value-label-color: #6267A1;
+  --slider-thumb-bgcolor: #fff;
+  --slider-thumb-focus: #6267A1;
+  --slider-text-font-size: 12px;
+  --slider-text-font-weight: 400;
+  --slider-disabled: #888995;
+  --slider-error-color: #b00020;
+
+  //Switch
+  --switch-font-size: 16px;
+  --switch-font-weight: 600;
+  --switch-text-color: #4B4C53;
+  --switch-off-bgcolor: #888995;
+  --switch-border-radius: 60px;
+  --switch-button-color: #fff;
+  --switch-button-border-radius: 32px;
+  --switch-on-bgcolor: #6267A1;
+  --switch-disabled: #888995;
+
+  //Textarea
+  --textarea-font-size: 16px;
+  --textarea-font-weight: 600;
+  --textarea-text-color: #4B4C53;
+  --textarea-bgcolor: #f5f5f6;
+  --textarea-border-color: #f5f5f6;
+  --textarea-border-radius: 8px;
+  --textarea-text-font-size: 12px;
+  --textarea-text-font-weight: 400;
+  --textarea-disabled: #888995;
+  --textarea-error-color: #b00020;
+
+  //Table
+  --table-font-size: 14px;
+  --table-font-weight: 300;
+  --table-line-height: 22.4px;
+  --table-text-color: #4B4C53;
+  --table-width: 100%;
+  --table-margin: 0;
+  --table-padding: 32px 0;
+  --table-text-align: left;
+  --table-border-width: 1px 1px 1px 1px;
+  --table-border-style: solid;
+  --table-border-color: transparent;
+  --table-th-text-align: left;
+  --table-th-padding: 16px;
+  --table-th-minwidth: 100px;
+  --table-th-bgcolor: #F5F5F6;
+  --table-th-text-color: #4B4C53;
+  --table-th-border-width: 1px 1px 1px 1px;
+  --table-th-border-style: solid;
+  --table-th-border-color: #F5F5F6;
+  --table-td-text-align: left;
+  --table-td-padding: 16px;
+  --table-td-minwidth: 100px;
+  --table-td-bgcolor: transparent;
+  --table-td-text-color: #4B4C53;
+  --table-td-border-width: 1px 1px 1px 1px;
+  --table-td-border-style: solid;
+  --table-td-border-color: transparent;
+  --table-yaxis-text-align: left;
+  --table-yaxis-padding: 16px;
+  --table-yaxis-minwidth: 100px;
+  --table-yaxis-bgcolor: #6267A1;
+  --table-yaxis-text-color: #F5F5F6;
+  --table-yaxis-border-width: 1px 1px 1px 1px;
+  --table-yaxis-border-style: solid;
+  --table-yaxis-border-color: #6267A1;
+  --table-xaxis-text-align: left;
+  --table-xaxis-padding: 16px;
+  --table-xaxis-minwidth: 100px;
+  --table-xaxis-bgcolor: #F5F5F6;
+  --table-xaxis-text-color: #4B4C53;
+  --table-xaxis-border-width: 1px 1px 1px 1px;
+  --table-xaxis-border-style: solid;
+  --table-xaxis-border-color: #F5F5F6;
+}

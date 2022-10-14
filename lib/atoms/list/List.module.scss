@@ -1,0 +1,67 @@
+@import "../../assets/styles/global.scss";
+
+.list {
+  font-family: var(--base-font-family);
+  font-size: var(--list-font-size, 16px);
+  font-weight: var(--list-font-weight, 200);
+  line-height: var(--list-line-height, 25.6px);
+  color: var(--list-text-color, var(--base-font-color));
+}
+
+.list {
+  ul, ol {
+    margin: 0 0 24px;
+    padding: 0;    
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+      grid-template-columns: repeat(var(--list-column-count, 1), 1fr);
+    }
+
+    li {
+      position: relative;
+      padding: var(--list-ul-item-padding, 16px 0 8px 16px);
+      list-style: none;
+      list-style-position: inside;
+      border-bottom: 1px solid var(--list-item-border-color, transparent);
+      color: var(--list-text-color, var(--base-font-color));
+      
+      &:first-child {   
+        border-top: 1px solid var(--list-item-border-color, transparent);
+      }
+
+      a {        
+        --tertiary-btn-font-size: var(--list-item-tertiary-btn-font-size, 16px);
+        --tertiary-btn-text-color: var(--list-item-tertiary-btn-text-color, #6267a1);
+        --tertiary-btn-hover-text-color: var(--list-item-tertiary-btn-hover-text-color, #6267a1);
+        --tertiary-btn-active-text-color:var(--list-item-tertiary-btn-active-text-color, #6267a1);
+        --tertiary-btn-active-bgcolor: var(--list-item-tertiary-btn-active-bgcolor, #f5f5f6);
+      }
+    }
+    li::before {
+      content: var(--list-item-before-content, "");
+      font-size: var(--list-item-before-font-size, 16px);
+      left: 16px;
+      top: calc(50% - var(--list-item-before-content-position, 10px));
+      position: absolute;
+    }
+  }
+  
+  ol {
+    counter-reset: listitem;
+
+    li {
+      counter-increment: listitem var(--list-ol-increment-value, 1);
+      padding: var(--list-ol-item-padding, 16px 0 8px 40px);
+
+      &:first-of-type::before {
+        counter-set: listitem var(--list-ol-start-value, 1);
+      }
+    }
+    li::before {
+      content: counter(listitem) ".";
+      top: unset;
+    }
+  }
+}

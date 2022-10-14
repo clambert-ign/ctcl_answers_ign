@@ -1,0 +1,25 @@
+{
+    "country": "Italia",
+    "countryRegion": "Paese / Regione:",
+    "pleaseSelectYourCountryOrRegion": "Seleziona il tuo paese o regione",
+    "region": "Europa",
+    "activeCountries": [
+        {"id": "1", "country": "Deutschland", "nationality": "Deutsch", "region": "Europe" }, 
+        {"id": "2", "country": "Ireland", "nationality": "Irish",  "region": "Europe" },
+        {"id": "3", "country": "La France", "nationality": "français",  "region": "Europe" },
+        {"id": "4", "country": "Italia", "nationality": "Italiano", "region": "Europe" },
+        {"id": "5", "country": "Nederland", "nationality": "Nederlands", "region": "Europe" },
+        {"id": "6", "country": "Norge", "nationality": "norsk", "region": "Europe" },
+        {"id": "7", "country": "Sverige", "nationality": "svenska", "region": "Europe" },
+        {"id": "8", "country": "England", "nationality": "English", "region": "Europe" },
+        {"id": "9", "country": "España", "nationality": "Español", "region": "Europe" },
+        {"id": "10", "country": "Suomi", "nationality": "Suomalainen", "region": "Europe" },
+        {"id": "11", "country": "Danmark", "nationality": "dansk", "region": "Europe" }
+    ],
+    "cookie-accept-all": "Accetta",
+    "cookie-accept-choices": "Accetta le preferenze",
+    "cookie-accept-reject": "Rifiuta",
+    "cookie-accept-necessary": "Cookie necessari (Sempre attivi)",
+    "audio-transcript": "Scarica la trascrizione",
+    "error404": "Pagina non trovata"
+}
