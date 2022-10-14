@@ -111,7 +111,7 @@ const GlobalFooter = (props) => {
                     {activeLib[region]?.map((library) => {
                       return (
                         <ListItem key={library?.libraryId}>
-                          <Button type="tertiary" link="#" ext={library?.country} onClick={(e) => changeLanguage(e,library.code)} />
+                          <Button type="tertiary" link="#!" ext={library?.country} onClick={(e) => changeLanguage(e,library.code)} />
                         </ListItem>
                       )
                     })}
