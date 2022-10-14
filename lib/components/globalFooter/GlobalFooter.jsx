@@ -4,7 +4,7 @@ import styles from './GlobalFooter.module.scss'
 import Button from '@atoms/button/Button'
 import Image from '@atoms/image/Image'
 import Divider from '@atoms/divider/Divider'
-import EditorialText from "@atoms/editorialText/EditorialText"
+import EditorialText from "@atoms/cseditorialText/EditorialText"
 import List from '@atoms/list/List'
 import ListItem from '@atoms/list/ListItem'
 import Modal from '@components/modal/Modal'
