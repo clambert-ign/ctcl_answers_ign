@@ -58,8 +58,8 @@ config.nProgress = {
 config.basicAuth = {
   protectedDomain: 'ctclanswers-ign.vercel.app',
   users: [{ 
-    user: 'admin', 
-    password: 'test' 
+    user: 'preview', 
+    password: 'i9n1f1d3v' 
   }]
 }
 
