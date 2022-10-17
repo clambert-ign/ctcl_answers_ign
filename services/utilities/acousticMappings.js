@@ -2,13 +2,19 @@ const componentsMapping = [
     { componentName: 'HeroHeader', acousticComponentName: 'Kanso-Component-HeroHeader' },
     { componentName: 'StandardHeader', acousticComponentName: 'Kanso-Component-StandardHeader' },
     { componentName: 'PageSection', acousticComponentName: 'Kanso-Pattern-PageSection' },
-    { componentName: 'Editorial', acousticComponentName: 'Kanso-Pattern-Editorial' },
+    { componentName: 'SectionTitle', acousticComponentName: 'Kanso-Atom-SectionTitle' },
+    { componentName: 'SectionFooter', acousticComponentName: 'Kanso-Atom-SectionFooter' },
     { componentName: 'ContentCard', acousticComponentName: 'Kanso-Component-ContentCard' },
+    { componentName: 'Accordion', acousticComponentName: 'Kanso-Component-Accordion' },
+    { componentName: 'Tabs', acousticComponentName: 'Kanso-Component-Tabs' },
+    { componentName: 'Carousel', acousticComponentName: 'Kanso-Component-Carousel' },
+    { componentName: 'Editorial', acousticComponentName: 'Kanso-Pattern-Editorial' },
     { componentName: 'EditorialText', acousticComponentName: 'Kanso-Atom-EditorialText' },
     { componentName: 'Image', acousticComponentName: 'Kanso-Atom-Image' },
-    { componentName: 'Divider', acousticComponentName: 'Kanso-Atom-Divider' },
     { componentName: 'Video', acousticComponentName: 'Kanso-Atom-Video' },
-    { componentName: 'Audio', acousticComponentName: 'Kanso-Atom-Audio' }
+    { componentName: 'Audio', acousticComponentName: 'Kanso-Atom-Audio' },
+    { componentName: 'CalloutQuote', acousticComponentName: 'Kanso-Atom-CalloutQuote' },
+    { componentName: 'Divider', acousticComponentName: 'Kanso-Atom-Divider' }
 ]
 
 export const getComponentName = (componentType) => {

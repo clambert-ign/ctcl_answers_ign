@@ -1,8 +1,7 @@
 import { useState } from "react"
-import { getValue, getValues, getFullUrl, getSelectionValue, getFullImageStr } from '@services/utilities/utilityHelper'
+import { getValue, getValues, getSelectionValue } from '@services/utilities/utilityHelper'
 import Button from './Button'
 import EditorialAcousticData from "@patterns/editorial/EditorialAcousticData"
-import EditorialText from "@atoms/editorialText/EditorialText"
 import Modal from "@components/modal/Modal"
 import ModalContent from "@components/modal/ModalContent"
 import ModalFooter from "@components/modal/ModalFooter"
@@ -30,20 +29,38 @@ const ButtonAcousticData = (props) => {
 
   const { t } = useTranslation()
   const [showModal, setShowModal] = useState(false)
-  
+    
+  const handleClickEvent = (clickEvent) => {
+    switch (clickEvent) {
+      case 'scroll':
+        return scrollTo
+      case 'modal':
+        return toggleModal
+      default:
+        return null
+    }
+  }
+
   const toggleModal = (e) => {
     e.preventDefault()           
     setShowModal(!showModal)
   }
+  
   const openWindow = (e) => {
     e.preventDefault()           
     if (typeof window !== 'undefined') {
       window.open(getValue(link), '_blank')
     }
   }
-
-  // add modal behaviour - add audio ctype and include in editorial - then test in modal
-  // add scroll behaviour
+  
+  const scrollTo = (e) => {
+    e.preventDefault()  
+    if(behaviourReference) {
+      document.getElementById(getValue(behaviourReference?.value?.elements?.sectionId)).scrollIntoView({
+        behavior: 'smooth'
+      })
+    }
+  }
 
   return (
     <>
@@ -57,7 +74,7 @@ const ButtonAcousticData = (props) => {
         isDownload={getValue(isDownload)}
         downloadFilename={getValue(downloadFilename)}
         isExternal={getValue(isExternal)}
-        onClick={(getValue(isExternal) || getSelectionValue(clickEvent)==='modal') ? toggleModal : null}
+        onClick={getValue(isExternal) ? toggleModal : handleClickEvent(getSelectionValue(clickEvent))}
       />
       {(getValue(isExternal)===true) && (
         <ConfirmationDialog>
@@ -71,7 +88,7 @@ const ButtonAcousticData = (props) => {
             }}
           >
             <ModalContent>
-              {getValue(externalText)}
+              <p>{externalText? getValue(externalText) : t('externalLink')}</p>
             </ModalContent>
             <ModalFooter>
               <Button type="primary" text={t('confirm')} onClick={openWindow} />
@@ -80,7 +97,7 @@ const ButtonAcousticData = (props) => {
           </Modal>
         </ConfirmationDialog>
       )}
-      {getSelectionValue(clickEvent)==='modal' ? 
+      {(getSelectionValue(clickEvent)==='modal' && behaviourReference) ? 
         <Modal 
           show={showModal} 
           title={getValue(behaviourReference?.value?.elements?.title)}
@@ -91,11 +108,13 @@ const ButtonAcousticData = (props) => {
           }}
         >
           <ModalContent>
-            {getValues(behaviourReference?.value?.elements?.editorial).map((content, index) => {
-              if (getComponentName(content.type) === 'Editorial') {
-                return <EditorialAcousticData key={`${content.type}${index}`} data={content?.elements} />
-              }
-            })}
+            {
+              getValues(behaviourReference?.value?.elements?.editorial).map((content, index) => {
+                if(getComponentName(content.type) === 'Editorial') {
+                  return <EditorialAcousticData key={`${content.type}${index}`} data={content?.elements} />
+                }
+              })
+            }
           </ModalContent>
         </Modal>
       : 

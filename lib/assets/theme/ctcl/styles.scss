@@ -75,21 +75,26 @@
   --et-tertiary-btn-active-text-color: var(--tertiary-btn-active-text-color);
 }
 
-.PageSection_pageSection__2mlQc.pagesection_feedback-section {
+.pagesection-feedback-section {
   --et-text-color: #FFFFFF;
-  --secondary-btn-text-color: #ffffff;
-  --secondary-btn-bgcolor: transparent;
-  --secondary-btn-border-color: #ffffff;
-  --secondary-btn-hover-text-color: #44496b;
-  --secondary-btn-hover-bgcolor: #ffffff;
-  --secondary-btn-hover-border-color: #ffffff;
-  --secondary-btn-active-text-color: #ffffff;
-  --secondary-btn-active-bgcolor: transparent;
-  --secondary-btn-active-border-color: #F5F5F6;
-  --secondary-btn-focus-text-color: #4B4C53;
-  --secondary-btn-focus-bgcolor: #FFDD00;
-  --secondary-btn-focus-border-color: #FFDD00;
-  --secondary-btn-disabled-text-color: #4B4C53;
-  --secondary-btn-disabled-bgcolor: transparent;
-  --secondary-btn-disabled-border-color: #4B4C53;
+  --et-headline-font-size: 28px;
+  --et-headline-font-weight: 600;
+  --et-headline-line-height: 33.6px;
+  --et-headline-margin: 0 0 24px 0;
+  --et-secondary-btn-bgcolor: transparent;
+  --et-secondary-btn-text-color: #fff;
+  --et-secondary-btn-border-color: #fff;
+  --et-secondary-btn-hover-bgcolor: #fff;
+  --et-secondary-btn-hover-text-color: #2F345A;
+  --et-secondary-btn-hover-border-color: #fff;
+  --et-secondary-btn-active-bgcolor: var(--secondary-btn-active-bgcolor);
+  --et-secondary-btn-active-text-color: var(--secondary-btn-active-text-color);
+  --et-secondary-btn-active-border-color: var(--secondary-btn-active-border-color);
+}
+
+.pagesection-homepage-contentcards {
+  --cc-item-tertiary-btn-text-color: #fff;
+  --cc-item-tertiary-btn-hover-text-color: #fff;
+  --cc-item-tertiary-btn-active-text-color: #fff;
+  --cc-item-tertiary-btn-active-bgcolor: #6267A1;
 }

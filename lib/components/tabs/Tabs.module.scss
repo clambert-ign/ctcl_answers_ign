@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(var(--tab-list-column-count), auto);
   align-items: center;
-  justify-content: center;  
+  justify-content: var(--tab-list-align, center);  
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
@@ -103,6 +103,7 @@ ul.tabList--scroll {
 
 .tabContent {
   text-align: left;
+  padding: 40px 0 0;
 
   &--open {
     margin: 0;

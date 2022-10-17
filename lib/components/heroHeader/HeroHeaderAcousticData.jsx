@@ -23,9 +23,6 @@ const HeroHeaderAcousticData = (props) => {
   const sdImage = sideImage?.value?.elements?.src?.url
   const sdVideo = sideVideo?.value?.elements?.src?.url 
 
-  // link buttons, loop over them all and output
-  // need to handle click events
-
   return (
     <HeroHeader
       align={getSelectionValue(align)}

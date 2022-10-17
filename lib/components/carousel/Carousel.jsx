@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import styles from "./Carousel.module.scss";
+import styles from "./Carousel.module.scss"
 import Button from "@atoms/button/Button"
 
 /**
@@ -46,7 +46,8 @@ const Carousel = (props) => {
     setCarouselItemContentHeight(carouselItemContentRefs.current[active].clientHeight)
   }
 
-  const toggleCarousel = async (active) => {
+  const toggleCarousel = async (e,active) => {
+    e.preventDefault()
     await initCarousel(active)
     carouselItemRefs.current[active].scrollIntoView({behavior: "smooth", block: "start", inline: "start"})
   }
@@ -148,7 +149,7 @@ const Carousel = (props) => {
         ref={carouselNavigtaionRef}
       >
         <li className={`${active === 0 ? styles[`carousel-navigation-paging`] : styles[`carousel-navigation-paging-active`]}`}>
-          <Button type="tertiary" icon="chevronleft" text="" onClick={() => toggleCarousel((active-carouselDisplayCount))} isDisabled={Math.floor(active*(carouselSlideCount/childrenCount)) === 0 ? true : false} />
+          <Button type="tertiary" icon="chevronleft" text="" onClick={(e) => toggleCarousel(e, (active-carouselDisplayCount))} isDisabled={Math.floor(active*(carouselSlideCount/childrenCount)) === 0 ? true : false} />
         </li>
         {Array.from(Array(carouselSlideCount), (e, index) => {
           return (
@@ -156,7 +157,7 @@ const Carousel = (props) => {
               key={index} 
               className={`${Math.floor(active*(carouselSlideCount/childrenCount)) === index ? styles[`carousel-navigation-item-active`] : styles[`carousel-navigation-item`]}`}
             >
-              <Button type="tertiary" text="" onClick={() => toggleCarousel((index+carouselDisplayCount))} 
+              <Button type="tertiary" text="" onClick={(e) => toggleCarousel(e, (index+carouselDisplayCount))} 
                 isDisabled={(Math.floor(active*(carouselSlideCount/childrenCount))) === index ? true : false}
                 icon={(Math.floor(active*(carouselSlideCount/childrenCount))) === index ? "carouselindicatoractive" : "carouselindicator"}
               />
@@ -164,7 +165,7 @@ const Carousel = (props) => {
           )
         })}
         <li className={`${Math.floor(active*(carouselSlideCount/childrenCount)) === (carouselSlideCount-1) ? styles[`carousel-navigation-paging`] : styles[`carousel-navigation-paging-active`]}`}>
-          <Button type="tertiary" icon="chevronright" text="" onClick={() => toggleCarousel((active+carouselDisplayCount))} isDisabled={Math.floor(active*(carouselSlideCount/childrenCount)) === (carouselSlideCount-1) ? true : false} />
+          <Button type="tertiary" icon="chevronright" text="" onClick={(e) => toggleCarousel(e, (active+carouselDisplayCount))} isDisabled={Math.floor(active*(carouselSlideCount/childrenCount)) === (carouselSlideCount-1) ? true : false} />
         </li>
       </ul>      
 		</div>

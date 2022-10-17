@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import Image from '@atoms/image/Image'
 import Divider from '@atoms/divider/Divider'
+import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
 import { QuoteMarks } from '@assets/svgIcons/SvgIcons'
 import styles from './CalloutQuote.module.scss'
 
@@ -17,7 +18,7 @@ import styles from './CalloutQuote.module.scss'
 
 const CalloutQuote = (props) => {
     
-  const{
+  const {
     text, 
     authorImg, 
     authorName, 
@@ -25,6 +26,29 @@ const CalloutQuote = (props) => {
     citeText,
     citeLink
   } = props
+
+
+  const btnData = {
+    isExternal: {
+      elementType: "toggle",
+      value: true
+    },
+    link: {
+      elementType: "text",
+      value: citeLink
+    },
+    text: {
+      elementType: "text",
+      value: citeText
+    },
+    type: {
+      elementType: "optionselection",
+      value: {
+        label: "Tertiary",
+        selection: "tertiary"
+      }
+    }
+  }
 
   return (
     <figure className={styles.callOutQuote}>
@@ -42,7 +66,7 @@ const CalloutQuote = (props) => {
           )}
           <ul>
             <li>{authorName}</li>
-            <li>{authorRole}, <cite>{citeText}</cite></li>
+            <li>{authorRole}, <cite><ButtonAcousticData data={btnData} /></cite></li>
           </ul>    
         </figcaption>
       )}

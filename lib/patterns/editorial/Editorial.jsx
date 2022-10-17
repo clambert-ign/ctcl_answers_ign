@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import styles from "./Editorial.module.scss"
 
 const Editorial = (props) => {
+  
   const EditorialItemsNo = props.children ? props.children.length : null
   const columnRef  = useRef(null)
   useEffect(() => {

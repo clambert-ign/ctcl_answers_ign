@@ -3,24 +3,24 @@ import styles from './SectionFooter.module.scss'
 
 /**
  * Section Footer
- * @param {string}  complianceText  - The compliance text that is to be displayed.
+ * @param {string}  complianceCode  - The compliance text that is to be displayed.
  * @returns React Component
  */
 
 const SectionFooter = (props) => {
-  const { complianceText } = props
+  const { complianceCode } = props
 
   return (
     <div className={styles['sectionFooter']}>
       <p>
-        {complianceText}
+        {complianceCode}
       </p>
     </div>
   )
 }
 
 SectionFooter.propTypes = {
-  complianceText:   PropTypes.string.isRequired
+  complianceCode:   PropTypes.string.isRequired
 }
 
 export default SectionFooter

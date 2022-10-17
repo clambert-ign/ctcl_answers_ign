@@ -37,10 +37,12 @@ const EditorialText = (props) => {
       } else {
         props.children.type.name === "ButtonAcousticData" ? setIsButtonVisible(true) : '' 
       }
-      textRef.current.style.setProperty(
-        "--et-text-column-count",
-        `${columns}`
-      )
+      if(textRef.current){
+        textRef.current.style.setProperty(
+          "--et-text-column-count",
+          `${columns}`
+        )
+      }
     }
   },[])
 
@@ -69,8 +71,7 @@ const EditorialText = (props) => {
             })}
           </div>
           {isButtonVisible ? 
-            //<div className={`${styles['editorialText-btn']}`}>
-            <div>
+            <div className={`${styles['editorialText-btn']}`}>
               {React.Children.map(children, function (child) {
                 if (child.type.name !== 'RichText') {
                   return (child)

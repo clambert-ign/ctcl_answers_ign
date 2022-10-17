@@ -1,11 +1,7 @@
-import { useState, Fragment } from 'react'
 import EditorialText from './EditorialText'
-import { useDispatch } from 'react-redux'
-import { getValue, getValues, getSelectionValue, capitaliseFirstLetter } from '@services/utilities/utilityHelper'
+import { getValue, getValues, getSelectionValue } from '@services/utilities/utilityHelper'
 import RichText from '@lib/richText/RichText'
 import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
-import Modal from '@components/modal/Modal'
-import { linkHelperConstants } from '@services/utilities/linkHelper'
 
 const EditorialTextAcousticData = (props) => {
   const { 

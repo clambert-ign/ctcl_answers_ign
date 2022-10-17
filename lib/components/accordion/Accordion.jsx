@@ -23,7 +23,6 @@ const Accordion = (props) => {
 
   const HeadingTag = `${headingTag}`
   
-  //const [panel, setPanel] = useState(openPanel)
   const [active, setActive] = useState({[(openPanel-1)]:true})
 
   useEffect(() => {

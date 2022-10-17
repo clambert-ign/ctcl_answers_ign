@@ -20,12 +20,12 @@
     line-height:  var(--st-headline-line-height, 76.8px);
     margin: 0 0 16px 0;
   }
+}
   
-  .sectionTitle--center {
-    justify-content: center;
-    text-align: center;    
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-  }
+.sectionTitle-center {
+  justify-content: center;
+  text-align: center;    
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }

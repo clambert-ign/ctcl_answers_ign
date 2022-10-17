@@ -24,5 +24,6 @@
     "error404": "The page you are looking for cannot be found",
     "confirm": "Confirm",
     "cancel": "Cancel",
-    "warning": "Warning!"  
+    "warning": "Warning!",  
+    "externalLink": "You are about to navigate away from this website, are you sure you want to continue?"  
 }

@@ -5,6 +5,7 @@ import Button from '@atoms/button/Button'
 
 /**
 * Tabs Component
+* @param {string} align       - The alignment of the tab buttons to be displayed.
 * @param {string} heading     - The title of the Tabs component to be displayed.
 * @param {string} headingTag  - The heading tag wrapped around the title of Tabs component to be displayed.
 * @return React component
@@ -12,6 +13,7 @@ import Button from '@atoms/button/Button'
 
 const Tabs = (props) => {
   const {
+    align,
     heading,
     headingTag
   } = props
@@ -70,6 +72,12 @@ const Tabs = (props) => {
       "--tab-list-column-count",
       `${tabList.length}`
     )
+    if(align && align === 'left') {
+      tabListRef.current.style.setProperty(
+        "--tab-list-align",
+        align
+      )
+    }
     isTabListScroll()
     window.addEventListener("resize", isTabListScroll)
     return () => window.removeEventListener("resize", isTabListScroll)
@@ -135,6 +143,8 @@ const Tabs = (props) => {
 }
 
 Tabs.propTypes = {
+  align:      PropTypes.string,  
+  align:      PropTypes.oneOf(['left', 'center']),
   heading:    PropTypes.string,  
   headingTag: PropTypes.string,
   headingTag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5'])

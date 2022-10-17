@@ -15,7 +15,8 @@ const PageSection = React.forwardRef((props, ref) => {
 
   const {
     bgImage,
-    cssClass
+    cssClass,
+    id
   } = props
 
   const innerRef = useRef()
@@ -33,20 +34,26 @@ const PageSection = React.forwardRef((props, ref) => {
   
   return (
     <section 
-      className={`
-        ${styles.pageSection}
+      id={id}
+      class={`
         ${cssClassValue.split(',').map(function (classItem, index) {
-          return 'pagesection_'+classItem
+          return 'pagesection-'+classItem
         }).join(' ')}
       `}
-      ref={innerRef}
     >
+      <div 
+        className={`
+          ${styles.pageSection}
+        `}
+        ref={innerRef}
+      >
         {bgImage && (
           <div className={styles["pageSection-background"]}>
             <Image src={bgImage} />
           </div>
         )}
         {props.children}
+      </div>
     </section>
   )
 })

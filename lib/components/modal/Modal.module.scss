@@ -5,6 +5,7 @@
   font-size: var(--modal-font-size, 14px);
   font-weight: var(--modal-font-weight, var(--base-font-weight));
   line-height: var(--modal-line-height, var(--base-line-height));
+  font-style: normal;
   color: var(--modal-text-color, #4B4C53);
   position: fixed; 
   z-index: 101;
@@ -34,7 +35,7 @@
   }
 }
 
-.modal-main {
+.modal .modal-main {
   width: 84%;
   padding: 8%;
   height: 90.5%;
@@ -81,7 +82,7 @@
   }
 }
   
-.modal-main-close {
+.modal .modal-main-close {
   width: 14px;
   cursor: pointer;
   border: none;
@@ -102,17 +103,14 @@
   margin: 0 -22px 0 0;
 }
 
-.modal-main-content {
+.modal .modal-main-content {
   margin: 0 0 32px;
   overflow: auto;
   width: 99%; 
-}
-
-.modal-main-content {
   color: var(--modal-text-color, #4B4C53);
 }
 
-.modal-main-content--blur {
+.modal .modal-main-content--blur {
   padding: 0 4% 8px 0;
   width: 95%;
   -webkit-mask-image: -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0)));
@@ -123,7 +121,7 @@
   padding: 0 0 0 32px;
 }
 
-.modal-main-footer {
+.modal .modal-main-footer {
   display: inline-block;
   width: 100%;
   align-items: center;
