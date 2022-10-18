@@ -4,6 +4,7 @@
   padding: 0 0 32px;
   font-family: var(--base-font-family);
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(1, 1fr);
   
   @include media (medium, large, extraLarge, extraExtraLarge) {
