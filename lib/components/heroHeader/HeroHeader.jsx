@@ -10,7 +10,7 @@ import Button from '@atoms/button/Button'
 * @param {string}   title       - The title of the Hero Header Component to be displayed.
 * @param {string}   heading     - The heading of the Hero Header Component to be displayed.
 * @param {string}   headingTag  - The heading tag to wrap around the heading of the Hero Header Component.
-* @param {string}   description - The description of the Hero Header Component to be displayed
+* @param {object}   description - The description of the Hero Header Component to be displayed
 * @param {object}   bgImage     - The background image of the Hero Header Component to be displayed..
 * @param {object}   sideImage   - The side image of the Hero Header Component to be displayed.
 * @param {object}   sideVideo   - The side video of the Hero Header Component to be displayed.
@@ -119,7 +119,7 @@ HeroHeader.propTypes = {
   heading:      PropTypes.string,
   headingTag:   PropTypes.string.isRequired,
   headingTag:   PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5']),
-  description:  PropTypes.string,
+  description:  PropTypes.object,
   bgImage:      PropTypes.object,
   sideImage:    PropTypes.object,
   sideVideo:    PropTypes.object,
