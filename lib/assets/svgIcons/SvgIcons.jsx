@@ -28,6 +28,23 @@ focusable="false"
 )
 }
 
+const PlayIcon = () => {
+  return (
+  <svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  width="16" 
+  height="16" 
+  viewBox="0 0 16 16"
+  aria-hidden="true" 
+  focusable="false"
+  > 
+<path d="M6.4,11.6L11.2,8L6.4,4.4V11.6z M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M8,14.4c-3.5,0-6.4-2.9-6.4-6.4
+	S4.5,1.6,8,1.6s6.4,2.9,6.4,6.4S11.5,14.4,8,14.4z"/>
+  </svg>
+  )
+  }
+  
+
 const DownloadIconBlue = () => {
   return (
     <svg
@@ -483,9 +500,12 @@ const CalendarIcon = (props) => {
   )
 }
 
+
+
 export {
     DownloadIcon,
     ShareIcon,
+    PlayIcon,
     ExternalLinkIcon,
     OpenNewTabIcon,
     ScrollToTop,

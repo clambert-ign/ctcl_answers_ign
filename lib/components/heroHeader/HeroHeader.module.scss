@@ -9,11 +9,11 @@
   background-color: var(--hh-bgcolor, #6267A1);   
   position: relative;
   text-align: center;  
-  padding: 36px 24px;
+  padding: 36px 24px 100px 24px;
   width: -webkit-fill-available;
     
   @include media(medium, large, extraLarge, extraExtraLarge) {
-    padding: 64px 72px;
+    padding: 36px 72px 100px 72px;
   }
 
   display: inline-grid;
@@ -29,12 +29,13 @@
   }
  
   .heroHeader-headline {
+    h1,h2,h4,h5,h6 {
     font-size: var(--hh-headline-font-size, 42px); 
     font-weight: var(--hh-headline-font-weight, 700);
     line-height: var(--hh-headline-line-height, 50.4px);  
     color: var(--hh-text-color, var(--base-font-color));
     margin: 0 0 16px 0;
-
+    }
     @include media(medium, large, extraLarge, extraExtraLarge) {
       font-size: var(--hh-headline-font-size-lg, 64px); 
       font-weight: var(--hh-headline-font-weight-lg, 700);
