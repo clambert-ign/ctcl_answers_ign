@@ -20,7 +20,7 @@ const PageSectionAcousticData = (props) => {
     title
   } = props.data
         
-  console.log('page section',props.data)
+  //console.log('page section',props.data)
 
   return (
     <PageSection

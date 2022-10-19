@@ -1,7 +1,9 @@
 @import "../../assets/styles/global.scss";
 
 .footer {
-    margin: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 30px 0;
     font-family: var(--base-font-family);
     font-size: var(--gf-font-size, 14px);
     font-weight: var(--gf-font-weight, 300);
@@ -59,7 +61,7 @@
           box-shadow: 0px 7.48582px 30px rgba(50, 50, 50, 0.2);
           
           @include media(medium, large, extraLarge, extraExtraLarge) {
-              margin: 5px 0 0 40px;
+              margin: 5px 0 0 30px;
           }
 
           circle {
@@ -74,7 +76,7 @@
   img {
       width: 99px;
       margin: 0 0 16px;
-      border-radius: 0px!important;
+      border-radius:0px;
   }
 }
 
@@ -177,7 +179,3 @@
       }
   }
 }
-
-.footer-signOff {
-
-  }

@@ -26,8 +26,8 @@ const EditorialTextAcousticData = (props) => {
       titleTag={getSelectionValue(titleTag)}
       title={getValue(title)}
       columns={getValue(columns)}
+      text={getRichText(getValue(text))}
     >
-      {getRichText(getValue(text))}      
       {(linksButtons && getValues(linksButtons)) && (
         <>
           {getValues(linksButtons).map((button, i) => {

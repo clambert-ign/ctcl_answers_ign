@@ -102,18 +102,7 @@ const HeroHeader = React.forwardRef((props, ref) => {
           )}
           {props.children && (
             <div className={styles["heroHeader-content-btn"]}>
-              {React.Children.map(props.children, function (child) {
-                if (child.type.name === 'Button' && child.props.type === 'tertiary') {
-                  return (<span className={styles['heroHeader-content-btn-tertiary']}>{child}</span>)
-                }
-                if (child.type.name === 'Button' && child.props.type === 'primary') {
-                  return (<span className={styles['heroHeader-content-btn-primary']}>{child}</span>)
-                }
-                if (child.type.name === 'Button' && child.props.type === 'secondary') {
-                  return (<span className={styles['heroHeader-content-btn-secondary']}>{child}</span>)
-                }
-                return (child)
-              })}
+              {props.children}
             </div>
           )}
         </div>

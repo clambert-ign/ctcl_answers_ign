@@ -35,8 +35,9 @@ const Modal = (props) => {
   useEffect(() => { setShowModal(show) }, [show])
 
   useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.keyCode === 27 || event.key === 'Escape') 
+    const handleEsc = (e) => { 
+      e.preventDefault()     
+      if (e.keyCode === 27 || e.key === 'Escape') 
         closeModal()
     }
     window.addEventListener('keydown', handleEsc)
@@ -55,11 +56,11 @@ const Modal = (props) => {
           id="modal"
         > 
           <div className={`${styles['modal-main']}`}>
-            <div className={styles['modal-main-close']}>
+            <div className={`${styles['modal-main-close']}`}>
               <Button type="tertiary" icon="close" onClick={closeModal} aria-label="close" />
             </div>
             {title && (
-              <HeadingTag>{title}</HeadingTag>
+              <HeadingTag className={`${styles['headline']}`}>{title}</HeadingTag>
             )} 
             {props.children}                
           </div>                    

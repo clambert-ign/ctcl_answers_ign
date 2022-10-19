@@ -35,10 +35,13 @@ const PageSection = React.forwardRef((props, ref) => {
   return (
     <section 
       id={id}
-      class={`
-        ${cssClassValue.split(',').map(function (classItem, index) {
-          return 'pagesection-'+classItem
-        }).join(' ')}
+      className={`
+        ${styles.pageSectionWrapper}
+        ${(cssClass && cssClassValue) ? 
+            cssClassValue.split(',').map(function (classItem, index) {
+              return 'pagesection-'+classItem
+            }).join(' ')
+          : ''}
       `}
     >
       <div 

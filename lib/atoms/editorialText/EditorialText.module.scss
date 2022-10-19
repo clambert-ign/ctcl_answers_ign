@@ -9,7 +9,7 @@
   padding: 0;
   text-align: var(--et-text-align, left);
 
-  h1,h2,h3,h4,h5,h6 {
+ .headline {
     font-size: var(--et-headline-font-size, 28px);
     font-weight:  var(--et-headline-font-weight, 400);
     line-height:  var(--et-headline-line-height, 33.6px);
@@ -89,53 +89,34 @@
       row-gap: 24px;
     }
 
-    --primary-btn-font-size: 16px;
-    --primary-btn-font-weight: 700;
-    --primary-btn-line-height: 19.2px;
-    --primary-btn-text-color: #fff;
-    --primary-btn-bgcolor: #6267A1;
-    --primary-btn-border-color: #6267A1;
-    --primary-btn-hover-text-color: #fff;
-    --primary-btn-hover-bgcolor: #757AB5;
-    --primary-btn-hover-border-color: #757AB5;
-    --primary-btn-active-text-color: #6267A1;
-    --primary-btn-active-bgcolor: #fff;
-    --primary-btn-active-border-color: #fff;
-    --primary-btn-focus-text-color: #4B4C53;
-    --primary-btn-focus-bgcolor: #FFDD00;
-    --primary-btn-focus-border-color: #FFDD00;
-    --primary-btn-disabled-text-color: #4B4C53;
-    --primary-btn-disabled-bgcolor: #F5F5F6;
-    --primary-btn-disabled-border-color: #F5F5F6;
-    --secondary-btn-font-size: 16px;
-    --secondary-btn-font-weight: 700;
-    --secondary-btn-line-height: 19.2px;
-    --secondary-btn-text-color: #ea5724;
-    --secondary-btn-bgcolor: transparent;
-    --secondary-btn-border-color: #ea5724;
-    --secondary-btn-hover-text-color: #fff;
-    --secondary-btn-hover-bgcolor: #ea5724;
-    --secondary-btn-hover-border-color: #ea5724;
-    --secondary-btn-active-text-color: #6267A1;
-    --secondary-btn-active-bgcolor: #F5F5F6;
-    --secondary-btn-active-border-color: #F5F5F6;
-    --secondary-btn-focus-text-color: #4B4C53;
-    --secondary-btn-focus-bgcolor: #FFDD00;
-    --secondary-btn-focus-border-color: #FFDD00;
-    --secondary-btn-disabled-text-color: #4B4C53;
-    --secondary-btn-disabled-bgcolor: transparent;
-    --secondary-btn-disabled-border-color: #4B4C53;
-    --tertiary-btn-font-size: 16px;
-    --tertiary-btn-font-weight: 700;
-    --tertiary-btn-line-height: 19.2px;
-    --tertiary-btn-text-color: #6267A1;
-    --tertiary-btn-bgcolor: transparent;
-    --tertiary-btn-hover-text-color: #6267A1;
-    --tertiary-btn-hover-bgcolor: transparent;
-    --tertiary-btn-active-text-color: #6267A1;
-    --tertiary-btn-active-bgcolor: #F5F5F6;
-    --tertiary-btn-focus-text-color: #4B4C53;
-    --tertiary-btn-focus-bgcolor: #FFDD00;
-    --tertiary-btn-disabled-text-color: #4B4C53;
+  --primary-btn-font-weight: var(--et-primary-btn-font-weight);
+  --primary-btn-line-height: var(--et-primary-btn-line-height);
+  --primary-btn-text-color: var(--et-primary-btn-text-color);
+  --primary-btn-bgcolor: var(--et-primary-btn-bgcolor);
+  --primary-btn-border-color: var(--et-primary-btn-border-color);
+  --primary-btn-hover-text-color: var(--et-primary-btn-hover-text-color);
+  --primary-btn-hover-bgcolor: var(--et-primary-btn-hover-bgcolor);
+  --primary-btn-hover-border-color: var(--et-primary-btn-hover-border-color);
+  --primary-btn-active-text-color: var(--et-primary-btn-active-text-color);
+  --primary-btn-active-bgcolor: var(--et-primary-btn-active-bgcolor);
+  --primary-btn-active-border-color: var(--et-primary-btn-active-border-color);  
+  --secondary-btn-font-weight: var(--et-secondary-btn-font-weight);
+  --secondary-btn-line-height: var(--et-secondary-btn-line-height);
+  --secondary-btn-text-color: var(--et-secondary-btn-text-color);
+  --secondary-btn-bgcolor: var(--et-secondary-btn-bgcolor);
+  --secondary-btn-border-color: var(--et-secondary-btn-border-color);
+  --secondary-btn-hover-text-color: var(--et-secondary-btn-hover-text-color);
+  --secondary-btn-hover-bgcolor: var(--et-secondary-btn-hover-bgcolor);
+  --secondary-btn-hover-border-color: var(--et-secondary-btn-hover-border-color);
+  --secondary-btn-active-text-color: var(--et-secondary-btn-active-text-color);
+  --secondary-btn-active-bgcolor: var(--et-secondary-btn-active-bgcolor);
+  --secondary-btn-active-border-color: var(--et-secondary-btn-active-border-color);  
+  --tertiary-btn-font-weight: var(--et-tertiary-btn-font-weight);
+  --tertiary-btn-line-height: var(--et-tertiary-btn-line-height);
+  --tertiary-btn-text-color: var(--et-tertiary-btn-text-color);
+  --tertiary-btn-hover-text-color: var(--et-tertiary-btn-hover-text-color);
+  --tertiary-btn-hover-bgcolor: var(--et-tertiary-btn-hover-bgcolor);
+  --tertiary-btn-active-text-color: var(--et-tertiary-btnactive-text-color);
+  --tertiary-btn-active-bgcolor: var(--et-tertiary-btn-active-bgcolor);
   }
 }

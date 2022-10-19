@@ -16,7 +16,7 @@
   overflow: auto;
   background-color: rgba(0,0,0,0.4);    
 
-  h1,h2,h3,h4,h5,h6 {
+  .headline {
     font-size: var(--modal-headline-font-size, 28px);
     font-weight:  var(--modal-headline-font-weight, 400);
     line-height:  var(--modal-headline-line-height, 33.6px);
@@ -135,101 +135,37 @@
     justify-content: flex-start;
     row-gap: 24px;
   }
-}
 
-.modal-main-footer-btn-primary {
-  a {
-    color: var(--modal-primary-btn-text-color, var(--primary-btn-text-color));
-    background-color: var(--modal-primary-btn-bgcolor, var(--primary-btn-bgcolor));
-    border: solid 3px var(--modal-primary-btn-border-color, var(--primary-btn-border-color));
-    margin: 0 0 24px;
-    @include media (medium, large, extraLarge, extraExtraLarge) {
-      margin: 0;
-    }
+  --primary-btn-font-weight: var(--modal-primary-btn-font-weight);
+  --primary-btn-line-height: var(--modal-primary-btn-line-height);
+  --primary-btn-text-color: var(--modal-primary-btn-text-color);
+  --primary-btn-bgcolor: var(--modal-primary-btn-bgcolor);
+  --primary-btn-border-color: var(--modal-primary-btn-border-color);
+  --primary-btn-hover-text-color: var(--modal-primary-btn-hover-text-color);
+  --primary-btn-hover-bgcolor: var(--modal-primary-btn-hover-bgcolor);
+  --primary-btn-hover-border-color: var(--modal-primary-btn-hover-border-color);
+  --primary-btn-active-text-color: var(--modal-primary-btn-active-text-color);
+  --primary-btn-active-bgcolor: var(--modal-primary-btn-active-bgcolor);
+  --primary-btn-active-border-color: var(--modal-primary-btn-active-border-color);  
+  --secondary-btn-font-weight: var(--modal-secondary-btn-font-weight);
+  --secondary-btn-line-height: var(--modal-secondary-btn-line-height);
+  --secondary-btn-text-color: var(--modal-secondary-btn-text-color);
+  --secondary-btn-bgcolor: var(--modal-secondary-btn-bgcolor);
+  --secondary-btn-border-color: var(--modal-secondary-btn-border-color);
+  --secondary-btn-hover-text-color: var(--modal-secondary-btn-hover-text-color);
+  --secondary-btn-hover-bgcolor: var(--modal-secondary-btn-hover-bgcolor);
+  --secondary-btn-hover-border-color: var(--modal-secondary-btn-hover-border-color);
+  --secondary-btn-active-text-color: var(--modal-secondary-btn-active-text-color);
+  --secondary-btn-active-bgcolor: var(--modal-secondary-btn-active-bgcolor);
+  --secondary-btn-active-border-color: var(--modal-secondary-btn-active-border-color);  
+  --tertiary-btn-font-weight: var(--modal-tertiary-btn-font-weight);
+  --tertiary-btn-line-height: var(--modal-tertiary-btn-line-height);
+  --tertiary-btn-text-color: var(--modal-tertiary-btn-text-color);
+  --tertiary-btn-hover-text-color: var(--modal-tertiary-btn-hover-text-color);
+  --tertiary-btn-hover-bgcolor: var(--modal-tertiary-btn-hover-bgcolor);
+  --tertiary-btn-active-text-color: var(--modal-tertiary-btnactive-text-color);
+  --tertiary-btn-active-bgcolor: var(--modal-tertiary-btn-active-bgcolor);
 
-    &:hover {
-      color: var(--modal-prmodalimary-btn-hover-text-color, var(--primary-btn-hover-text-color));
-      background-color: var(--modal-primary-btn-hover-bgcolor, var(--primary-btn-hover-bgcolor));
-      border: solid 3px var(--modal-primary-btn-hover-border-color, var(--primary-btn-hover-border-color));
-      
-      svg {
-        fill: var(--modal-primary-btn-hover-text-color, var(--primary-btn-hover-text-color));
-      }
-    }
-    &:active {
-      color: var(--modal-primary-btn-active-text-color, var(--primary-btn-active-text-color));
-      background-color: var(--modal-primary-btn-active-bgcolor, var(--primary-btn-active-bgcolor));
-      border: solid 3px var(--modal-primary-btn-active-border-color, var(--primary-btn-active-border-color));
-      
-      svg {
-        fill: var(--modal-primary-btn-active-text-color, var(--primary-btn-active-text-color));
-      }
-    }
-    svg {
-      fill: var(--modal-primary-btn-text-color, var(--primary-btn-text-color));
-    }
-  }
-}
-
-.modal-main-footer-btn-secondary {
-  a {
-    color: var(--modal-secondary-btn-text-color, var(--secondary-btn-text-color));
-    background-color: var(--modal-secondary-btn-bgcolor, var(--secondary-btn-bgcolor));
-    border: solid 3px var(--modal-secondary-btn-border-color, var(--secondary-btn-border-color));
-    margin: 0 0 24px;
-    @include media (medium, large, extraLarge, extraExtraLarge) {
-      margin: 0;
-    }
-
-    &:hover {
-      color: var(--modal-secondary-btn-hover-text-color, var(--secondary-btn-hover-text-color));
-      background-color: var(--modal-secondary-btn-hover-bgcolor, var(--secondary-btn-hover-bgcolor));
-      border: solid 3px var(--modal-secondary-btn-hover-border-color, var(--secondary-btn-hover-border-color));
-      
-      svg {
-        fill: var(--modal-secondary-btn-hover-text-color, var(--secondary-btn-hover-text-color));
-      }
-    }
-    &:active {
-      color: var(--modal-secondary-btn-active-text-color, var(--secondary-btn-active-text-color));
-      background-color: var(--modal-secondary-btn-active-bgcolor, var(--secondary-btn-active-bgcolor));
-      border: solid 3px var(--modal-secondary-btn-active-border-color, var(--secondary-btn-active-border-color));
-      
-      svg {
-        fill: var(--modal-secondary-btn-active-text-color, var(--secondary-btn-active-text-color));
-      }
-    }
-    svg {
-      fill: var(--modal-secondary-btn-text-color, var(--secondary-btn-text-color));
-    }
-  }
-}
-
-.modal-main-footer-btn-tertiary {
-  a {
-    color: var(--modal-tertiary-btn-text-color, var(--tertiary-btn-text-color));
-    margin: 0 0 24px;
-    @include media (medium, large, extraLarge, extraExtraLarge) {
-      margin: 0;
-    }
-
-    &:hover {
-      color: var(--modal-tertiary-btn-hover-text-color, var(--tertiary-btn-hover-text-color));
-      svg {
-        fill: var(--modal-tertiary-btn-hover-text-color, var(--tertiary-btn-hover-text-color));
-      }
-    }
-    &:active {
-      color: var(--modal-tertiary-btn-active-text-color, var(--tertiary-btn-active-text-color));
-      background-color: var(--modal-tertiary-btn-active-bgcolor, var(--tertiary-btn-active-bgcolor));
-      svg {
-        fill: var(--modal-tertiary-btn-active-text-color, var(--tertiary-btn-active-text-color));
-      }
-    }
-    svg {
-      fill: var(--modal-tertiary-btn-text-color, var(--tertiary-btn-text-color));
-    }
-  }
 }
 
 .modal-center {

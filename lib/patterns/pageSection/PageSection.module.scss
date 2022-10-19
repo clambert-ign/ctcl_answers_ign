@@ -1,6 +1,13 @@
 @import "../../assets/styles/global.scss";
 
+.pageSectionWrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .pageSection {
+  width: calc(100% - 64px);
   padding: 32px;
   background-color: var(--ps-bgcolor, #fff);   
   color: var(--ps-text-color, #4B4C53);

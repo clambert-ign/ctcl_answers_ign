@@ -8,7 +8,8 @@ import styles from './EditorialText.module.scss'
  * @param {string} caption  - The Editorial Text Component caption to be displayed.
  * @param {string} title    - The Editorial Text Component title to be displayed.
  * @param {string} titleTag - The Editorial Text Component heading tag wrapped around the title.
- * @param {number} columns  - The Editorial Text Component column 2 text to be displayed.
+ * @param {number} columns  - The number of columns to split the text to be displayed across.
+ * @param {number} text     - The Editorial Text Component text to be displayed.
  * @returns React Component
  */
 
@@ -18,31 +19,20 @@ const EditorialText = (props) => {
     caption,
     title, 
     titleTag,
-    columns
+    columns,
+    text
   } = props
 
   const textRef  = useRef(null)
   const textWrapperRef  = useRef(null)
-  const [isButtonVisible, setIsButtonVisible] = useState(false)
   const HeadingTag = `${titleTag}`
-  //Make sure we are filtering out null children
-  const children = React.Children.toArray(props.children).filter(Boolean)
-        
+  
   useEffect(() => {
-    if(children) {
-      if(Array.isArray(children)) {
-        if(children.find((e) => (e.type.name !== "RichText"))) {
-          setIsButtonVisible(true)
-        }
-      } else {
-        props.children.type.name === "ButtonAcousticData" ? setIsButtonVisible(true) : '' 
-      }
-      if(textRef.current){
-        textRef.current.style.setProperty(
-          "--et-text-column-count",
-          `${columns}`
-        )
-      }
+    if(text && textRef.current){
+      textRef.current.style.setProperty(
+        "--et-text-column-count",
+        `${columns}`
+      )
     }
   },[])
 
@@ -59,27 +49,17 @@ const EditorialText = (props) => {
         <div className={styles['editorialText-caption']}>{caption}</div>
       )}
       {title && (
-        <HeadingTag>{title}</HeadingTag>
+        <HeadingTag className={styles['headline']}>{title}</HeadingTag>
+      )}
+      {text && (
+        <div className={`${styles['editorialText-content']}`} ref={textRef}>
+          {text}
+        </div>
       )}
       {props.children && (
-        <>
-          <div className={`${styles['editorialText-content']}`} ref={textRef}>
-            {React.Children.map(children, function (child) {
-              if (child.type.name === 'RichText') {
-                return (child)
-              }
-            })}
-          </div>
-          {isButtonVisible ? 
-            <div className={`${styles['editorialText-btn']}`}>
-              {React.Children.map(children, function (child) {
-                if (child.type.name !== 'RichText') {
-                  return (child)
-                }
-              })}
-            </div>
-          : ''}
-        </>
+        <div className={`${styles['editorialText-btn']}`}>
+          {props.children}
+        </div>
       )}
     </div>
   )
@@ -92,7 +72,8 @@ EditorialText.propTypes = {
   titleTag: PropTypes.string.isRequired, 
   titleTag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5']),
   caption:  PropTypes.string, 
-  columns:  PropTypes.number.isRequired
+  columns:  PropTypes.number.isRequired,
+  text:     PropTypes.string
 }
 
 EditorialText.defaultProps = {

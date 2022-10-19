@@ -23,7 +23,7 @@ const ContentCardItem = (props) => {
     text,
     image,
     imageAlign
-  } = props;
+  } = props
   
   const HeadingTag = `${titleTag}`
   const SubHeadingTag = `${subtitleTag}`
@@ -47,7 +47,7 @@ const ContentCardItem = (props) => {
           </span>
         }
         {title && (
-          <HeadingTag>{title}</HeadingTag>
+          <HeadingTag className={styles[`headline`]}>{title}</HeadingTag>
         )}
         {subtitle && (          
           <SubHeadingTag className={styles.subheadline}>{subtitle}</SubHeadingTag>
@@ -59,18 +59,7 @@ const ContentCardItem = (props) => {
         )}
         {props.children && (
           <div className={styles["contentCardItem-content-btn"]}>
-            {React.Children.map(props.children, function (child) {
-              if (child.type.name === 'Button' && child.props.type === 'tertiary') {
-                return (<span className={styles['contentCardItem-content-btn-tertiary']}>{child}</span>)
-              }
-              if (child.type.name === 'Button' && child.props.type === 'primary') {
-                return (<span className={styles['contentCardItem-content-btn-primary']}>{child}</span>)
-              }
-              if (child.type.name === 'Button' && child.props.type === 'secondary') {
-                return (<span className={styles['contentCardItem-content-btn-secondary']}>{child}</span>)
-              }
-              return (child)
-            })}
+            {props.children}
           </div>
         )}
       </div>
