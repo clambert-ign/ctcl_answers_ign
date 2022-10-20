@@ -5,16 +5,17 @@ import VideoAcousticData from '@atoms/video/VideoAcousticData'
 import AudioAcousticData from '@atoms/audio/AudioAcousticData'
 import CalloutQuoteAcousticData from '@atoms/calloutQuote/CalloutQuoteAcousticData'
 import { getComponentName } from '@services/utilities/acousticMappings'
+import { getValues } from '@services/utilities/utilityHelper'
 
 const EditorialAcousticData = (props) => {
   const { 
     contentLeft,
     contentRight
   } = props.data
-
+ 
   return (  
     <Editorial>
-      {contentLeft && (
+      {getValues(contentLeft) && (
         <div>
           {contentLeft?.values?.map((content, index) => {
             if (getComponentName(content.type) === 'EditorialText') {
@@ -35,7 +36,7 @@ const EditorialAcousticData = (props) => {
           })}
         </div>
       )}
-      {contentRight && (
+      {getValues(contentRight) && (
         <div>
           {contentRight?.values?.map((content, index) => {
             if (getComponentName(content.type) === 'EditorialText') {
