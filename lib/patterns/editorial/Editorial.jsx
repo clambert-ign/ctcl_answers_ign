@@ -3,7 +3,7 @@ import styles from "./Editorial.module.scss"
 
 const Editorial = (props) => {
   
-  const EditorialItemsNo = props.children ? props.children.length : null
+  const EditorialItemsNo = props.children ? props.children.length : 0
   const columnRef  = useRef(null)
   useEffect(() => {
     if(EditorialItemsNo) {

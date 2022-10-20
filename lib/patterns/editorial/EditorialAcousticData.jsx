@@ -8,28 +8,54 @@ import { getComponentName } from '@services/utilities/acousticMappings'
 
 const EditorialAcousticData = (props) => {
   const { 
-    content 
+    contentLeft,
+    contentRight
   } = props.data
 
   return (  
     <Editorial>
-      {content?.values?.map((content, index) => {
-        if (getComponentName(content.type) === 'EditorialText') {
-          return <EditorialTextAcousticData key={index} data={content?.elements} />
-        }
-        if (getComponentName(content.type) === 'Image') {
-          return <ImageAcousticData key={index} data={content?.elements} />
-        }
-        if (getComponentName(content.type) === 'Video') {
-          return <VideoAcousticData key={index} data={content?.elements} />
-        }
-        if (getComponentName(content.type) === 'Audio') {
-          return <AudioAcousticData key={index} data={content?.elements} />
-        }
-        if (getComponentName(content.type) === 'CalloutQuote') {
-          return <CalloutQuoteAcousticData key={index} data={content?.elements} />
-        }
-      })}
+      {contentLeft && (
+        <div>
+          {contentLeft?.values?.map((content, index) => {
+            if (getComponentName(content.type) === 'EditorialText') {
+              return <EditorialTextAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'Image') {
+              return <ImageAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'Video') {
+              return <VideoAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'Audio') {
+              return <AudioAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'CalloutQuote') {
+              return <CalloutQuoteAcousticData key={index} data={content?.elements} />
+            }
+          })}
+        </div>
+      )}
+      {contentRight && (
+        <div>
+          {contentRight?.values?.map((content, index) => {
+            if (getComponentName(content.type) === 'EditorialText') {
+              return <EditorialTextAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'Image') {
+              return <ImageAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'Video') {
+              return <VideoAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'Audio') {
+              return <AudioAcousticData key={index} data={content?.elements} />
+            }
+            if (getComponentName(content.type) === 'CalloutQuote') {
+              return <CalloutQuoteAcousticData key={index} data={content?.elements} />
+            }
+          })}
+        </div>
+      )}
     </Editorial>
   )
 }
