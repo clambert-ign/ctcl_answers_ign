@@ -45,7 +45,7 @@ const Video = React.forwardRef((props, ref) => {
 
   const mediaSrc = {
     type: 'video',
-    title: title,
+    title: title ? title : '',
     sources: [
       {
         src: src,
