@@ -3,7 +3,7 @@
 .accordion {
   font-family: var(--base-font-family);
   color: var(--ac-text-color, var(--base-font-color));
-  padding: 32px 0;
+  padding: 0 0 32px 0;
 }
 
 .headline {
@@ -57,7 +57,7 @@
 
   .chevron svg {
     position: absolute;
-    top: 28px;
+    top: 50%;
     right: 20px;
     
     path {

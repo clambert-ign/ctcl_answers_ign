@@ -3,6 +3,10 @@ import styles from "./ContentCard.module.scss"
 
 const ContentCard = React.forwardRef((props, ref) => {
   
+  const {
+    isMultiple
+  } = props
+
   const columnRef  = useRef(null)  
   useImperativeHandle(ref, () => columnRef.current)
 
@@ -18,7 +22,7 @@ const ContentCard = React.forwardRef((props, ref) => {
       ref={columnRef}
       className={`
         ${styles.contentCard} 
-        ${props.children.length > 1 ? styles[`contentCard--multiple`] : ''}
+        ${(props.children.length > 1 || isMultiple) ? styles[`contentCard--multiple`] : '' }
       `}
     >
       {props.children}

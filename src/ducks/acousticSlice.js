@@ -152,9 +152,6 @@ export const initAcoustic = (locale, pageName) => async (dispatch) => {
                 // Global footer
                 tmpData.globalFooter = responseData?.globalFooter?.value?.elements
 
-                // Cookie Consent
-                //tmpData.cookieConsent = responseData?.cookie?.value?.elements
-
                 //faviconImg
                 tmpData.faviconImg = responseData?.favicon
 

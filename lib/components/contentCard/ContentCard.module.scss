@@ -3,14 +3,14 @@
 .contentCard {
   background-color: var(--cc-bgcolor, transparent);
   border-radius: var(--cc-border-radius, 8px);
-  filter: drop-shadow(0px 7px 10px rgba(50, 50, 50, 0.2));
-  //padding: 32px 0;
-  margin: 0 0 20px;
+  filter: drop-shadow(var(--cc-dropshadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)));
+  padding: 0 0 32px;
+  margin: 0;
   display: inline-grid;
   grid-template-columns: auto;
-  gap: 20px;
+  gap: 10px;
 
-  @include media (medium, large, extraLarge, extraExtraLarge) {
+  @include media (large, extraLarge, extraExtraLarge) {
     grid-template-columns: repeat(var(--cc-column-count, 1), 1fr);
   }
     
@@ -42,7 +42,6 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "ccimage" "cccontent";
-    
 
   @include media (medium, large, extraLarge, extraExtraLarge) {
     grid-template-columns: 1fr 1fr;
@@ -51,16 +50,22 @@
 }
 
 .contentCardItem-image {
-  height: 100%;
   img {
+    aspect-ratio: 16/9;
     display: block;
     width: 100%;
     border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
-    
+        
     @include media (medium, large, extraLarge, extraExtraLarge) {
-      grid-area: ccimage;
+      //grid-area: ccimage;
       border-radius: var(--cc-item-2col-image-left-border-radius, 8px 0 0 8px);
+      object-fit: cover;
+      width: 100%;
+      max-height: 100%;
     }
+  }
+  @include media (medium) {
+    grid-area: ccimage;
   }
 }
 
@@ -104,7 +109,7 @@
 
 .contentCard--multiple {
   .contentCardItem {
-    grid-template-rows: auto auto;
+    grid-template-rows: min-content auto;
     grid-template-columns: 1fr;
     grid-template-areas: "ccimage" "cccontent";
   }
@@ -113,6 +118,16 @@
       border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
     }
   }
+  @include media (medium) {
+    //grid-template-columns: repeat(2, 1fr);
+
+    .contentCardItem:nth-child(n + 3) {
+      grid-column: 1/3;
+      grid-template-areas: "ccimage cccontent";
+      grid-template-columns: 1fr 1fr;
+    }  
+  }
+
 }
 
 .contentCardItem-content-btn {

@@ -3,7 +3,7 @@
 .btn {
   font-family: var(--base-font-family);
   width: auto;
-  max-width: unset;
+  max-width: 166px;
   text-decoration: none;
   overflow-wrap: anywhere;
   display: inline-grid;
@@ -27,7 +27,6 @@
     display: grid;
     max-width: unset;
     justify-content: center;
-    margin-bottom:10px;
   }
 }
 
@@ -42,6 +41,9 @@
 
   svg {
     fill: var(--primary-btn-text-color);
+    path {
+      fill: var(--primary-btn-text-color);
+    }
   }
   &:hover {
     background-color: var(--primary-btn-hover-bgcolor);
@@ -50,6 +52,9 @@
     color:  var(--primary-btn-hover-text-color);
     svg {
       fill: var(--primary-btn-hover-text-color);
+      path {
+        fill: var(--primary-btn-hover-text-color);
+      }
     }
   }
   &:focus-visible {
@@ -61,6 +66,9 @@
 
     svg {
       fill: var(--primary-btn-focus-text-color);
+      path {
+        fill: var(--primary-btn-focus-text-color);
+      }
     }
   }
   &:active {
@@ -71,6 +79,9 @@
 
     svg {
       fill: var(--primary-btn-active-text-color);
+      path {
+        fill: var(--primary-btn-active-text-color);
+      }
     }
   }
   
@@ -111,6 +122,9 @@
 
     svg {
       fill: var(--primary-btn-disabled-text-color);
+      path {
+        fill: var(--primary-btn-disabled-text-color);
+      }
     }
   }
 }
@@ -125,6 +139,9 @@
   
   svg {
     fill: var(--secondary-btn-text-color);
+    path {
+      fill: var(--secondary-btn-text-color);
+    }
   }
   &:hover {
     background-color: var(--secondary-btn-hover-bgcolor);
@@ -133,6 +150,9 @@
 
     svg {
       fill: var(--secondary-btn-hover-text-color);
+      path {
+        fill: var(--secondary-btn-hover-text-color);
+      }
     }
   }
   &:focus-visible {
@@ -144,6 +164,9 @@
 
     svg {
       fill: var(--secondary-btn-focus-text-color);
+      path {
+        fill: var(--secondary-btn-focus-text-colorr);
+      }
     }
   }
   &:active {
@@ -154,6 +177,9 @@
 
     svg {
       fill: var(--secondary-btn-active-text-color);
+      path {
+        fill: var(--secondary-btn-active-text-color);
+      }
     }
   }
   
@@ -195,6 +221,9 @@
 
     svg {
       fill: var(--secondary-btn-disabled-text-color);
+      path {
+        fill: var(--secondary-btn-disabled-text-color);
+      }
     }
   }
 }
@@ -216,6 +245,9 @@
   svg {
     fill: var(--tertiary-btn-text-color);
     margin: 2px 0 0;
+    path {
+      fill: var(--tertiary-btn-text-color);
+    }
   }
   &:hover {
     color: var(--tertiary-btn-hover-text-color);
@@ -224,6 +256,9 @@
 
     svg {
       fill: var(--tertiary-btn-hover-text-color);
+      path {
+        fill: var(--tertiary-btn-hover-text-color);
+      }
     }
   }
   &:active {
@@ -233,6 +268,9 @@
 
     svg {
       fill: var(--tertiary-btn-active-text-color);
+      path {
+        fill: var(--tertiary-btn-active-text-color);
+      }
     }
   }
   &:focus-visible {
@@ -244,6 +282,9 @@
 
     svg {
       fill: var(--tertiary-btn-focus-text-color);
+      path {
+        fill: var(--tertiary-btn-focus-text-color);
+      }
     }
   }
 
@@ -268,6 +309,9 @@
 
     svg {
       fill: var(--tertiary-btn-disabled-text-color);
+      path {
+        fill: var(--tertiary-btn-disabled-text-color);
+      }
     }
   }
 }

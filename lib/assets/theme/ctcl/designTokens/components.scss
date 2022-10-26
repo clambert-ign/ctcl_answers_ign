@@ -1,5 +1,5 @@
 /*
-  KANSO default theme design tokens for approved KANSO library Components only.
+  KANSO default theme design tokens for approved KANSO library Components only. OLD
 */
 
 :root {
@@ -240,6 +240,7 @@
   //Content Card
   --cc-bgcolor: transparent;
   --cc-border-radius: 8px;
+  --cc-dropshadow: none;
   --cc-item-font-size: 16px;
   --cc-item-font-weight: 200;
   --cc-item-line-height: 25.6px;
@@ -287,6 +288,17 @@
   --cc-item-tertiary-btn-hover-bgcolor: transparent;
   --cc-item-tertiary-btn-active-text-color: #ea5724;
   --cc-item-tertiary-btn-active-bgcolor: transparent;
+  
+  //Carousel
+  --carousel-headline-font-size: 28px;
+  --carousel-headline-font-weight: 400;
+  --carousel-headline-line-height: 33.6px;
+  --carousel-slide-height: auto;
+  --carousel-btn-prevnext-middle-padding: 10px;
+  --carousel-btn-prevnext-middle-text-color: #fff;
+  --carousel-btn-prevnext-middle-bgcolor: #000;
+  --carousel-btn-hover-prevnext-middle-text-color: #000;
+  --carousel-btn-hover-prevnext-middle-bgcolor: #fff;
   
   //PanelList
   --pl-font-size: 16px;

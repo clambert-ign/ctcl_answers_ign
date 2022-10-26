@@ -27,7 +27,7 @@ const Modal = (props) => {
   const HeadingTag = `${titleTag}`
 
   const closeModal = (e) => {    
-    e.preventDefault()     
+    e?e.preventDefault():null   
     setShowModal(false)
     if (onClose) { onClose(false) } 
   }

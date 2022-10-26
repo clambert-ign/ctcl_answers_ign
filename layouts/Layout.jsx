@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import '@i18n/config'
-import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import Head from 'next/head'
-
 import { getOneTrustDomainId, getOneTrustScriptURL } from '@services/utilities/libraryUtils'
-
 import GlobalNavigationAcousticData from '@components/globalNavigation/GlobalNavigationAcousticData'
 import GlobalFooterAcousticData from '@components/globalFooter/GlobalFooterAcousticData'
-import GlobalFooter from '@components/globalFooter/GlobalFooter'
 import ToastBarAcousticData from '@components/toastBar/ToastBarAcousticData'
+import ModalAcousticData from "@components/modal/ModalAcousticData"
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   const { 
-    navigationToastbar, 
-    globalNavigation, 
-    footerToastbar, 
-    globalFooter 
+    navigationToastbar,
+    globalNavigation,
+    footerToastbar,
+    globalFooter
   } = useSelector((state) => state.acoustic.data)
 
   const loading = useSelector((state) => state.acoustic.loading)
-  const { t } = useTranslation()
   const languagePath = useSelector((state) => state.acoustic.language)
   const OneTrustScriptURL = getOneTrustScriptURL(languagePath)
   const OneTrustDomainId = getOneTrustDomainId(languagePath)
-
+  const showModal = useSelector((state) => state?.modal?.open)
+  const showModalData = useSelector((state) => state?.modal?.modalData.content)
+  const showModalType = useSelector((state) => state?.modal?.modalData.type)
+  
   return (
     <>
       {!loading && (
@@ -54,9 +51,12 @@ const Layout = ({ children }) => {
                 <>
                   <GlobalFooterAcousticData data={globalFooter} />
                 </>
-              )}
-              
+              )}              
             </div>
+
+            {showModal && showModalData && (
+              <ModalAcousticData data={showModalData} type={showModalType} />
+            )}
           </>
         </>
       )}

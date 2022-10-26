@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import config from '@config/config'
 
 export const convertAcousticDateToPublishDate = (acousticDate, languageCode) => {
@@ -72,4 +73,34 @@ export const arrayToStringBuilder = (values) => {
     }
 
     return stringArray.toString() == null || stringArray.toString() == undefined ? ' ' : stringArray.toString();
+}
+
+
+export default function useWindowDimensions() {
+
+  const hasWindow = typeof window !== 'undefined';
+
+  function getWindowDimensions() {
+    const width = hasWindow ? window.innerWidth : null;
+    const height = hasWindow ? window.innerHeight : null;
+    return {
+      width,
+      height,
+    }
+  }
+
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    if (hasWindow) {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [hasWindow])
+
+  return windowDimensions
 }

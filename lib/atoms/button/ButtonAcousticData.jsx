@@ -1,14 +1,9 @@
-import { useState } from "react"
-import { getValue, getValues, getSelectionValue } from '@services/utilities/utilityHelper'
+import { getValue, getSelectionValue } from '@services/utilities/utilityHelper'
 import Button from './Button'
-import EditorialAcousticData from "@patterns/editorial/EditorialAcousticData"
-import Modal from "@components/modal/Modal"
-import ModalContent from "@components/modal/ModalContent"
-import ModalFooter from "@components/modal/ModalFooter"
-import ConfirmationDialog from "@patterns/confirmationDialog/ConfirmationDialog"
-import '@i18n/config'
-import { useTranslation } from 'react-i18next'
-import { getComponentName } from '@services/utilities/acousticMappings'
+
+
+import { useDispatch, useSelector } from 'react-redux'
+import { setModalOpen, setModalData } from '@src/ducks/modalSlice'
 
 const ButtonAcousticData = (props) => {
   const { 
@@ -27,8 +22,8 @@ const ButtonAcousticData = (props) => {
     type
   } = props.data
 
-  const { t } = useTranslation()
-  const [showModal, setShowModal] = useState(false)
+  const dispatch = useDispatch()
+  const showModal = useSelector((state) => state?.modal?.open)
     
   const handleClickEvent = (clickEvent) => {
     switch (clickEvent) {
@@ -40,21 +35,21 @@ const ButtonAcousticData = (props) => {
         return null
     }
   }
-
-  const toggleModal = (e) => {
-    e.preventDefault()           
-    setShowModal(!showModal)
-  }
   
-  const openWindow = (e) => {
-    e.preventDefault()           
-    if (typeof window !== 'undefined') {
-      window.open(getValue(link), '_blank')
-    }
+  const toggleModal = (e) => {
+    e.preventDefault() 
+    dispatch(setModalOpen(!showModal))
+    dispatch(setModalData({content: behaviourReference, type: 'modal'}))
+  }
+
+  const toggleExternalDialog = (e) => {
+    e.preventDefault() 
+    dispatch(setModalOpen(!showModal))
+    dispatch(setModalData({content: { text: externalText, link: link }, type: 'dialog'}))
   }
   
   const scrollTo = (e) => {
-    e.preventDefault()  
+    e.preventDefault() 
     if(behaviourReference) {
       document.getElementById(getValue(behaviourReference?.value?.elements?.sectionId)).scrollIntoView({
         behavior: 'smooth'
@@ -74,52 +69,8 @@ const ButtonAcousticData = (props) => {
         isDownload={getValue(isDownload)}
         downloadFilename={getValue(downloadFilename)}
         isExternal={getValue(isExternal)}
-        onClick={getValue(isExternal) ? toggleModal : handleClickEvent(getSelectionValue(clickEvent))}
+        onClick={getValue(isExternal) ? toggleExternalDialog : handleClickEvent(getSelectionValue(clickEvent))}
       />
-      {(getValue(isExternal)===true) && (
-        <ConfirmationDialog>
-          <Modal 
-            show={showModal} 
-            title={t('warning')}
-            titleTag="h3"
-            align="center"
-            onClose={(value) => {
-              setShowModal(value)
-            }}
-          >
-            <ModalContent>
-              <p>{externalText? getValue(externalText) : t('externalLink')}</p>
-            </ModalContent>
-            <ModalFooter>
-              <Button type="primary" text={t('confirm')} onClick={openWindow} />
-              <Button type="secondary" text={t('cancel')} onClick={toggleModal} />
-            </ModalFooter>
-          </Modal>
-        </ConfirmationDialog>
-      )}
-      {(getSelectionValue(clickEvent)==='modal' && behaviourReference) ? 
-        <Modal 
-          show={showModal} 
-          title={getValue(behaviourReference?.value?.elements?.title)}
-          titleTag={getSelectionValue(behaviourReference?.value?.elements?.titleTag)}
-          align={getSelectionValue(behaviourReference?.value?.elements?.align)}
-          onClose={(value) => {
-            setShowModal(value)
-          }}
-        >
-          <ModalContent>
-            {
-              getValues(behaviourReference?.value?.elements?.editorial).map((content, index) => {
-                if(getComponentName(content.type) === 'Editorial') {
-                  return <EditorialAcousticData key={`${content.type}${index}`} data={content?.elements} />
-                }
-              })
-            }
-          </ModalContent>
-        </Modal>
-      : 
-      null 
-      }
     </>
   )
 }

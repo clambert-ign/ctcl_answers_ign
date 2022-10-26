@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import styles from "./Accordion.module.scss"
-import Button from "../../atoms/button/Button"
-import { ChevronDown, ChevronUp } from '../../assets/svgIcons/SvgIcons'
+import Button from '@atoms/button/Button'
+import { ChevronDown, ChevronUp } from '@assets/svgIcons/SvgIcons'
 
 /**
 * AccordionItem Component
 * @param {string} title     - The title of the Accordion Item
+* @param {string} icon      - The icon of the Accordion Item
 * @param {boolean} open     - Is the Accordion Item to be shown?
 * @param {function} index   - Pass the item index number.
 * @param {function} onClick - Pass the onClick event.
@@ -15,6 +16,7 @@ import { ChevronDown, ChevronUp } from '../../assets/svgIcons/SvgIcons'
 const AccordionItem = (props) => {
   const {
     title,
+    icon,
     open,
     index,
     onClick
@@ -26,7 +28,7 @@ const AccordionItem = (props) => {
       <Button
         text={title}
         link="/#"
-        icon="globe"
+        icon={icon}
         onClick={onClick}
         id={'accordion-header-' + index}
         aria-expanded={open}
@@ -48,12 +50,14 @@ const AccordionItem = (props) => {
 
 AccordionItem.propTypes = {
   title:    PropTypes.string,  
+  icon:     PropTypes.string,  
   open:     PropTypes.bool,
   index:    PropTypes.number,
   onClick:  PropTypes.func
 }
 
-AccordionItem.defaultProps = {
+AccordionItem.defaultProps = { 
+  icon:     'globe',
   open:     false,
   onClick:  undefined
 }

@@ -10,14 +10,26 @@ import VideoComponent from "@atoms/video/Video"
 import * as VideoArgs from "@atoms/video/Video.stories"
 import ImageComponent from "@atoms/image/Image"
 import * as ImageArgs from "@atoms/image/Image.stories"
-import EditorialText from "@atoms/editorialText/EditorialText"
-import * as EditorialTextArgs from "@atoms/editorialText/EditorialText.stories"
-import Editorial from "@patterns/editorial/Editorial"
-import * as EditorialArgs from "@patterns/editorial/Editorial.stories"
 import ContentCardComponent from "@components/contentCard/ContentCard"
 import ContentCardItem from "@components/contentCard/ContentCardItem"
 import HeroHeaderComponent from "@components/heroHeader/HeroHeader"
-import * as HeroHeaderArgs from "@components/heroHeader/HeroHeader.stories"
+
+
+const settings = {
+  adaptiveHeight: true,
+  arrows: false,
+  dots: true,    
+  fade: false,
+  infinite: false,
+  lazyLoad: false,
+  speed: 1000,
+  autoplay: false,
+  autoplaySpeed: 5000,
+  cssEase: "linear",
+  pauseOnHover: true,
+  swipeToSlide: true,
+  rtl: false
+}
 
 export default {
   title: "Components/In-page Navigation/Carousel",
@@ -115,7 +127,8 @@ export default {
     heading: '',
     headingTag: 'h2',
     displayCount: 1,
-    navigationStyle: 'bottom'
+    navigationStyle: 'bottom',
+    settings: settings
   },
   argTypes: {
     heading: {
@@ -150,6 +163,14 @@ export default {
       },
       control: false,
       table: {}
+    },
+    settings: {
+      description: 'The Carousel settings.',
+      type: { 
+        name: 'object'
+      },
+      control: false,
+      table: {}
     }
   }
 }
@@ -158,22 +179,22 @@ const TemplateVideo = (args) => {
   return (
     <>
       <CarouselComponent {...args} heading="Video Carousel">
-        <CarouselContent>
+        <CarouselContent index={1}>
           <VideoComponent {...VideoArgs.Video.args} title="Video Carousel Slide 1" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={2}>
           <VideoComponent {...VideoArgs.Video.args} title="Video Carousel Slide 2" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={3}>
           <VideoComponent {...VideoArgs.Video.args} title="Video Carousel Slide 3" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={4}>
           <VideoComponent {...VideoArgs.Video.args} title="Video Carousel Slide 4" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={5}>
           <VideoComponent {...VideoArgs.Video.args} title="Video Carousel Slide 5" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={6}>
           <VideoComponent {...VideoArgs.Video.args} title="Video Carousel Slide 6" />
         </CarouselContent>
       </CarouselComponent>
@@ -185,29 +206,30 @@ export const Video = TemplateVideo.bind()
 Video.args = {
   heading: 'Video Carousel',
   headingTag: 'h2',
-  displayCount: 1
+  displayCount: 3,
+  settings: settings
 }
 
 const TemplateAudio = (args) => {
   return (
     <>
       <CarouselComponent {...args} heading="Audio Carousel">
-        <CarouselContent>
+        <CarouselContent index={1}>
           <AudioComponent {...AudioArgs.Audio.args} title="Audio Carousel Slide 1" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={2}>
           <AudioComponent {...AudioArgs.Audio.args} title="Audio Carousel Slide 2" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={3}>
           <AudioComponent {...AudioArgs.Audio.args} title="Audio Carousel Slide 3" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={4}>
           <AudioComponent {...AudioArgs.Audio.args} title="Audio Carousel Slide 4" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={5}>
           <AudioComponent {...AudioArgs.Audio.args} title="Audio Carousel Slide 5" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={6}>
           <AudioComponent {...AudioArgs.Audio.args} title="Audio Carousel Slide 6" />
         </CarouselContent>
       </CarouselComponent>
@@ -219,29 +241,30 @@ export const Audio = TemplateAudio.bind()
 Audio.args = {
   heading: 'Audio Carousel',
   headingTag: 'h2',
-  displayCount: 1
+  displayCount: 2,
+  settings: settings
 }
 
 const TemplateImage = (args) => {
   return (
     <>
       <CarouselComponent {...args} heading="Image Carousel">
-        <CarouselContent>
+        <CarouselContent index={1}>
           <ImageComponent {...ImageArgs.Image.args} title="Image Carousel Slide 1" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={2}>
           <ImageComponent {...ImageArgs.Image.args} title="Image Carousel Slide 2" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={3}>
           <ImageComponent {...ImageArgs.Image.args} title="Image Carousel Slide 3" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={4}>
           <ImageComponent {...ImageArgs.Image.args} title="Image Carousel Slide 4" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={5}>
           <ImageComponent {...ImageArgs.Image.args} title="Image Carousel Slide 5" />
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={6}>
           <ImageComponent {...ImageArgs.Image.args} title="Image Carousel Slide 6" />
         </CarouselContent>
       </CarouselComponent>
@@ -253,14 +276,15 @@ export const Image = TemplateImage.bind()
 Image.args = {
   heading: 'Image Carousel',
   headingTag: 'h2',
-  displayCount: 1
+  displayCount: 2,
+  settings: settings
 }
 
 const TemplateContentCard = (args) => {
   return (
     <>
       <CarouselComponent {...args} heading="Content Card Carousel">
-        <CarouselContent>
+        <CarouselContent index={1}>
           <ContentCardComponent>
             <ContentCardItem 
               image='/images/_blue-orange.png'
@@ -276,7 +300,7 @@ const TemplateContentCard = (args) => {
             </ContentCardItem>
           </ContentCardComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={2}>
         <ContentCardComponent>
             <ContentCardItem 
               image='/images/_blue-orange.png'
@@ -292,7 +316,7 @@ const TemplateContentCard = (args) => {
             </ContentCardItem>
           </ContentCardComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={3}>
         <ContentCardComponent>
             <ContentCardItem 
               image='/images/_blue-orange.png'
@@ -308,7 +332,7 @@ const TemplateContentCard = (args) => {
             </ContentCardItem>
           </ContentCardComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={4}>
         <ContentCardComponent>
             <ContentCardItem 
               image='/images/_blue-orange.png'
@@ -324,7 +348,7 @@ const TemplateContentCard = (args) => {
             </ContentCardItem>
           </ContentCardComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={5}>
         <ContentCardComponent>
             <ContentCardItem 
               image='/images/_blue-orange.png'
@@ -340,7 +364,7 @@ const TemplateContentCard = (args) => {
             </ContentCardItem>
           </ContentCardComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={6}>
         <ContentCardComponent>
             <ContentCardItem 
               image='/images/_blue-orange.png'
@@ -365,32 +389,33 @@ export const ContentCard = TemplateContentCard.bind()
 ContentCard.args = {
   heading: 'Content Card Carousel',
   headingTag: 'h2',
-  displayCount: 1
+  displayCount: 2,
+  settings: settings
 }
 
 const TemplateHeroHeader = (args) => {
   return (
     <>
       <CarouselComponent {...args} heading="Hero Header Carousel" navigationStyle="middle">
-        <CarouselContent>
+        <CarouselContent index={1}>
           <HeroHeaderComponent title="Hero Header Carousel Example" heading="This is a Heading" align="center" >
             <Button {...PrimaryButtonArgs.Default.args} />
             <Button {...SecondaryButtonArgs.Default.args} />
           </HeroHeaderComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={2}>
           <HeroHeaderComponent title="Hero Header Carousel Example" heading="This is a Heading" align="center" bgVideo={<VideoComponent src="/video/background-video-sample.mp4" autoPlay={true} isLooped={true} clickToPlay={false} showControls={false} />} >
             <Button {...PrimaryButtonArgs.Default.args} />
             <Button {...SecondaryButtonArgs.Default.args} />
           </HeroHeaderComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={3}>
           <HeroHeaderComponent title="Hero Header Carousel Example" heading="This is a Heading" align="left" >
             <Button {...PrimaryButtonArgs.Default.args} />
             <Button {...SecondaryButtonArgs.Default.args} />
           </HeroHeaderComponent>
         </CarouselContent>
-        <CarouselContent>
+        <CarouselContent index={4}>
           <HeroHeaderComponent title="Hero Header Carousel Example" heading="This is a Heading" align="center" bgImage={<ImageComponent src="/images/blue-orange-desktop.png" />} />
         </CarouselContent>
       </CarouselComponent>
@@ -402,5 +427,7 @@ export const HeroHeader = TemplateHeroHeader.bind()
 HeroHeader.args = {
   heading: 'Hero Header Carousel',
   headingTag: 'h2',
-  displayCount: 1
+  displayCount: 2,
+  navigationStyle: 'middle',
+  settings: settings
 }

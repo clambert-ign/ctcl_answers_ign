@@ -1,8 +1,11 @@
 
 // Need these because NextJS only supports pure selectors
+import "@components/carousel/slick.css" 
+import "@components/carousel/slick-theme.css"
 import '@assets/theme/ctcl/styles.scss'
 import '@atoms/video/VideoPlyr.css'
 import '@atoms/audio/AudioPlyr.css'
+
 
 import { useEffect } from 'react'
 import { Provider } from 'react-redux'

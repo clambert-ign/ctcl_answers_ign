@@ -17,7 +17,6 @@ const ContentCardAcousticData = (props) => {
   return (
     <ContentCard>
       {contentCardItems?.values?.map((contentCardItem, index) => {
-        //console.log('item',contentCardItem)
         return (
           <ContentCardItem 
             key={index}
