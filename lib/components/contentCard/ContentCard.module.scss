@@ -8,12 +8,12 @@
   color: var(--cc-item-text-color, #fff);
   background-color: var(--cc-bgcolor, transparent);
   border-radius: var(--cc-border-radius, 8px);
-  filter: drop-shadow(var(--cc-dropshadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)));
-  padding: 0 0 32px;
+  filter: drop-shadow(0px 7px 10px rgba(50, 50, 50, 0.2));
+  padding: 0 0 15px;
   margin: 0;
   display: inline-grid;
   grid-template-columns: auto;
-  gap: 10px;
+  gap: 15px;
 
   @include media (large, extraLarge, extraExtraLarge) {
     grid-template-columns: repeat(var(--cc-column-count, 1), 1fr);
