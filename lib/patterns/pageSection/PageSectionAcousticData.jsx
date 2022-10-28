@@ -3,6 +3,7 @@ import PageSection from './PageSection'
 import { getComponentName } from '@services/utilities/acousticMappings'
 import EditorialAcousticData from '@patterns/editorial/EditorialAcousticData'
 import ContentCardAcousticData from '@components/contentCard/ContentCardAcousticData'
+import ContentCardTileAcousticData from '@components/contentCardTile/ContentCardTileAcousticData'
 import AccordionAcousticData from '@components/accordion/AccordionAcousticData'
 import TabsAcousticData from '@components/tabs/TabsAcousticData'
 import CarouselAcousticData from '@components/carousel/CarouselAcousticData'
@@ -20,7 +21,7 @@ const PageSectionAcousticData = (props) => {
     title
   } = props.data
         
-  //console.log('page section',props.data)
+  console.log('page section',props.data)
 
   return (
     <PageSection
@@ -40,6 +41,9 @@ const PageSectionAcousticData = (props) => {
         }
         if (getComponentName(content.type) === 'ContentCard') {
           return <ContentCardAcousticData key={`${content.type}${index}`} data={content?.elements} />
+        }
+        if (getComponentName(content.type) === 'ContentCardTile') {
+          return <ContentCardTileAcousticData key={`${content.type}${index}`} data={content?.elements} />
         }
         if (getComponentName(content.type) === 'Accordion') {
           return <AccordionAcousticData key={`${content.type}${index}`} data={content?.elements} />

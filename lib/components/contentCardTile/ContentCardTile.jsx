@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
-import styles from "./ContentCard.module.scss"
+import styles from "./ContentCardTile.module.scss"
 
 /**
-* Content Card Component
+* Content Card Tile Component
 * @param {boolean} isMultiple  - Are we displaying more than 1 Content Card?
 * @return React component
 */
 
-const ContentCard = React.forwardRef((props, ref) => {
+const ContentCardTile = React.forwardRef((props, ref) => {
   
   const {
     isMultiple
@@ -41,12 +41,12 @@ const ContentCard = React.forwardRef((props, ref) => {
   )
 })
 
-ContentCard.propTypes = {
+ContentCardTile.propTypes = {
   isMultiple: PropTypes.bool
 }
 
-ContentCard.defaultProps = {
+ContentCardTile.defaultProps = {
   isMultiple: false
 }
 
-export default ContentCard
+export default ContentCardTile

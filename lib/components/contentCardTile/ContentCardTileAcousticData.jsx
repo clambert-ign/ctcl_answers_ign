@@ -1,5 +1,5 @@
-import ContentCard from './ContentCard'
-import ContentCardItem from './ContentCardItem'
+import ContentCardTile from './ContentCardTile'
+import ContentCardTileItem from './ContentCardTileItem'
 import Image from "@atoms/image/Image"
 import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
 import RichText from '@lib/richText/RichText'
@@ -16,10 +16,10 @@ const ContentCardAcousticData = (props) => {
   }
 
   return (
-    <ContentCard>
+    <ContentCardTile>
       {contentCardItems?.values?.map((contentCardItem, index) => {
         return (
-          <ContentCardItem 
+          <ContentCardTileItem 
             key={index}
             image={<Image src={getFullUrl(contentCardItem?.elements?.image?.url)} altText={getValue(contentCardItem?.elements?.image?.altText)} />}
             title={getValue(contentCardItem?.elements?.title)}
@@ -39,10 +39,10 @@ const ContentCardAcousticData = (props) => {
                 })}
               </>
             )}
-          </ContentCardItem>
+          </ContentCardTileItem>
         )
       })}
-    </ContentCard>
+    </ContentCardTile>
   )
   
 }

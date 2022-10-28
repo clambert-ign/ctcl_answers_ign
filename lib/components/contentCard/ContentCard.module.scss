@@ -1,40 +1,40 @@
 @import '../../assets/styles/global.scss';
 
 .contentCard {
-  background-color: var(--cc-bgcolor, transparent);
-  border-radius: var(--cc-border-radius, 8px);
-  filter: drop-shadow(0px 7px 10px rgba(50, 50, 50, 0.2));
-  padding: 0 0 15px;
-  margin: 0;
-  display: inline-grid;
-  grid-template-columns: auto;
-  gap: 15px;
-
-  @include media (large, extraLarge, extraExtraLarge) {
-    grid-template-columns: repeat(var(--cc-column-count, 1), 1fr);
-  }
-    
-  .headline {
-    font-size: var(--cc-item-headline-font-size, 28px);
-    font-weight: var(--cc-item-headline-font-weight, 600);
-    line-height: var(--cc-item-headline-line-height, 33.6px);
-    margin: 0 0 8px 0;
-  }
-  
-  .subheadline {
-    font-size: var(--cc-item-subheadline-font-size, 24px);
-    font-weight: var(--cc-item-subheadline-font-weight, 400);
-    line-height: var(--cc-item-subheadline-line-height, 38.4px);
-    margin: 0 0 16px 0;
-  }
-}
-
-.contentCardItem {
   font-family: var(--base-font-family);
   font-size: var(--cc-item-font-size, 16px);
   font-weight: var(--cc-item-font-weight, 200);
   line-height: var(--cc-item-line-height, 25.6px);
   color: var(--cc-item-text-color, #fff);
+  background-color: var(--cc-bgcolor, transparent);
+  border-radius: var(--cc-border-radius, 8px);
+  filter: drop-shadow(var(--cc-dropshadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)));
+  padding: 0 0 32px;
+  margin: 0;
+  display: inline-grid;
+  grid-template-columns: auto;
+  gap: 10px;
+
+  @include media (large, extraLarge, extraExtraLarge) {
+    grid-template-columns: repeat(var(--cc-column-count, 1), 1fr);
+  }
+}
+
+.contentCard .headline {
+  font-size: var(--cc-item-headline-font-size, 28px);
+  font-weight: var(--cc-item-headline-font-weight, 600);
+  line-height: var(--cc-item-headline-line-height, 33.6px);
+  margin: 0 0 8px 0;
+}
+
+.contentCard .subheadline {
+  font-size: var(--cc-item-subheadline-font-size, 24px);
+  font-weight: var(--cc-item-subheadline-font-weight, 400);
+  line-height: var(--cc-item-subheadline-line-height, 38.4px);
+  margin: 0 0 16px 0;
+}
+
+.contentCard .contentCardItem {
   border-radius: var(--cc-item-border-radius, 8px);
   background-color: var(--cc-item-bgcolor, #6267A1);
 
@@ -49,7 +49,9 @@
   }  
 }
 
-.contentCardItem-image {
+.contentCard .contentCardItem .contentCardItem-image {
+  height: 100%;
+  
   img {
     aspect-ratio: 16/9;
     display: block;
@@ -57,7 +59,6 @@
     border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
         
     @include media (medium, large, extraLarge, extraExtraLarge) {
-      //grid-area: ccimage;
       border-radius: var(--cc-item-2col-image-left-border-radius, 8px 0 0 8px);
       object-fit: cover;
       width: 100%;
@@ -69,8 +70,9 @@
   }
 }
 
-.contentCardItem-content {
+.contentCard .contentCardItem .contentCardItem-content {
   padding: 24px 16px 32px;
+  --cc-item-text-color: #fff;
 
   @include media (medium, large, extraLarge, extraExtraLarge) {
     grid-area: cccontent;
@@ -80,11 +82,9 @@
   p {
     margin: 0 0 32px;
   }
-
-  --cc-item-text-color: #fff;
 }
 
-.contentCardItem-content-label {
+.contentCard .contentCardItem .contentCardItem-content .contentCardItem-content-label {
   display: inline-block;
   margin: 0 0 8px;
   font-size: var(--cc-item-label-font-size, 16px);
@@ -92,7 +92,7 @@
   line-height: var(--cc-item-label-line-height, 25.6px);
 }
 
-.contentCardItem--right {
+.contentCard .contentCardItem-right {
   @include media (medium, large, extraLarge, extraExtraLarge) {
     grid-template-areas: "cccontent ccimage";
   }  
@@ -105,29 +105,6 @@
       }
     }
   }
-}
-
-.contentCard--multiple {
-  .contentCardItem {
-    grid-template-rows: min-content auto;
-    grid-template-columns: 1fr;
-    grid-template-areas: "ccimage" "cccontent";
-  }
-  .contentCardItem-image {
-    img {
-      border-radius: var(--cc-item-1col-image-left-border-radius, 8px 8px 0 0);
-    }
-  }
-  @include media (medium) {
-    //grid-template-columns: repeat(2, 1fr);
-
-    .contentCardItem:nth-child(n + 3) {
-      grid-column: 1/3;
-      grid-template-areas: "ccimage cccontent";
-      grid-template-columns: 1fr 1fr;
-    }  
-  }
-
 }
 
 .contentCardItem-content-btn {
@@ -143,6 +120,14 @@
     gap: 32px;
     justify-content: flex-start;
     row-gap: 24px;
+  }
+
+  a {
+    margin: 0 0 24px;
+
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
   }
 
   --primary-btn-font-weight: var(--cc-item-primary-btn-font-weight);
@@ -174,4 +159,59 @@
   --tertiary-btn-hover-bgcolor: var(--cc-item-tertiary-btn-hover-bgcolor);
   --tertiary-btn-active-text-color: var(--cc-item-tertiary-btnactive-text-color);
   --tertiary-btn-active-bgcolor: var(--cc-item-tertiary-btn-active-bgcolor);
+}
+
+.contentCard-multiple {  
+  @include media (medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media (large, extraLarge, extraExtraLarge) {
+    grid-template-columns: repeat(var(--cc-column-count, 1), 1fr);
+  }
+}
+
+.contentCard-multiple .contentCardItem {
+  grid-template-rows: min-content auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: "ccimage" "cccontent";
+
+  @include media(medium) {
+    &:nth-child(3) {
+      grid-column: 1/3;
+      grid-template-areas: "ccimage cccontent";
+      grid-template-columns: 1fr 1fr;
+
+      .contentCardItem-image {
+        img {
+          border-radius: var(--cc-item-2col-image-left-border-radius, 8px 8px 0 0);
+        }
+      }
+    }  
+  }
+}
+
+.contentCard-multiple .contentCardItem-right {
+  grid-template-rows: min-content auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: "ccimage" "cccontent";
+
+  @include media(medium) {
+    &:nth-child(3) {
+      grid-column: 1/3;
+      grid-template-areas: "cccontent ccimage";
+      grid-template-columns: 1fr 1fr;
+
+      .contentCardItem-image {
+        img {
+          border-radius: var(--cc-item-2col-image-right-border-radius, 8px 8px 0 0);
+        }
+      }
+    }  
+  }
+}
+
+.contentCard-multiple .contentCardItem .contentCardItem-image {
+  img {
+    border-radius: var(--cc-item-2col-image-top-border-radius, 8px 8px 0 0);
+  }
 }

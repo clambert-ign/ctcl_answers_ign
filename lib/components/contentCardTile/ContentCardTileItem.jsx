@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-import styles from "./ContentCard.module.scss"
+import styles from "./ContentCardTile.module.scss"
 
 /**
- * ContentCardItem Component
+ * ContentCardTileItem Component
  * @param {string} label        - The label of the Content Card component item to be displayed.
  * @param {string} title        - The title of the Content Card component item to be displayed.
  * @param {string} titleTag     - The heading tag to wrap around the title of the Content Card component item to be displayed.
@@ -14,7 +14,7 @@ import styles from "./ContentCard.module.scss"
  * @returns React Component
  */
 
-const ContentCardItem = (props) => {
+const ContentCardTileItem = (props) => {
   const {
     label,
     title,
@@ -30,45 +30,47 @@ const ContentCardItem = (props) => {
   const SubHeadingTag = `${subtitleTag}`
 
   return (
-    <div 
-      className={`
-        ${styles.contentCardItem} 
-        ${imageAlign ? styles['contentCardItem-' + imageAlign] : ''} 
-      `}
-    >
-      {image && (
-        <div className={styles[`contentCardItem-image`]}>
-          {image}
-        </div>
-      )}
-      <div className={styles[`contentCardItem-content`]}>
-        {label && 
-          <span className={styles[`contentCardItem-content-label`]}>
-            {label}
-          </span>
-        }
-        {title && (
-          <HeadingTag className={styles[`headline`]}>{title}</HeadingTag>
-        )}
-        {subtitle && (          
-          <SubHeadingTag className={styles.subheadline}>{subtitle}</SubHeadingTag>
-        )}
-        {text && (
-          <>
-            {text}
-          </>
-        )}
-        {props?.children && (
-          <div className={styles["contentCardItem-content-btn"]}>
-            {props?.children}
+    <div>
+      <div 
+        className={`
+          ${styles.contentCardItem} 
+          ${imageAlign ? styles['contentCardItem-' + imageAlign] : ''} 
+        `}
+      >
+        {image && (
+          <div className={styles[`contentCardItem-image`]}>
+            {image}
           </div>
         )}
-      </div>
+        <div className={styles[`contentCardItem-content`]}>
+          {label && 
+            <span className={styles[`contentCardItem-content-label`]}>
+              {label}
+            </span>
+          }
+          {title && (
+            <HeadingTag className={styles[`headline`]}>{title}</HeadingTag>
+          )}
+          {subtitle && (          
+            <SubHeadingTag className={styles.subheadline}>{subtitle}</SubHeadingTag>
+          )}
+          {text && (
+            <>
+              {text}
+            </>
+          )}
+        </div>
+      </div>    
+      {props?.children && (
+        <div className={styles["contentCardItem-content-btn"]}>
+          {props?.children}
+        </div>
+      )}
     </div>
   )
 }
 
-ContentCardItem.propTypes = {
+ContentCardTileItem.propTypes = {
   label:        PropTypes.string,
   title:        PropTypes.string,
   titleTag:     PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5']),
@@ -80,11 +82,11 @@ ContentCardItem.propTypes = {
   imageAlign:   PropTypes.oneOf(['left', 'right'])
 }
 
-ContentCardItem.defaultProps = {
+ContentCardTileItem.defaultProps = {
   titleTag:     'h3',
   subtitleTag:  'h3',
   image:        null,
   imageAlign:   'left'
 }
 
-export default ContentCardItem
+export default ContentCardTileItem

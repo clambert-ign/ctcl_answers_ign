@@ -259,6 +259,7 @@
   --cc-item-1col-image-left-border-radius: 8px 8px 0 0;
   --cc-item-2col-image-left-border-radius: 8px 0 0 8px;
   --cc-item-2col-image-right-border-radius:  0 8px 8px 0;
+  --cc-item-2col-image-top-border-radius:  8px 8px 0 0;
   --cc-item-primary-btn-font-weight: 700;
   --cc-item-primary-btn-line-height: 19.2px;
   --cc-item-primary-btn-text-color: #6267A1;
@@ -289,6 +290,56 @@
   --cc-item-tertiary-btn-active-text-color: #ea5724;
   --cc-item-tertiary-btn-active-bgcolor: transparent;
   
+  //Content Card Tile
+  --cctile-bgcolor: transparent;
+  --cctile-border-radius: 8px;
+  --cctile-dropshadow: none;
+  --cctile-item-font-size: 16px;
+  --cctile-item-font-weight: 200;
+  --cctile-item-line-height: 25.6px;
+  --cctile-item-text-color: #4B4C53;
+  --cctile-item-border-radius: 8px;
+  --cctile-item-bgcolor: #F5F5F6;
+  --cctile-item-label-font-size: 16px;
+  --cctile-item-label-font-weight: 400;
+  --cctile-item-label-line-height: 25.6px;
+  --cctile-item-headline-font-size: 28px;
+  --cctile-item-headline-font-weight: 600;
+  --cctile-item-headline-line-height: 33.6px;
+  --cctile-item-subheadline-font-size: 24px;
+  --cctile-item-subheadline-font-weight: 400;
+  --cctile-item-subheadline-line-height: 38.4px;
+  --cctile-item-border-radius: 8px;
+  --cctile-item-primary-btn-font-weight: 700;
+  --cctile-item-primary-btn-line-height: 19.2px;
+  --cctile-item-primary-btn-text-color: #fff;
+  --cctile-item-primary-btn-bgcolor: #6267A1;
+  --cctile-item-primary-btn-border-color: #6267A1;
+  --cctile-item-primary-btn-hover-text-color: #fff;
+  --cctile-item-primary-btn-hover-bgcolor: #757AB5;
+  --cctile-item-primary-btn-hover-border-color: #757AB5;
+  --cctile-item-primary-btn-active-text-color: #6267A1;
+  --cctile-item-primary-btn-active-bgcolor: #F5F5F6;
+  --cctile-item-primary-btn-active-border-color: #F5F5F6;
+  --cctile-item-secondary-btn-font-weight: 700;
+  --cctile-item-secondary-btn-line-height: 19.2px;
+  --cctile-item-secondary-btn-text-color: #6267A1;
+  --cctile-item-secondary-btn-bgcolor: transparent;
+  --cctile-item-secondary-btn-border-color: #6267A1;
+  --cctile-item-secondary-btn-hover-text-color: #fff;
+  --cctile-item-secondary-btn-hover-bgcolor: #6267A1;
+  --cctile-item-secondary-btn-hover-border-color: #6267A1;
+  --cctile-item-secondary-btn-active-text-color: #6267A1;
+  --cctile-item-secondary-btn-active-bgcolor: #F5F5F6;
+  --cctile-item-secondary-btn-active-border-color: #F5F5F6;
+  --cctile-item-tertiary-btn-font-weight: 700;
+  --cctile-item-tertiary-btn-line-height: 19.2px;
+  --cctile-item-tertiary-btn-text-color: #6267A1;
+  --cctile-item-tertiary-btn-hover-text-color: #757AB5;
+  --cctile-item-tertiary-btn-hover-bgcolor: transparent;
+  --cctile-item-tertiary-btn-active-text-color: #757AB5;
+  --cctile-item-tertiary-btn-active-bgcolor: transparent;
+
   //Carousel
   --carousel-headline-font-size: 28px;
   --carousel-headline-font-weight: 400;

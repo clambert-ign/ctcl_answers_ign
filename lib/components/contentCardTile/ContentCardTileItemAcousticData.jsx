@@ -1,4 +1,4 @@
-import ContentCardItem from './ContentCardItem'
+import ContentCardTileItem from './ContentCardTileItem'
 import Image from "@atoms/image/Image"
 import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
 import RichText from '@lib/richText/RichText'
@@ -15,7 +15,7 @@ const ContentCardAcousticData = (props) => {
   }
 
   return (
-      <ContentCardItem 
+      <ContentCardTileItem 
         image={<Image src={getFullUrl(data?.image?.url)} altText={getValue(data?.image?.altText)} />}
         title={getValue(data?.title)}
         titleTag={getSelectionValue(data?.titleTag)}
@@ -34,7 +34,7 @@ const ContentCardAcousticData = (props) => {
             })}
           </>
         )}
-      </ContentCardItem>
+      </ContentCardTileItem>
   )  
 }
 
