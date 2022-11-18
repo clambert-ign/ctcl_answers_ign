@@ -1,0 +1,25 @@
+{
+    "country": "Norge",
+    "countryRegion": "Land / Region:",
+    "pleaseSelectYourCountryOrRegion": "Velg ditt land eller din region",
+    "region": "Europa",
+    "activeCountries": [
+        {"id": "1", "country": "Deutschland", "nationality": "Deutsch", "region": "Europe" }, 
+        {"id": "2", "country": "Ireland", "nationality": "Irish",  "region": "Europe" },
+        {"id": "3", "country": "La France", "nationality": "français",  "region": "Europe" },
+        {"id": "4", "country": "Italia", "nationality": "Italiano", "region": "Europe" },
+        {"id": "5", "country": "Nederland", "nationality": "Nederlands", "region": "Europe" },
+        {"id": "6", "country": "Norge", "nationality": "norsk", "region": "Europe" },
+        {"id": "7", "country": "Sverige", "nationality": "svenska", "region": "Europe" },
+        {"id": "8", "country": "England", "nationality": "English", "region": "Europe" },
+        {"id": "9", "country": "España", "nationality": "Español", "region": "Europe" },
+        {"id": "10", "country": "Suomi", "nationality": "Suomalainen", "region": "Europe" },
+        {"id": "11", "country": "Danmark", "nationality": "dansk", "region": "Europe" }
+    ],
+    "cookie-accept-all": "Godta",
+    "cookie-accept-choices": "Godta preferanser",
+    "cookie-accept-reject": "Avslå",
+    "cookie-accept-necessary": "Funksjonalitets-informasjonskapsler (essensielle)",
+    "audio-transcript": "Nedlasting transkripsjon",
+    "error404": "Siden du leter etter kan ikke finnes"
+}

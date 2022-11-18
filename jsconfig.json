@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@i18n/*": ["i18n/*"],
+      "@layouts/*": ["layouts/*"],
+      "@lib/*": ["lib/*"],
+      "@atoms/*": ["lib/atoms/*"],
+      "@components/*": ["lib/components/*"],
+      "@patterns/*": ["lib/patterns/*"],
+      "@assets/*": ["lib/assets/*"],
+      "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
+      "@src/*": ["src/*"],
+      "@templates/*": ["templates/*"],
+    }
+  }
+}
