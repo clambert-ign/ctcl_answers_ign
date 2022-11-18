@@ -1,0 +1,138 @@
+[NARRATOR]: Transcripts in a snap.
+
+[snap]
+
+Think of a transcript as a
+text version of your video.
+
+When made correctly,
+
+video transcripts can
+be read by screen readers
+
+or turned into Braille documents,
+
+making your content accessible
+to people who are blind or low vision.
+
+If a video player doesn’t support captions,
+
+a transcript can provide access
+
+for people who are Deaf and Hard of Hearing.
+
+They're also helpful for people who
+
+want to quickly scan
+or search a video’s content.
+
+So what’s in a transcript?
+
+A basic transcript
+
+is just a written version
+of everything said in your video.
+
+It also indicates who says it,
+
+and any relevant sounds.
+
+[clapping]
+
+To make our transcripts more accessible,
+
+make sure to include
+
+any key visual information
+someone would need
+
+in order to understand
+what’s going on,
+
+such as locations or
+important nonverbal communication.
+
+How else would someone
+relying on a transcript know
+
+that your characters were
+waving from a train?
+
+[train whistle]
+
+Many service providers will
+transcribe your video for you
+
+for less than a dollar a minute.
+
+But if you’ve already done the work
+to caption your video on youtube,
+
+producing a video transcript
+is a breeze.
+
+First, navigate to the video on Youtube
+
+and click the three-dot icon
+just below the player
+
+in the bottom right.
+
+Select “Open Transcript”
+from the drop-down menu
+
+and a list of the video's captions will appear.
+
+Remove the timestamps by clicking on
+
+the three-dot icon
+in the transcript toolbar,
+
+and selecting “toggle timestamps”.
+
+highlight all the text,
+and copy and paste it into a document.
+
+Add in important visual information where needed.
+
+You can group lines together
+by speaker if you like,
+
+but it won’t make a difference
+
+for people needing to access your content
+using screen readers.
+
+Its important to remember
+
+that not all documents with text
+are accessible.
+
+Most PDFs, for instance,
+“flatten” text into the document,
+
+making it invisible to assistive screen readers.
+
+So it’s best to save your transcript
+as plain text
+
+in a file type like .doc , .txt, or html.
+
+After you’ve saved your transcript,
+
+include a link to it
+in your share text or on your website.
+
+If you share your video on social media,
+
+paste the transcript text
+as the first comment on your post
+
+so that users don’t have to click
+to another page to access it.
+
+Our goal here is accessibility,
+and accessibility is cool.
+
+Produced by Rooted in Rights.
+
