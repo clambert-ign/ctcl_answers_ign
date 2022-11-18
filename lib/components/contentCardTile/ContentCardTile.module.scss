@@ -1,0 +1,151 @@
+@import '../../assets/styles/global.scss';
+
+.contentCard {
+  font-family: var(--base-font-family);
+  font-size: var(--cctile-item-font-size, 16px);
+  font-weight: var(--cctile-item-font-weight, 200);
+  line-height: var(--cctile-item-line-height, 25.6px);
+  color: var(--cctile-item-text-color, #fff);
+  background-color: var(--cctile-bgcolor, transparent);
+  border-radius: var(--cctile-border-radius, 8px);
+  filter: drop-shadow(var(--cctile-dropshadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)));
+  padding: 0 0 32px;
+  margin: 0;
+  display: inline-grid;
+  grid-template-columns: auto;
+  gap: 10px;
+}
+
+.contentCard .headline {
+  font-size: var(--cctile-item-headline-font-size, 28px);
+  font-weight: var(--cctile-item-headline-font-weight, 600);
+  line-height: var(--cctile-item-headline-line-height, 33.6px);
+  margin: 0 0 8px 0;
+}
+
+.contentCard .subheadline {
+  font-size: var(--cctile-item-subheadline-font-size, 24px);
+  font-weight: var(--cctile-item-subheadline-font-weight, 400);
+  line-height: var(--cctile-item-subheadline-line-height, 38.4px);
+  margin: 0 0 16px 0;
+}
+
+.contentCard .contentCardItem {
+  border-radius: var(--cctile-item-border-radius, 8px);
+  background-color: var(--cctile-item-bgcolor, #6267A1);
+
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "ccimage" "cccontent";
+
+  margin: 0 0 8px;
+  padding: 16px 16px 32px;
+
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-template-areas: "ccimage cccontent";
+    column-gap: 24px;
+    padding: 24px 24px 32px;
+  }
+  @include media(medium) {
+    grid-template-columns: 2.5fr 5.5fr;
+  }
+  @include media(large) {
+    grid-template-columns: 2fr 6fr; 
+  }
+  @include media(extraLarge) {
+    grid-template-columns: 2.5fr 9.5fr; 
+  }
+  @include media(extraExtraLarge) {
+    grid-template-columns: 2fr 10fr; 
+  }
+}
+
+.contentCard .contentCardItem .contentCardItem-image {
+  grid-area: ccimage;
+  margin: 0 0 16px;
+  
+  img {
+    aspect-ratio: 1/1;
+    display: block;
+    width: 100%;
+    border-radius: var(--cctile-item-image-border-radius, 8px);
+  }
+}
+
+.contentCard .contentCardItem .contentCardItem-content {
+  p {
+    margin: 0;
+  }
+}
+
+.contentCard .contentCardItem .contentCardItem-content .contentCardItem-content-label {
+  display: inline-block;
+  margin: 0 0 8px;
+  font-size: var(--cctile-item-label-font-size, 16px);
+  font-weight: var(--cctile-item-label-font-weight, 400);
+  line-height: var(--cctile-item-label-line-height, 25.6px);
+}
+
+.contentCard .contentCardItem-right {
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: 8fr 4fr;
+    grid-template-areas: "cccontent ccimage";
+  }
+}
+
+.contentCardItem-content-btn {
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin: 0 0 24px;
+  }
+
+  --primary-btn-font-weight: var(--cctile-item-primary-btn-font-weight);
+  --primary-btn-line-height: var(--cctile-item-primary-btn-line-height);
+  --primary-btn-text-color: var(--cctile-item-primary-btn-text-color);
+  --primary-btn-icon-color: var(--cctile-item-primary-btn-icon-color);
+  --primary-btn-bgcolor: var(--cctile-item-primary-btn-bgcolor);
+  --primary-btn-border-color: var(--cctile-item-primary-btn-border-color);
+  --primary-btn-hover-text-color: var(--cctile-item-primary-btn-hover-text-color);
+  --primary-btn-hover-icon-color: var(--cctile-item-primary-btn-hover-icon-color);
+  --primary-btn-hover-bgcolor: var(--cctile-item-primary-btn-hover-bgcolor);
+  --primary-btn-hover-border-color: var(--cctile-item-primary-btn-hover-border-color);
+  --primary-btn-active-text-color: var(--cctile-item-primary-btn-active-text-color);
+  --primary-btn-active-icon-color: var(--cctile-item-primary-btn-active-icon-color);
+  --primary-btn-active-bgcolor: var(--cctile-item-primary-btn-active-bgcolor);
+  --primary-btn-active-border-color: var(--cctile-item-primary-btn-active-border-color);  
+  --secondary-btn-font-weight: var(--cctile-item-secondary-btn-font-weight);
+  --secondary-btn-line-height: var(--cctile-item-secondary-btn-line-height);
+  --secondary-btn-text-color: var(--cctile-item-secondary-btn-text-color);
+  --secondary-btn-icon-color: var(--cctile-item-secondary-btn-icon-color);
+  --secondary-btn-bgcolor: var(--cctile-item-secondary-btn-bgcolor);
+  --secondary-btn-border-color: var(--cctile-item-secondary-btn-border-color);
+  --secondary-btn-hover-text-color: var(--cctile-item-secondary-btn-hover-text-color);
+  --secondary-btn-hover-icon-color: var(--cctile-item-secondary-btn-hover-icon-color);
+  --secondary-btn-hover-bgcolor: var(--cctile-item-secondary-btn-hover-bgcolor);
+  --secondary-btn-hover-border-color: var(--cctile-item-secondary-btn-hover-border-color);
+  --secondary-btn-active-text-color: var(--cctile-item-secondary-btn-active-text-color);
+  --secondary-btn-active-icon-color: var(--cctile-item-secondary-btn-active-icon-color);
+  --secondary-btn-active-bgcolor: var(--cctile-item-secondary-btn-active-bgcolor);
+  --secondary-btn-active-border-color: var(--cctile-item-secondary-btn-active-border-color);  
+  --tertiary-btn-font-weight: var(--cctile-item-tertiary-btn-font-weight);
+  --tertiary-btn-line-height: var(--cctile-item-tertiary-btn-line-height);
+  --tertiary-btn-text-color: var(--cctile-item-tertiary-btn-text-color);
+  --tertiary-btn-icon-color: var(--cctile-item-tertiary-btn-icon-color);
+  --tertiary-btn-hover-text-color: var(--cctile-item-tertiary-btn-hover-text-color);
+  --tertiary-btn-hover-icon-color: var(--cctile-item-tertiary-btn-hover-icon-color);
+  --tertiary-btn-hover-bgcolor: var(--cctile-item-tertiary-btn-hover-bgcolor);
+  --tertiary-btn-active-text-color: var(--cctile-item-tertiary-btnactive-text-color);
+  --tertiary-btn-active-icon-color: var(--cctile-item-tertiary-btnactive-icon-color);
+  --tertiary-btn-active-bgcolor: var(--cctile-item-tertiary-btn-active-bgcolor);
+}
+
+.contentCard-multiple { 
+  @include media (large, extraLarge, extraExtraLarge) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

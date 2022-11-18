@@ -1,0 +1,58 @@
+/*
+  KANSO default theme design tokens for deprecated KANSO library items only.
+*/
+
+:root {
+  
+  // Global Cookie Bar
+  --gc-bgcolor: #fff;
+  --gc-font-size: 16px;
+  --gc-font-weight: 200;
+  --gc-line-height: 25.6px;
+  --gc-text-color: #4B4C53;
+  --gc-headline-font-size: 24px;
+  --gc-headline-font-weight: 600;
+  --gc-headline-line-height: 38px;        
+  --gc-primary-btn-font-weight: var(--primary-btn-font-weight);
+  --gc-primary-btn-line-height: var(--primary-btn-line-height);
+  --gc-primary-btn-bgcolor: var(--primary-btn-bgcolor);
+  --gc-primary-btn-text-color: var(--primary-btn-text-color);
+  --gc-primary-btn-border-color: var(--primary-btn-border-color);
+  --gc-primary-btn-hover-bgcolor: var(--primary-btn-hover-bgcolor);
+  --gc-primary-btn-hover-text-color: var(--primary-btn-hover-text-color);
+  --gc-primary-btn-hover-border-color: var(--primary-btn-hover-border-color);
+  --gc-primary-btn-active-bgcolor: var(--primary-btn-active-bgcolor);
+  --gc-primary-btn-active-text-color: var(--primary-btn-active-text-color);
+  --gc-primary-btn-active-border-color: var(--primary-btn-active-border-color);
+  --gc-secondary-btn-font-weight: var(--secondary-btn-font-weight);
+  --gc-secondary-btn-line-height: var(--secondary-btn-line-height);
+  --gc-secondary-btn-bgcolor: var(--secondary-btn-bgcolor);
+  --gc-secondary-btn-text-color: var(--secondary-btn-text-color);
+  --gc-secondary-btn-border-color: var(--secondary-btn-border-color);
+  --gc-secondary-btn-hover-bgcolor: var(--secondary-btn-hover-bgcolor);
+  --gc-secondary-btn-hover-text-color: var(--secondary-btn-hover-text-color);
+  --gc-secondary-btn-hover-border-color: var(--secondary-btn-hover-border-color);
+  --gc-secondary-btn-active-bgcolor: var(--secondary-btn-active-bgcolor);
+  --gc-secondary-btn-active-text-color: var(--secondary-btn-active-text-color);
+  --gc-secondary-btn-active-border-color: var(--secondary-btn-active-border-color);
+  --gc-tertiary-btn-font-weight: var(--tertiary-btn-font-weight);
+  --gc-tertiary-btn-line-height: var(--tertiary-btn-line-height);
+  --gc-tertiary-btn-text-color: var(--tertiary-btn-text-color);
+  --gc-tertiary-btn-hover-bgcolor: var(--tertiary-btn-hover-bgcolor);
+  --gc-tertiary-btn-hover-text-color: var(--tertiary-btn-hover-text-color);
+  --gc-tertiary-btn-active-bgcolor: var(--tertiary-btn-active-bgcolor);
+  --gc-tertiary-btn-active-text-color: var(--tertiary-btn-active-text-color);
+
+  // Global Cookie Preference
+  --cp-bgcolor: #fff;
+  --cp-text-color: #4B4C53;
+  --cp-font-size: 16px;
+  --cp-font-weight: 200;
+  --cp-line-height: 25.6px;
+  --cp-description-font-size: 24px;
+  --cp-description-font-weight: 200;
+  --cp-description-line-height: 38.4px;
+  --cp-headline-font-size: 24px;
+  --cp-headline-font-weight: 600;
+  --cp-headline-line-height: 38px;
+}

@@ -1,0 +1,35 @@
+@import "../../../assets/styles/global.scss";
+
+.datepickerdd {
+  font-family: var(--base-font-family);
+  font-size: var(--datedd-font-size, 16px);
+  font-weight: var(--datedd-font-weight, 600);
+  color: var(--datedd-text-color, var(--date-font-color));
+}
+
+.datepickerdd-ddlwrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.datepickerdd .datepickerdd-text {
+  font-size: var(--datedd-text-font-size, 12px);
+  font-weight: var(--datedd-text-font-weight, 400);
+}
+
+.datepickerdd-disabled {
+  color: var(--datedd-disabled-color, #888995);
+  cursor: not-allowed;
+
+  input {
+    cursor: not-allowed;
+  }
+}
+
+.datepickerdd-error {
+  color: var(--datedd-error-color, #b00020);
+}

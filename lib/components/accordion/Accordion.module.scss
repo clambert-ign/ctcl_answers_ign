@@ -1,0 +1,138 @@
+@import "../../assets/styles/global.scss";
+
+.accordion {
+  font-family: var(--base-font-family);
+  color: var(--acc-text-color, var(--base-font-color));
+  padding: 0 0 32px 0;
+}
+
+.accordion .headline {
+  font-size: var(--acc-headline-font-size, 28px);
+  font-weight: var(--acc-headline-font-weight, 400);
+  line-height: var(--acc-headline-line-height, 33.6px);
+  margin: 0 0 24px 0;
+}
+
+.accordion dd {
+  margin: 0 0 32px;
+  display: block;
+}
+
+.accordion dd.closed {
+  display: none;
+}
+
+.accordion dt {
+  position: relative;
+  margin: 16px 0 32px;
+  --primary-btn-font-size: var(--acc-item-font-size, 16px);
+  --primary-btn-font-weight: var(--acc-item-font-weight, 700);
+  --primary-btn-line-height: var(--acc-item-line-height, 19.2px);
+  --primary-btn-box-shadow: var(--acc-item-box-shadow, 0px 6px 24px -4px rgba(98, 103, 161, 0.7));
+  --primary-btn-text-color: var(--acc-item-text-color, #fff);
+  --primary-btn-icon-color: var(--acc-item-icon-color, #fff);
+  --primary-btn-bgcolor: var(--acc-item-bgcolor, #6267A1);
+  --primary-btn-border-color: var(--acc-item-border-color, #6267A1);
+  --primary-btn-hover-box-shadow: var(--acc-item-hover-box-shadow, 0px 6px 14px -4px rgba(98, 103, 161, 0.6));
+  --primary-btn-hover-text-color: var(--acc-item-hover-text-color, #fff);
+  --primary-btn-hover-icon-color: var(--acc-item-hover-icon-color, #fff);
+  --primary-btn-hover-bgcolor: var(--acc-item-hover-bgcolor, #757AB5);
+  --primary-btn-hover-border-color: var(--acc-item-hover-border-color, #757AB5);
+  --primary-btn-active-box-shadow: var(--acc-item-active-box-shadow, 0px 6px 14px -4px rgba(98, 103, 161, 0.6));
+  --primary-btn-active-text-color: var(--acc-item-active-text-color, #6267A1);
+  --primary-btn-active-icon-color: var(--acc-item-active-icon-color, #6267A1);
+  --primary-btn-active-bgcolor: var(--acc-item-active-bgcolor, #fff);
+  --primary-btn-active-border-color: var(--acc-item-active-border-color, #fff);
+  --primary-btn-focus-box-shadow: var(--acc-item-focus-box-shadow, none);
+  --primary-btn-focus-text-color: var(--acc-item-focus-text-color, #4B4C53);
+  --primary-btn-focus-icon-color: var(--acc-item-focus-icon-color, #4B4C53);
+  --primary-btn-focus-bgcolor: var(--acc-item-focus-bgcolor, #FFDD00);
+  --primary-btn-focus-border-color: var(--acc-item-focus-border-color, #FFDD00);
+  --primary-btn-disabled-box-shadow: var(--acc-item-disabled-box-shadow, none);
+  --primary-btn-disabled-text-color: var(--acc-item-disabled-text-color, #4B4C53);
+  --primary-btn-disabled-icon-color: var(--acc-item-disabled-icon-color, #4B4C53);
+  --primary-btn-disabled-bgcolor: var(--acc-item-disabled-bgcolor, #F5F5F6);
+  --primary-btn-disabled-border-color: var(--acc-item-disabled-border-color, #F5F5F6);
+
+  a {
+    width: calc(100% - 38px);
+    max-width: unset;
+    justify-content: left;
+    @include transition(color, background-color, border-color, box-shadow);
+  }
+  .chevron svg {
+    position: absolute;
+    top: 28px;
+    right: 20px;
+    path {
+      @include transition(fill);
+      fill: var(--acc-item-icon-color, #fff);
+    }
+  }
+  &:hover {
+    .chevron svg {
+      path {
+        fill: var(--acc-item-hover-icon-color, #fff);
+      }
+    }
+  }
+  &:active {
+    .chevron svg {
+      path {
+        fill: var(--acc-item-active-icon-color, #fff);
+      }
+    }
+  }
+}
+
+.accordion dt.closed {
+  margin: 16px 0;
+  --primary-btn-font-size: var(--acc-item-closed-font-size, 16px);
+  --primary-btn-font-weight: var(--acc-item-closed-font-weight, 700);
+  --primary-btn-line-height: var(--acc-item-closed-line-height, 19.2px);
+  --primary-btn-box-shadow: var(--acc-item-closed-box-shadow, 0px 6px 24px -4px rgba(98, 103, 161, 0.7));
+  --primary-btn-text-color: var(--acc-item-closed-text-color, #fff);
+  --primary-btn-icon-color: var(--acc-item-closed-icon-color, #fff);
+  --primary-btn-bgcolor: var(--acc-item-closed-bgcolor, #6267A1);
+  --primary-btn-border-color: var(--acc-item-closed-border-color, #6267A1);
+  --primary-btn-hover-box-shadow: var(--acc-item-closed-hover-box-shadow, 0px 6px 14px -4px rgba(98, 103, 161, 0.6));
+  --primary-btn-hover-text-color: var(--acc-item-closed-hover-text-color, #fff);
+  --primary-btn-hover-icon-color: var(--acc-item-closed-hover-icon-color, #fff);
+  --primary-btn-hover-bgcolor: var(--acc-item-closed-hover-bgcolor, #757AB5);
+  --primary-btn-hover-border-color: var(--acc-item-closed-hover-border-color, #757AB5);
+  --primary-btn-active-box-shadow: var(--acc-item-closed-active-box-shadow, 0px 6px 14px -4px rgba(98, 103, 161, 0.6));
+  --primary-btn-active-text-color: var(--acc-item-closed-active-text-color, #6267A1);
+  --primary-btn-active-icon-color: var(--acc-item-closed-active-icon-color, #6267A1);
+  --primary-btn-active-bgcolor: var(--acc-item-closed-active-bgcolor, #fff);
+  --primary-btn-active-border-color: var(--acc-item-closed-active-border-color, #fff);
+  --primary-btn-focus-box-shadow: var(--acc-item-closed-focus-box-shadow, none);
+  --primary-btn-focus-text-color: var(--acc-item-closed-focus-text-color, #4B4C53);
+  --primary-btn-focus-icon-color: var(--acc-item-closed-focus-icon-color, #4B4C53);
+  --primary-btn-focus-bgcolor: var(--acc-item-closed-focus-bgcolor, #FFDD00);
+  --primary-btn-focus-border-color: var(--acc-item-closed-focus-border-color, #FFDD00);
+  --primary-btn-disabled-box-shadow: var(--acc-item-closed-disabled-box-shadow, none);
+  --primary-btn-disabled-text-color: var(--acc-item-closed-disabled-text-color, #4B4C53);
+  --primary-btn-disabled-icon-color: var(--acc-item-closed-disabled-icon-color, #4B4C53);
+  --primary-btn-disabled-bgcolor: var(--acc-item-closed-disabled-bgcolor, #F5F5F6);
+  --primary-btn-disabled-border-color: var(--acc-item-closed-disabled-border-color, #F5F5F6);
+  .chevron svg {
+    path {
+      @include transition(fill);
+      fill: var(--acc-item-closed-icon-color, #fff);
+    }
+  }
+  &:hover {
+    .chevron svg {
+      path {
+        fill: var(--acc-item-closed-hover-icon-color, #fff);
+      }
+    }
+  }
+  &:active {
+    .chevron svg {
+      path {
+        fill: var(--acc-item-closed-active-icon-color, #fff);
+      }
+    }
+  }
+}

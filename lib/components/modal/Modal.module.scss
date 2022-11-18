@@ -1,0 +1,187 @@
+@import "../../assets/styles/global.scss";
+
+.modal {
+  font-family: var(--base-font-family);
+  font-size: var(--modal-font-size, 16px);
+  font-weight: var(--modal-font-weight, 200);
+  line-height: var(--modal-line-height, 25.6px);
+  color: var(--modal-text-color, #4B4C53);
+  background-color: var(--modal-bgcolor, rgba(0,0,0,0.4));
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal .modal-main {
+  width: 84%;
+  padding: 8%;
+  height: 90.5%;
+  background-color: var(--modal-content-bgcolor, #fff);
+  box-shadow: 0px 7.48582px 30px rgba(50, 50, 50, 0.2);
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include media(small) {
+    height: 89.5%;
+  }
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    z-index: 100;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: unset;
+    max-height: 75%;
+    border-radius: var(--modal-content-border-radius, 8px);
+    padding: 24px 32px;
+  }
+  @include media(medium) {
+    width: var(--modal-content-width-medium, 80%);
+  }  
+  @include media(large) {
+    width: var(--modal-content-width-large, 70%);
+  }  
+  @include media(extraLarge) {
+    padding: 32px;
+    width: var(--modal-content-width-extraLarge, 60%);
+  }  
+  @include media(extraExtraLarge) {
+    padding: 32px;
+    width: var(--modal-content-width-extraExtraLarge, 60%);
+  }
+}
+
+.modal .modal-main .headline {
+  font-size: var(--modal-content-headline-font-size, 28px);
+  font-weight: var(--modal-content-headline-font-weight, 400);
+  line-height: var(--modal-content-headline-line-height, 33.6px);
+  margin: 0 0 24px 0;
+}
+
+.modal .modal-main .modal-main-close {
+  width: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  top: 0;
+  left: 100%;
+  margin: 0 0 0 -22px;
+  --tertiary-btn-icon-color: var(--modal-text-color, #4b4c53);
+}
+
+[dir="rtl"] .modal .modal-main .modal-main-close {
+  left: auto;
+  right: 100%;
+  margin: 0 -22px 0 0;
+}
+
+.modal .modal-main .modal-main-content {
+  margin: 0 0 32px;
+  overflow: auto;
+  width: 99%; 
+  color: var(--modal-text-color, #4B4C53);
+}
+
+.modal .modal-main .modal-main-content--blur {
+  padding: 0 4% 8px 0;
+  width: 95%;
+  -webkit-mask-image: -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0)));
+  mask-image: -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0)));
+}
+
+[dir="rtl"] .modal .modal-main .modal-main-content {
+  padding: 0 0 0 32px;
+}
+
+.modal ::-webkit-scrollbar {
+  width: 9px;
+  margin: 0;
+}
+
+.modal ::-webkit-scrollbar-thumb {
+  background:  var(--modal-scroll-color, var(--modal-text-color));
+  border-radius: var(--modal-scroll-radius, 20px);
+}
+
+.modal .modal-main .modal-main-footer {
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  --primary-btn-font-weight: var(--modal-primary-btn-font-weight);
+  --primary-btn-line-height: var(--modal-primary-btn-line-height);
+  --primary-btn-text-color: var(--modal-primary-btn-text-color);
+  --primary-btn-bgcolor: var(--modal-primary-btn-bgcolor);
+  --primary-btn-border-color: var(--modal-primary-btn-border-color);
+  --primary-btn-hover-text-color: var(--modal-primary-btn-hover-text-color);
+  --primary-btn-hover-bgcolor: var(--modal-primary-btn-hover-bgcolor);
+  --primary-btn-hover-border-color: var(--modal-primary-btn-hover-border-color);
+  --primary-btn-active-text-color: var(--modal-primary-btn-active-text-color);
+  --primary-btn-active-bgcolor: var(--modal-primary-btn-active-bgcolor);
+  --primary-btn-active-border-color: var(--modal-primary-btn-active-border-color);  
+  --secondary-btn-font-weight: var(--modal-secondary-btn-font-weight);
+  --secondary-btn-line-height: var(--modal-secondary-btn-line-height);
+  --secondary-btn-text-color: var(--modal-secondary-btn-text-color);
+  --secondary-btn-bgcolor: var(--modal-secondary-btn-bgcolor);
+  --secondary-btn-border-color: var(--modal-secondary-btn-border-color);
+  --secondary-btn-hover-text-color: var(--modal-secondary-btn-hover-text-color);
+  --secondary-btn-hover-bgcolor: var(--modal-secondary-btn-hover-bgcolor);
+  --secondary-btn-hover-border-color: var(--modal-secondary-btn-hover-border-color);
+  --secondary-btn-active-text-color: var(--modal-secondary-btn-active-text-color);
+  --secondary-btn-active-bgcolor: var(--modal-secondary-btn-active-bgcolor);
+  --secondary-btn-active-border-color: var(--modal-secondary-btn-active-border-color);  
+  --tertiary-btn-font-weight: var(--modal-tertiary-btn-font-weight);
+  --tertiary-btn-line-height: var(--modal-tertiary-btn-line-height);
+  --tertiary-btn-text-color: var(--modal-tertiary-btn-text-color);
+  --tertiary-btn-hover-text-color: var(--modal-tertiary-btn-hover-text-color);
+  --tertiary-btn-hover-bgcolor: var(--modal-tertiary-btn-hover-bgcolor);
+  --tertiary-btn-active-text-color: var(--modal-tertiary-btnactive-text-color);
+  --tertiary-btn-active-bgcolor: var(--modal-tertiary-btn-active-bgcolor);
+  
+  @include media (medium, large, extraLarge, extraExtraLarge) {
+    width: unset;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: flex-start;
+    row-gap: 24px;
+  }
+
+  a {
+    margin: 0 0 24px;
+    &:last-child {
+      margin: 0;
+    }
+    @include media (medium, large, extraLarge, extraExtraLarge) {
+      margin: 0;
+    }
+  }
+}
+
+.modal.modal-center .modal-main {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  .modal-main-footer {
+    justify-content: center;
+  }
+}
+
+.modal.modal-left .modal-main {
+  text-align: left;
+  justify-content: left;
+  align-content: left;
+  .modal-main-footer {
+    justify-content: left;
+  }
+}
+  

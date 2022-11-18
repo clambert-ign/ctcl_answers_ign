@@ -1,0 +1,36 @@
+/*
+  Base KANSO design tokens for approved KANSO library Atoms only.
+*/
+
+:root {
+
+  //Base Font Styles
+  --base-font-family: 'Noto Sans JP', sans-serif;
+  --base-font-color: #4B4C53;
+  --base-font-size: 24px;
+  --base-font-weight: 200;
+  --base-line-height: 25.6px;
+
+  //Base Heading Styles
+  --base-h1-size: 28px;
+  --base-h1-weight: 700;
+  --base-h1-line-height: 33.6px;
+  --base-h1-margin: 0 0 24px;
+  --base-h2-size: 64px;
+  --base-h2-weight: 700;
+  --base-h2-line-height: 76.8px;
+  --base-h2-margin: 0 0 24px;
+  --base-h3-size: 42px;
+  --base-h3-weight: 700;
+  --base-h3-line-height: 50.4px;
+  --base-h3-margin: 0 0 24px;
+  --base-h4-size: 38px;
+  --base-h4-weight: 700;
+  --base-h4-line-height: 45.6px;
+  --base-h4-margin: 0 0 24px;
+  --base-h5-size: 28px;
+  --base-h5-weight: 400;
+  --base-h5-line-height: 33.6px;
+  --base-h5-margin: 0 0 16px; 
+
+}

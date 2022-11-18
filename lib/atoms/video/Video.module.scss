@@ -1,0 +1,111 @@
+@import "../../assets/styles/global.scss";
+
+.video {
+  font-size: var(--video-font-size, var(--base-font-size));
+  font-weight: var(--video-font-weight, var(--base-font-weight));
+  line-height: var(--video-line-height, var(--base-line-height));
+  color: var(--video-text-color, var(--base-font-color));
+}
+
+.video .headline {
+  font-size: var(--video-headline-font-size, 24px);
+  font-weight: var(--video-headline-font-weight, 400);
+  line-height: var(--video-headline-line-height, 38px);
+  margin: 0 0 16px 0;
+}
+
+.plyrContainer {
+  border-radius: var(--video-poster-border-radius, 8px);
+  overflow: hidden;
+  margin: 0 0 16px;
+}
+
+.video .video-caption {
+  font-size: var(--video-caption-font-size, 16px);
+  font-weight: var(--video-caption-font-weight, 400);
+  line-height: var(--video-caption-line-height, 22.4px);
+  margin: 0 0 16px;
+}
+
+.video .video-transcript {
+  margin: 0 0 16px;
+  --tertiary-btn-font-size: var(--video-transcript-font-size, 16px);
+  --tertiary-btn-font-weight: var(--video-transcript-font-weight, 700);
+  --tertiary-btn-line-height: var(--video-transcript-line-height, 19.2px);
+  --tertiary-btn-text-color: var(--video-transcript-text-color, #6267A1);
+  --tertiary-btn-icon-color: var(--video-transcript-icon-color, #6267A1);
+  --tertiary-btn-text-decoration: var(--video-transcript-text-decoration, none);
+  --tertiary-btn-bgcolor: var(--video-transcript-bgcolor, transparent);
+  --tertiary-btn-hover-text-color: var(--video-transcript-hover-text-color, #6267A1);
+  --tertiary-btn-hover-icon-color: var(--video-transcript-hover-icon-color, #6267A1);
+  --tertiary-btn-hover-text-decoration: var(--video-transcript-hover-text-decoration, underline);
+  --tertiary-btn-hover-bgcolor: var(--video-transcript-hover-bgcolor, transparent);
+  --tertiary-btn-active-text-color: var(--video-transcript-active-text-color, #6267A1);
+  --tertiary-btn-active-icon-color: var(--video-transcript-active-icon-color, #6267A1);
+  --tertiary-btn-active-text-decoration: var(--video-transcript-active-text-decoration, underline);
+  --tertiary-btn-active-bgcolor: var(--video-transcript-active-bgcolor, #F5F5F6);
+  --tertiary-btn-focus-text-color: var(--video-transcript-focus-text-color, #4B4C53);
+  --tertiary-btn-focus-icon-color: var(--video-transcript-focus-icon-color, #4B4C53);
+  --tertiary-btn-focus-text-decoration: var(--video-transcript-focus-text-decoration, none);
+  --tertiary-btn-focus-bgcolor: var(--video-transcript-focus-bgcolor, #FFDD00);
+  --tertiary-btn-disabled-text-color: var(--video-transcript-disabled-text-color, #4B4C53);
+  --tertiary-btn-disabled-icon-color: var(--video-transcript-disabled-icon-color, #4B4C53);
+  --tertiary-btn-disabled-text-decoration: var(--video-transcript-disabled-text-decoration, none);
+  --tertiary-btn-disabled-bgcolor: var(--video-transcript-disabled-bgcolor, transparent);
+}
+
+.video {
+  [class*="plyr__video-wrapper"] {
+    aspect-ratio: 16 / 9;
+  }
+
+  [class*="plyr--video"] {
+    [class*="plyr__controls"] {
+      --plyr-color-main: var(--video-plyr-text-color, #000);
+      --plyr-video-controls-background: var(--video-plyr-controls-bgcolor, none);
+      --plyr-control-spacing: var(--video-plyr-controls-spacing, 8px);
+      --plyr-control-radius: var(--video-plyr-controls-border-radius, 0);
+      --plyr-video-control-color: var(--video-plyr-controls-text-color, #fff);
+      --plyr-video-control-color-hover: var(--video-plyr-controls-hover-text-color, #fff);
+      --plyr-video-control-background-hover: var(--video-plyr-controls-hover-bgcolor, transparent);
+      --plyr-range-thumb-background: var(--video-plyr-controls-range-thumb-bgcolor, #fff);
+      --plyr-range-fill-background: var(--video-plyr-controls-range-bgcolor, rgba(255, 255, 255, 0.6));
+      --plyr-video-progress-buffered-background: var(--video-plyr-progress-bgcolor, rgba(255, 255, 255, 0.2));
+      --plyr-video-range-track-background: var(--video-plyr-controls-range-track-bgcolor, rgba(255, 255, 255, 0.4));
+      --plyr-range-thumb-height: var(--video-plyr-controls-range-thumb-height, 12px);
+      --plyr-range-track-height: var(--video-plyr-controls-range-track-height, 2px);
+      --plyr-control-icon-size: var(--video-plyr-controls-icon-height, 12px);
+
+      [class*="plyr__controls__item"]:first-of-type {
+        padding-left: 0;
+      }
+      [class*="plyr__time"] {
+        color: var(--video-plyr-controls-time-text-color, #fff);
+      }
+    }
+    [class*="plyr__poster"] {
+      background-size: cover;
+      aspect-ratio: var(--video-poster-aspect-ratio, 16 / 9);
+    }
+  }
+
+  [class*="plyr--video"][class*="plyr--stopped"][class*="plyr__poster-enabled"] [class*="plyr__poster"],
+  [class*="plyr--video"][class*="plyr--paused"][class*="plyr__poster-enabled"] [class*="plyr__poster"] {
+    opacity: 0.5;
+    background-color: #000;
+  }
+
+  [class*="plyr--video"][class*="plyr--paused"] video,
+  [class*="plyr--video"][class*="plyr--paused"] [class*="plyr__captions"] {
+    opacity: 0;
+  }
+
+  [class*="plyr--full-ui"][class*="plyr--video"] [class*="plyr__control--overlaid"] {
+    border: 5px solid white;
+    background-color: transparent;
+  }
+
+  [class*="plyr--paused"][class*="plyr__poster-enabled"] [class*="plyr__poster"] {
+    @include transition(opacity);
+  }
+}

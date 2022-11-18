@@ -1,0 +1,87 @@
+@import "../../assets/styles/global.scss";
+
+.table {
+  font-family: var(--base-font-family);
+  font-size: var(--table-font-size, 14px);
+  font-weight: var(--table-font-weight, 300);
+  line-height: var(--table-line-height, 22.4px);  
+  color: var(--table-text-color, var(--base-font-color));
+  overflow-x: auto;
+}
+
+table {
+  position: relative;
+  width: var(--table-width, 100%);
+  margin: var(--table-margin, 0);
+  padding: var(--table-padding, 32px 0);
+  text-align: var(--table-text-align, left);
+  border-width: var(--table-border-width, 1px 1px 1px 1px);
+  border-style: var(--table-border-style, solid);
+  border-color: var(--table-border-color, transparent);
+
+  th {
+    text-align: var(--table-th-text-align, left);
+    padding: var(--table-th-padding, 16px);
+    min-width: var(--table-th-minwidth, 100px); 
+    background-color: var(--table-th-bgcolor, #F5F5F6); 
+    color: var(--table-th-text-color, #4B4C53);
+    border-width: var(--table-th-border-width, 1px 1px 1px 1px);
+    border-style: var(--table-th-border-style, solid);
+    border-color: var(--table-th-border-color, #F5F5F6);
+  }
+
+  td {
+    text-align: var(--table-td-text-align, left);
+    padding: var(--table-td-padding, 16px);
+    min-width: var(--table-td-minwidth, 100px); 
+    background-color: var(--table-td-bgcolor, transparent); 
+    color: var(--table-td-text-color, #4B4C53);
+    border-width: var(--table-td-border-width, 1px 1px 1px 1px);
+    border-style: var(--table-td-border-style, solid);
+    border-color: var(--table-td-border-color, transparent);
+  }
+
+  .yAxis {
+    text-align: var(--table-yaxis-text-align, left);
+    padding: var(--table-yaxis-padding, 16px);
+    min-width: var(--table-yaxis-minwidth, 100px); 
+    background-color: var(--table-yaxis-bgcolor, #6267A1); 
+    color: var(--table-yaxis-text-color, #F5F5F6);
+    border-width: var(--table-yaxis-border-width, 1px 1px 1px 1px);
+    border-style: var(--table-yaxis-border-style, solid);
+    border-color: var(--table-yaxis-border-color, #6267A1);
+  }
+
+  .xAxis {
+    text-align: var(--table-xaxis-text-align, left);
+    text-indent: var(--table-xaxis-text-indent, 50px);
+    padding: var(--table-xaxis-padding, 16px);
+    min-width: var(--table-xaxis-minwidth, 100%); 
+    background-color: var(--table-xaxis-bgcolor, #F5F5F6); 
+    color: var(--table-xaxis-text-color, #4B4C53);
+    border-width: var(--table-xaxis-border-width, 1px 1px 1px 1px);
+    border-style: var(--table-xaxis-border-style, solid);
+    border-color: var(--table-xaxis-border-color, #F5F5F6);
+  }
+  
+  .fixed {
+    min-width: calc(100% - 32px);
+    position: fixed;
+    left: 100px;
+    right: 0;
+  }
+
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .stickyTop {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}

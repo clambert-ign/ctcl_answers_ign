@@ -1,0 +1,75 @@
+@import "../../assets/styles/global.scss";
+
+.image {
+  font-family: var(--base-font-family);
+  font-size: var(--img-font-size, var(--base-font-size));
+  font-weight: var(--img-font-weight, var(--base-font-weight));
+  line-height: var(--img-line-height, var(--base-line-height));
+  color: var(--img-text-color, var(--base-font-color));
+  width: 100%;
+  height: inherit;  
+}
+
+.image .image-wrapper {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  background-color: var(--img-bgcolor, black);
+  border-radius: var(--img-border-radius, 8px);
+  padding: 0;
+  margin: 0;
+  vertical-align: text-top;
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: var(--img-aspect-ratio, auto);
+    border-radius: var(--img-border-radius, 8px);
+    opacity: var(--img-opacity, 1);
+  }
+}
+
+.image .headline {
+  font-size: var(--img-headline-font-size, 24px);
+  font-weight:  var(--img-headline-font-weight, 600);
+  line-height:  var(--img-headline-line-height, 38px);
+  margin: 0 0 16px 0;
+}
+
+.image .image-caption {
+  font-size: var(--img-caption-font-size, 16px);
+  font-weight: var(--img-caption-font-weight, 600);
+  line-height: var(--img-caption-line-height, 22.4px);
+  margin: 0 0 16px;
+}
+
+.image .image-download {
+  margin: 0 0 16px;
+  --tertiary-btn-font-size: var(--img-download-font-size, 16px);
+  --tertiary-btn-font-weight: var(--img-download-font-weight, 700);
+  --tertiary-btn-line-height: var(--img-download-line-height, 19.2px);
+  --tertiary-btn-text-color: var(--img-download-text-color, #6267A1);
+  --tertiary-btn-icon-color: var(--img-download-icon-color, #6267A1);
+  --tertiary-btn-text-decoration: var(--img-download-text-decoration, none);
+  --tertiary-btn-bgcolor: var(--img-download-bgcolor, transparent);
+  --tertiary-btn-hover-text-color: var(--img-download-hover-text-color, #6267A1);
+  --tertiary-btn-hover-icon-color: var(--img-download-hover-icon-color, #6267A1);
+  --tertiary-btn-hover-text-decoration: var(--img-download-hover-text-decoration, underline);
+  --tertiary-btn-hover-bgcolor: var(--img-download-hover-bgcolor, transparent);
+  --tertiary-btn-active-text-color: var(--img-download-active-text-color, #6267A1);
+  --tertiary-btn-active-icon-color: var(--img-download-active-icon-color, #6267A1);
+  --tertiary-btn-active-text-decoration: var(--img-download-active-text-decoration, underline);
+  --tertiary-btn-active-bgcolor: var(--img-download-active-bgcolor, #F5F5F6);
+  --tertiary-btn-focus-text-color: var(--img-download-focus-text-color, #4B4C53);
+  --tertiary-btn-focus-icon-color: var(--img-download-focus-icon-color, #4B4C53);
+  --tertiary-btn-focus-text-decoration: var(--img-download-focus-text-decoration, none);
+  --tertiary-btn-focus-bgcolor: var(--img-download-focus-bgcolor, #FFDD00);
+  --tertiary-btn-disabled-text-color: var(--img-download-disabled-text-color, #4B4C53);
+  --tertiary-btn-disabled-icon-color: var(--img-download-disabled-icon-color, #4B4C53);
+  --tertiary-btn-disabled-text-decoration: var(--img-download-disabled-text-decoration, none);
+  --tertiary-btn-disabled-bgcolor: var(--img-download-disabled-bgcolor, transparent);
+}
+
+.image .image--fixed {
+  border: none;
+}

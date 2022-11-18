@@ -1,0 +1,67 @@
+@import "../../assets/styles/global.scss";
+
+.toastbar {
+  font-family: var(--base-font-family);
+  font-size: var(--toast-font-size, var(---base-font-size));
+  font-weight: var(--toast-font-weight, var(--base-font-weight));
+  line-height: var(--toast-line-height, var(--base-line-height));
+  color: var(--toast-text-color, var(--base-font-color));
+  background-color: var(--toast-bgcolor);
+  margin: 0;
+  padding: 16px;
+  width: calc(100% - 32px);
+  max-width: 100%;
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    padding: 16px 24px;
+    width: calc(100% - 48px);
+  }
+}
+
+.toastbar.toastbar--left {
+  justify-content: left;
+  text-align: left;
+}
+
+.toastbar.toastbar--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.toastbar .toastbar-container {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: minmax(min-content,100%) auto;
+    row-gap: 0;
+    column-gap: 12px;
+    //text-align: left;
+  }
+}
+
+.toastbar .toastbar-container a {
+  margin: 2px 0 0;
+  --tertiary-btn-font-size: var(--toast-link-font-size, 16px);
+  --tertiary-btn-font-weight: var(--toast-link-font-weight, 700);
+  --tertiary-btn-line-height: var(--toast-link-line-height, 22.4px);
+  --tertiary-btn-text-color: var(--toast-link-text-color, #6267A1);
+  --tertiary-btn-icon-color: var(--toast-link-icon-color, #6267A1);
+  --tertiary-btn-text-decoration: var(--toast-link-text-decoration, none);
+  --tertiary-btn-bgcolor: var(--toast-link-bgcolor, transparent);
+  --tertiary-btn-hover-text-color: var(--toast-link-hover-text-color, #6267A1);
+  --tertiary-btn-hover-icon-color: var(--toast-link-hover-icon-color, #6267A1);
+  --tertiary-btn-hover-text-decoration: var(--toast-link-hover-text-decoration, underline);
+  --tertiary-btn-hover-bgcolor: var(--toast-link-hover-bgcolor, transparent);
+  --tertiary-btn-active-text-color: var(--toast-link-active-text-color, #6267A1);
+  --tertiary-btn-active-icon-color: var(--toast-link-active-icon-color, #6267A1);
+  --tertiary-btn-active-text-decoration: var(--toast-link-active-text-decoration, underline);
+  --tertiary-btn-active-bgcolor: var(--toast-link-active-bgcolor, #F5F5F6);
+  --tertiary-btn-focus-text-color: var(--toast-link-focus-text-color, #4B4C53);
+  --tertiary-btn-focus-icon-color: var(--toast-link-focus-icon-color, #4B4C53);
+  --tertiary-btn-focus-text-decoration: var(--toast-link-focus-text-decoration, none);
+  --tertiary-btn-focus-bgcolor: var(--toast-link-focus-bgcolor, #FFDD00);
+  --tertiary-btn-disabled-text-color: var(--toast-link-disabled-text-color, #4B4C53);
+  --tertiary-btn-disabled-icon-color: var(--toast-link-disabled-icon-color, #4B4C53);
+  --tertiary-btn-disabled-text-decoration: var(--toast-link-disabled-text-decoration, none);
+  --tertiary-btn-disabled-bgcolor: var(--toast-link-disabled-bgcolor, transparent);
+}

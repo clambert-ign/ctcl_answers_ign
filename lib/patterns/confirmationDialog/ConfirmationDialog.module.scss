@@ -1,0 +1,13 @@
+@import "../../assets/styles/global.scss";
+
+.confirmationDialog {
+  --modal-headline-font-size: 38px;
+  --modal-headline-font-weight: 700;
+  
+  div {
+    --modal-width-medium: 60%;
+    --modal-width-large: 40%;
+    --modal-width-extraLarge: 40%;
+    --modal-width-extraExtraLarge: 40%;
+  }
+}

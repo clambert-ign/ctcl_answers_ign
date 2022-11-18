@@ -1,0 +1,150 @@
+@import "../../assets/styles/global.scss";
+
+.footer {
+  font-family: var(--base-font-family);
+  font-size: var(--gf-font-size, 14px);
+  font-weight: var(--gf-font-weight, 300);
+  line-height: var(--gf-line-height, 22.4px);
+  color: var(--gf-text-color, #4B4C53);
+  width: calc(100% - 60px);
+  padding: 0 30px;
+  margin: 35px 0;
+}
+
+.footer hr {
+  --div-bgcolor: var(--gf-div-bgcolor, #C3C4CA);
+  --div-margin: var(--gf-div-margin, 0 0 16px);
+  --div-height: var(--gf-div-height, 1px);
+}
+
+.footer .footer-container {
+  width: 100%;
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    display: inline-grid;  
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+.footer .footer-container .footer-container-logo {
+  padding: 0 0 16px;
+  width: 110px;
+  --img-border-radius: 0;
+}
+
+.footer .footer-container .footer-container-content {
+  width: 100%;
+  display: inline-grid;  
+  grid-template-columns: 1fr;
+  row-gap: 16px;
+  align-items: center;
+  @include media(medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: auto 200px;
+    row-gap: 0;
+  }
+}
+
+.footer .footer-container .footer-container-content .country-selector {       
+  display: inline-grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 8px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 25.6px;
+  --tertiary-btn-font-size: var(--gf-country-link-font-size, 16px);
+  --tertiary-btn-font-weight: var(--gf-country-link-font-weight, 700);
+  --tertiary-btn-line-height: var(--gf-country-link-line-height, 22.4px);
+  --tertiary-btn-text-color: var(--gf-country-link-text-color, #6267A1);
+  --tertiary-btn-icon-color: var(--gf-country-link-icon-color, #6267A1);
+  --tertiary-btn-text-decoration: var(--gf-country-link-text-decoration, none);
+  --tertiary-btn-bgcolor: var(--gf-country-link-bgcolor, transparent);
+  --tertiary-btn-hover-text-color: var(--gf-country-link-hover-text-color, #6267A1);
+  --tertiary-btn-hover-icon-color: var(--gf-country-link-hover-icon-color, #6267A1);
+  --tertiary-btn-hover-text-decoration: var(--gf-country-link-hover-text-decoration, underline);
+  --tertiary-btn-hover-bgcolor: var(--gf-country-link-hover-bgcolor, transparent);
+  --tertiary-btn-active-text-color: var(--gf-country-link-active-text-color, #6267A1);
+  --tertiary-btn-active-icon-color: var(--gf-country-link-active-icon-color, #6267A1);
+  --tertiary-btn-active-text-decoration: var(--gf-country-link-active-text-decoration, underline);
+  --tertiary-btn-active-bgcolor: var(--gf-country-link-active-bgcolor, #F5F5F6);
+  --tertiary-btn-focus-text-color: var(--gf-country-link-focus-text-color, #4B4C53);
+  --tertiary-btn-focus-icon-color: var(--gf-country-link-focus-icon-color, #4B4C53);
+  --tertiary-btn-focus-text-decoration: var(--gf-country-link-focus-text-decoration, none);
+  --tertiary-btn-focus-bgcolor: var(--gf-country-link-focus-bgcolor, #FFDD00);
+  --tertiary-btn-disabled-text-color: var(--gf-country-link-disabled-text-color, #4B4C53);
+  --tertiary-btn-disabled-icon-color: var(--gf-country-link-disabled-icon-color, #4B4C53);
+  --tertiary-btn-disabled-text-decoration: var(--gf-country-link-disabled-text-decoration, none);
+  --tertiary-btn-disabled-bgcolor: var(--gf-country-link-disabled-bgcolor, transparent);
+  @include media (small, medium, large, extraLarge, extraExtraLarge) {
+    grid-template-columns: auto max-content 100%;
+    grid-template-rows: none;
+  }
+  a {
+    margin: 3px 0 0;
+    grid-column: 1/3;
+    @include media (small, medium, large, extraLarge, extraExtraLarge) {
+      grid-column: unset;
+    }
+  }
+}
+
+.footer .footer-container .footer-container-content .compliance {
+  width: 100%;
+  display: inline-grid;
+  grid-template-columns: 1fr 48px;
+  column-gap: 24px;
+  align-items: center;
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22.4px;
+    text-align: left;
+    @include media(medium, large, extraLarge, extraExtraLarge) {
+      text-align: right;
+    }
+  }
+  svg {
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: var(--gf-scroll-box-shadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)); 
+    circle {
+      fill: var(--gf-scroll-circle-color, #4B4C53);
+    }
+    polygon {
+      fill: var(--gf-scroll-arrow-color, #fff);
+    }                       
+  }
+}
+
+.footer .footer-menuItems {
+  ul li {
+    padding: 0 0 24px;
+  }
+  ul li a {
+    --tertiary-btn-font-size: var(--gf-menu-link-font-size, 14px);
+    --tertiary-btn-font-weight: var(--gf-menu-link-font-weight, 300);
+    --tertiary-btn-line-height: var(--gf-menu-link-line-height, 22.4px);
+    --tertiary-btn-text-color: var(--gf-menu-link-text-color, #4B4C53);
+    --tertiary-btn-icon-color: var(--gf-menu-link-icon-color, #4B4C53);
+    --tertiary-btn-text-decoration: var(--gf-menu-link-text-decoration, none);
+    --tertiary-btn-bgcolor: var(--gf-menu-link-bgcolor, transparent);
+    --tertiary-btn-hover-text-color: var(--gf-menu-link-hover-text-color, #4B4C53);
+    --tertiary-btn-hover-icon-color: var(--gf-menu-link-hover-icon-color, #4B4C53);
+    --tertiary-btn-hover-text-decoration: var(--gf-menu-link-hover-text-decoration, underline);
+    --tertiary-btn-hover-bgcolor: var(--gf-menu-link-hover-bgcolor, transparent);
+    --tertiary-btn-active-text-color: var(--gf-menu-link-active-text-color, #4B4C53);
+    --tertiary-btn-active-icon-color: var(--gf-menu-link-active-icon-color, #4B4C53);
+    --tertiary-btn-active-text-decoration: var(--gf-menu-link-active-text-decoration, underline);
+    --tertiary-btn-active-bgcolor: var(--gf-menu-link-active-bgcolor, #F5F5F6);
+    --tertiary-btn-focus-text-color: var(--gf-menu-link-focus-text-color, #4B4C53);
+    --tertiary-btn-focus-icon-color: var(--gf-menu-link-focus-icon-color, #4B4C53);
+    --tertiary-btn-focus-text-decoration: var(--gf-menu-link-focus-text-decoration, none);
+    --tertiary-btn-focus-bgcolor: var(--gf-menu-link-focus-bgcolor, #FFDD00);
+    --tertiary-btn-disabled-text-color: var(--gf-menu-link-disabled-text-color, #4B4C53);
+    --tertiary-btn-disabled-icon-color: var(--gf-menu-link-disabled-icon-color, #4B4C53);
+    --tertiary-btn-disabled-text-decoration: var(--gf-menu-link-disabled-text-decoration, none);
+    --tertiary-btn-disabled-bgcolor: var(--gf-menu-link-disabled-bgcolor, transparent);
+  }
+}

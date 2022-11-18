@@ -1,0 +1,33 @@
+@import '../../assets/styles/global.scss';
+
+.inlineHelp {
+  --tertiary-btn-font-size: 16px;
+  --tertiary-btn-font-weight: 700;
+  --tertiary-btn-line-height: 19.2px;
+  --tertiary-btn-text-color: #6267A1;
+  --tertiary-btn-icon-color: #fff;
+  --tertiary-btn-text-decoration: none;
+  --tertiary-btn-bgcolor: transparent;
+  --tertiary-btn-hover-text-color: #6267A1;
+  --tertiary-btn-hover-icon-color: #fff;
+  --tertiary-btn-hover-text-decoration: underline;
+  --tertiary-btn-hover-bgcolor: transparent;
+  --tertiary-btn-active-text-color: #6267A1;
+  --tertiary-btn-active-icon-color: #fff;
+  --tertiary-btn-active-text-decoration: underline;
+  --tertiary-btn-active-bgcolor: #F5F5F6;
+  --tertiary-btn-focus-text-color: #4B4C53;
+  --tertiary-btn-focus-icon-color: #4B4C53;
+  --tertiary-btn-focus-text-decoration: none;
+  --tertiary-btn-focus-bgcolor: #FFDD00;
+  --tertiary-btn-disabled-text-color: #4B4C53;
+  --tertiary-btn-disabled-icon-color: #4B4C53;
+  --tertiary-btn-disabled-text-decoration: none;
+  --tertiary-btn-disabled-bgcolor: transparent;
+  a {
+    span:nth-child(2) {
+      transform: translateY(calc(-50% - 2px));
+      display: inline-block;
+    }
+  }
+}

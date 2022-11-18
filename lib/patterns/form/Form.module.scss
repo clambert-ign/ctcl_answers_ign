@@ -1,0 +1,15 @@
+@import "../../assets/styles/global.scss";
+
+form {
+
+  .form-wrapper {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 24px 0;
+  }
+  .form-submit {
+    grid-template-columns: 1fr;
+  }
+}

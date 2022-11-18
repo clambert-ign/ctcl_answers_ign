@@ -1,0 +1,46 @@
+@import '../../assets/styles/global.scss';
+
+.person {
+  font-family: var(--base-font-family);
+  font-size: var(--person-font-size, var(--base-font-size));
+  font-weight: var(--person-font-weight, var(--base-font-weight));
+  line-height: var(--person-line-weight, var(--base-line-height));
+  color: var(--person-text-color, var(--base-font-color));  
+  padding: 0;
+  margin: 0;
+  width: inherit;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+}
+
+.person .person-name {
+  align-self: end;
+}
+
+.person .person-role {
+  font-size: var(--person-role-font-size, 14px);
+  font-weight: var(--person-role-font-weight, 300);
+  line-height: var(--person-role-line-height, 22.4px);
+  align-self: start;
+}
+
+.person .person-image {  
+  margin: 0 16px 0 0;
+  grid-row: span 2;
+  
+  img {
+    aspect-ratio: 1/1;
+    width: 56px;
+    border-radius: 50%;
+  }
+  @include media(medium,large) {
+    img {
+      width: 72px;
+    }
+  }
+  @include media(extraLarge,extraExtraLarge) {
+    img {
+      width: 80px;
+    }
+  }
+}
