@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import styles from "./Editorial.module.scss"
 
 /**
- * Editorial Component
+ * Editorial Pattern
  * @param {number} columns  - The number of Editorial Component columns to be displayed.
  * @returns React Component
  */

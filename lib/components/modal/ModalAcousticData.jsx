@@ -11,6 +11,7 @@ import ConfirmationDialog from "@patterns/confirmationDialog/ConfirmationDialog"
 import Button from '@atoms/button/Button'
 import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
 import EditorialAcousticData from "@patterns/editorial/EditorialAcousticData"
+import FeedbackFormAcousticData from "@patterns/feedbackForm/FeedbackFormAcousticData"
 
 const ModalAcousticData = (props) => {
   const { 
@@ -42,6 +43,7 @@ const ModalAcousticData = (props) => {
       title={getValue(modalData?.title)}
       titleTag={getSelectionValue(modalData?.titleTag)}
       align={getSelectionValue(modalData?.align)}
+      cssClass={getValue(modalData?.cssClass)}
       onClose={(value) => {
         toggleModal(value)
       }}
@@ -50,6 +52,9 @@ const ModalAcousticData = (props) => {
         {getValues(modalData?.content).map((content, index) => {
           if(getComponentName(content.type) === 'Editorial') {
             return <EditorialAcousticData key={`${content.type}${index}`} data={content?.elements} />
+          }
+          if(getComponentName(content.type) === 'FeedbackForm') {
+            return <FeedbackFormAcousticData key={`${content.type}${index}`} data={content?.elements} />
           }
         })}
       </ModalContent>      

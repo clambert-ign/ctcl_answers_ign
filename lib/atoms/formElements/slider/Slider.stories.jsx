@@ -1,5 +1,23 @@
 import SliderComponent from './Slider'
 
+const mappingData = [
+  {
+    value: 0,
+    label: "Not Very Useful",
+    show: false
+  },
+  {
+    value: 1,
+    label: "Useful",
+    show: true
+  },
+  {
+    value: 2,
+    label: "Very Useful",
+    show: false
+  }
+]
+
 export default {
   title: 'Atoms/Form elements/Slider',
   normalize: true,
@@ -79,6 +97,7 @@ export default {
     step: 1,
     defaultValue: 45,
     measurement: '$',
+    mappingValues: mappingData,
     isError: false,
     isRequired: false,
     isDisabled: false
@@ -165,6 +184,14 @@ export default {
         type: 'text' 
       },
       table: {}
+    },   
+    mappingValues: {
+      description: 'The Slider custom label mappings.',
+      type: { 
+        name: 'objecy'
+      },
+      control: false,
+      table: {}
     },     
     isRequired: {
       description: 'Is this Slider required? Boolean.',
@@ -211,10 +238,11 @@ Slider.args = {
   label: "this is a label",
   text: "This is a mandatory field",
   min: 0,
-  max: 100,
+  max: 2,
   step: 1,
-  defaultValue: 33,
-  measurement: '$',
+  defaultValue: 1,
+  measurement: '',
+  mappingValues: mappingData,
   isError: false,
   isRequired: false,
   isDisabled: false 

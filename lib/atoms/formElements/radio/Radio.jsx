@@ -55,22 +55,22 @@ const Radio = (props) => {
           <Image src={image} />
         )}  
         {(text) && (
-          <span className={styles['radio-text']}>{text}</span>
+          <div className={styles['radio-text']}>{text}</div>
         )}
         {(description) && (
-          <span className={styles['radio-description']}>{description}</span>
+          <div className={styles['radio-description']}>{description}</div>
         )}
         <input
           type="radio"
-          onChange={handleChange}        
+          onChange={handleChange}
           defaultChecked={isChecked}
           disabled={isDisabled ? 'disabled' : undefined}
           {...rest}
         />
-        <span className={styles['radio-checkmark']}></span>      
+        <div className={styles['radio-checkmark']}></div>      
       </label>
       {(isError && errorText) && (
-        <span className={styles['radio-error-text']}>{errorText}</span>
+        <div className={styles['radio-error-text']}>{errorText}</div>
       )}
     </>
   )

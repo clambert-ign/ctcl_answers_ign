@@ -6,11 +6,13 @@ import ContentCardAcousticData from '@components/contentCard/ContentCardAcoustic
 import ContentCardTileAcousticData from '@components/contentCardTile/ContentCardTileAcousticData'
 import { getComponentName } from '@services/utilities/acousticMappings'
 import { getValue, getValues, getSelectionValue } from '@services/utilities/utilityHelper'
+
 const TabsAcousticData = (props) => {
   const { 
     align,
     tabContentItems 
   } = props.data
+
   return (
     <Tabs align={getSelectionValue(align)}>
       {tabContentItems?.values?.map((tabButton, index) => {
@@ -20,7 +22,7 @@ const TabsAcousticData = (props) => {
       })}
       {tabContentItems?.values?.map((tabContent, index) => {
         return (
-          <TabsContent key={index}>
+          <TabsContent key={index}>   
             {
               getValues(tabContent?.elements?.tabContent).map((content, index) => {
                 if(getComponentName(content.type) === 'Editorial') {
@@ -40,4 +42,5 @@ const TabsAcousticData = (props) => {
     </Tabs>
   )
 }
+
 export default TabsAcousticData

@@ -9,7 +9,8 @@ import styles from './Modal.module.scss'
 * @param {string} title     - The title to be displayed within the Modal.
 * @param {string} titleTag  - The heading tag wrapped around the Modal title.
 * @param {string} align     - The alignment of the Modal to be displayed.
-* @param {function} onClose  - Are we attempting to close the Modal?
+* @param {function} onClose - Are we attempting to close the Modal?
+* @param {string} cssClass  - The CSS Class of the Modal Component to be displayed.
 * @return React component
 */
 
@@ -20,11 +21,13 @@ const Modal = (props) => {
     title,
     titleTag,
     align,
-    onClose
+    onClose,
+    cssClass
   } = props
 
   const [showModal, setShowModal] = useState(show)
   const HeadingTag = `${titleTag}`
+  const cssClassValue = cssClass ? cssClass.trim() : ''
 
   const closeModal = (e) => {        
     e ? e.preventDefault() : null   
@@ -32,7 +35,9 @@ const Modal = (props) => {
     if (onClose) { onClose(false) } 
   }
 
-  useEffect(() => { setShowModal(show) }, [show])
+  useEffect(() => { 
+    setShowModal(show) 
+  }, [show])
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -48,9 +53,15 @@ const Modal = (props) => {
   return (
     <>
       {showModal ? (
-        <div className={`
+        <div 
+          className={`
             ${styles['modal']}
             ${styles['modal-' + align]} 
+            ${(cssClass && cssClassValue) ? 
+              cssClassValue.split(',').map(function (classItem, index) {
+                return 'modal-'+classItem
+              }).join(' ')
+            : ''}
           `} 
           id="modal"
         > 
@@ -78,7 +89,8 @@ Modal.propTypes = {
   title:    PropTypes.string,
   align:    PropTypes.string.isRequired,
   align:    PropTypes.oneOf(['left', 'center']),
-  onClose:  PropTypes.func
+  onClose:  PropTypes.func,
+  cssClass: PropTypes.string
 }
 
 Modal.defaultProps = {

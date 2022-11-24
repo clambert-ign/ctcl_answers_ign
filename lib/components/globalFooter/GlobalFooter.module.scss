@@ -77,7 +77,7 @@
   --tertiary-btn-disabled-text-decoration: var(--gf-country-link-disabled-text-decoration, none);
   --tertiary-btn-disabled-bgcolor: var(--gf-country-link-disabled-bgcolor, transparent);
   @include media (small, medium, large, extraLarge, extraExtraLarge) {
-    grid-template-columns: auto max-content 100%;
+    grid-template-columns: max-content max-content auto;
     grid-template-rows: none;
   }
   a {

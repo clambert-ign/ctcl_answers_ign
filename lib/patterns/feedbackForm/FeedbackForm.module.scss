@@ -1,0 +1,31 @@
+@import "../../assets/styles/global.scss";
+
+form .form-wrapper {
+  font-family: var(--base-font-family);
+  color: var(--fdbk-text-color, #4B4C53);
+  font-weight: var(--fdbk-font-weight, 600);
+  margin: 24px 0 0;
+  padding: 0;
+  display: inline-grid;
+  row-gap: 64px;
+}
+
+form .form-wrapper .form-wrapper-row {
+  p {
+    margin: 0 0 16px;
+  }
+}
+
+form .form-wrapper .form-element-wrapper {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  @include media(extraSmall) {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+}
+
+form .form-submit {
+  grid-template-columns: 1fr;
+}

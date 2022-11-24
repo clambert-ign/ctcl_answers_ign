@@ -183,7 +183,8 @@ export default {
     title: 'Modal Title',
     titleTag: 'h3',
     align: 'left',
-    onClose: null
+    onClose: null,
+    cssClass: null
   },
   argTypes: {  
     show: {
@@ -234,7 +235,16 @@ export default {
       },
       control: false,
       table: {}
-    }
+    },
+    cssClass: {
+      description: 'The custom CSS Class to be used for the display of the Modal component.',
+      type: { 
+        name: 'string',
+        required: false
+      },
+      control: false,
+      table: {}
+    },
   }
 }
 

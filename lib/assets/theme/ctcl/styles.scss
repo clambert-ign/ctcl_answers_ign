@@ -21,6 +21,25 @@
   }   
 }
 
+//page section element spacing
+.body > div > div > section > div > div {
+  margin: 0 0 32px;
+}
+
+//need one for editorial, accordion, content card etc
+// .body > div > div > section > div > div {
+//   margin: 0 0 32px;
+// }
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-feedback {
+  //--modal-bgcolor: yellow;
+  --modal-content-margin: 0 0 12px;
+}
+
 .pagesection-feedback-section {
   --et-text-color: #FFFFFF;
   --et-headline-font-size: 28px;

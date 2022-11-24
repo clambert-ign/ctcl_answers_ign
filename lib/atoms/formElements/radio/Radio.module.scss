@@ -9,7 +9,9 @@
   border: 2px solid var(--radio-border-color, #f5f5f6);
   border-radius: var(--radio-border-radius, 8px);
   padding: 16px 16px 16px 52px;  
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   position: relative;
   cursor: pointer;
   -webkit-user-select: none;
@@ -57,11 +59,11 @@
   overflow: auto;
 }
 
-.radio:hover input ~ .checkbox-checkmark {
+.radio:hover input ~ .radio-checkmark {
   background-color: transparent;
 }
 
-.radio input:checked ~ .checkbox-checkmark {
+.radio input:checked ~ .radio-checkmark {
   background-color: var(--radio-chkmark-chked-bgcolor, #6267a1); 
 }
 
@@ -71,11 +73,11 @@
   display: none;
 }
 
-.radio input:checked ~ .checkbox-checkmark:after {
+.radio input:checked ~ .radio-checkmark:after {
   display: block;
 }
 
-.radio .checkbox-checkmark:after {
+.radio .radio-checkmark:after {
   left: 11px;
   top: 7px;
   width: 5px;
@@ -118,7 +120,7 @@
   }
 
   .radio-text {
-    display: block;
+    display: inline-block;
     margin: 0 0 8px;
   }
 

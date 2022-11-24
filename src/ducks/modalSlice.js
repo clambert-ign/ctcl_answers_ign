@@ -24,6 +24,11 @@ const modalSlice = createSlice({
 export const { modalData, open } = modalSlice.actions
 
 export const setModalOpen = (value) => (dispatch) => {
+  if(value) {
+    document.body.classList.add('modal-open');
+  } else {
+    document.body.classList.remove('modal-open');
+  }
   dispatch(open(value))
 }
 export const setModalData = (value) => (dispatch) => {

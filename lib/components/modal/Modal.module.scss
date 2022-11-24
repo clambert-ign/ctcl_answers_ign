@@ -17,9 +17,9 @@
 }
 
 .modal .modal-main {
-  width: 84%;
-  padding: 8%;
-  height: 90.5%;
+  width: var(--modal-content-width, 84%);
+  height: var(--modal-content-height, 90.6%);
+  padding: var(--modal-content-padding, 8%);
   background-color: var(--modal-content-bgcolor, #fff);
   box-shadow: 0px 7.48582px 30px rgba(50, 50, 50, 0.2);
   border-radius: 0;
@@ -84,7 +84,7 @@
 }
 
 .modal .modal-main .modal-main-content {
-  margin: 0 0 32px;
+  margin: var(--modal-content-margin, 0 0 32px);
   overflow: auto;
   width: 99%; 
   color: var(--modal-text-color, #4B4C53);
@@ -93,8 +93,8 @@
 .modal .modal-main .modal-main-content--blur {
   padding: 0 4% 8px 0;
   width: 95%;
-  -webkit-mask-image: -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0)));
-  mask-image: -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0)));
+  -webkit-mask-image: var(--modal-content-blur-bgcolor, -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0))));
+  mask-image: var(--modal-content-blur-bgcolor, -webkit-gradient(linear,left 90%,left bottom,from(black),to(rgba(0,0,0,0))));
 }
 
 [dir="rtl"] .modal .modal-main .modal-main-content {

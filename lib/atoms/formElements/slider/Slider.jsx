@@ -7,11 +7,14 @@ import styles from "./Slider.module.scss"
  * @param {string} id             - The id value of the slider to be displayed
  * @param {string} label          - The label of the slider to be displayed
  * @param {string} text           - The description of the slider to be displayed
- * @param {string} min           - The min value of the slider to be displayed
- * @param {string} max           - The max value of the slider to be displayed
- * @param {integer} step          - The step value of the slider to be displayed
- * @param {string} defaultValue   - The default value of the slider to be displayed
+ * @param {number} min            - The min value of the slider to be displayed
+ * @param {string} minLabel       - The min value label of the slider to be displayed
+ * @param {number} max            - The max value of the slider to be displayed
+ * @param {string} maxLabel       - The max value label of the slider to be displayed
+ * @param {number} step           - The step value of the slider to be displayed
+ * @param {number} defaultValue   - The default value of the slider to be displayed
  * @param {string} measurement    - The text measurement value of the slider to be displayed
+ * @param {array} mappingValues   - An array describing the mapping of custom slider controls
  * @param {Boolean} isError       - Is the slider in error state?
  * @param {Boolean} isRequired    - Is the slider required?
  * @param {Boolean} isDisabled    - Is the slider disabled?
@@ -24,10 +27,13 @@ const Slider = React.forwardRef((props, ref) => {
     label,
     text,
     min,
+    minLabel,
     max,
+    maxLabel,
     step,
     defaultValue,
     measurement,
+    mappingValues,
     isError,
     isRequired,
     isDisabled,
@@ -35,13 +41,14 @@ const Slider = React.forwardRef((props, ref) => {
   } = props
   
   const [sliderValue, setSliderValue] = useState(defaultValue)
+  const [sliderValueLabel, setSliderValueLabel] = useState()
   const inputRef = useRef()
   const valueRef = useRef()
 
   useEffect(() => {    
     let sliderWidth       = (((sliderValue-min)/(max-min))*100)
-    let sliderWidthOffset = (((sliderValue/max) * valueRef.current.offsetWidth) / 2)
-
+    let sliderWidthOffset = ((((sliderValue/max) * valueRef?.current?.offsetWidth) / 2)) * 1.15
+   
     inputRef?.current?.style?.setProperty(
       "--slider-width",
       sliderWidth + '%'
@@ -50,10 +57,25 @@ const Slider = React.forwardRef((props, ref) => {
       "--slider-value-width-offset",
       sliderWidthOffset + 'px'
     )
-  }, [sliderValue])
+  })
+
   const handleChange = (e) => {
     setSliderValue(e.target.value)
+    customMapping(e.target.value)
   }
+
+  const customMapping = (sliderMapValue) => {
+    let selectedMapValue = mappingValues?.filter((mappingValue) => mappingValue.value === parseInt(sliderMapValue))
+    if(selectedMapValue[0].show === true) {
+      setSliderValueLabel(selectedMapValue[0].label ? selectedMapValue[0].label : null)
+    } else {
+      setSliderValueLabel(null)
+    }
+  }
+
+  useEffect(() => {
+    customMapping(sliderValue)
+  }, [])
 
   return (
     <>
@@ -74,7 +96,7 @@ const Slider = React.forwardRef((props, ref) => {
         <div className={styles['slider-wrapper']}>
           
           <span className={styles['slider-start-label']}>
-            {measurement}{min}
+            {measurement}{minLabel ? minLabel : min} 
           </span>
 
           <div className={styles['slider-wrapper-input']}>
@@ -92,17 +114,20 @@ const Slider = React.forwardRef((props, ref) => {
             />
             <dl id="markers" className={styles['slider-markers']}>
               {
-                [...Array(max)].map((e, i) => <dd value={i}></dd>)
+                [...Array(max)].map((e, i) => <dd key={i} value={i}></dd>)
               }
             </dl>
-            <span className={styles['slider-value-label']} ref={valueRef}>
-              {measurement}{sliderValue}
-              <span className={styles['slider-value-label-down']}></span>
-            </span>
+            {sliderValueLabel && (
+              <span className={styles['slider-value-label']} ref={valueRef}>
+                {measurement}
+                {sliderValueLabel ? sliderValueLabel : sliderValue}
+                <span className={styles['slider-value-label-down']}></span>
+              </span>
+            )}
           </div>
 
           <span className={styles['slider-end-label']}>
-            {measurement}{max}
+            {measurement}{minLabel ? maxLabel : max} 
           </span>
 
         </div>     
@@ -115,22 +140,27 @@ const Slider = React.forwardRef((props, ref) => {
 })
 
 Slider.propTypes = {
-  id:           PropTypes.string,
-  label:        PropTypes.string,
-  text:         PropTypes.string,
-  min:          PropTypes.string,
-  max:          PropTypes.string,
-  step:         PropTypes.string,
-  defaultValue: PropTypes.number,
-  measurement:  PropTypes.string,
-  isRequired:   PropTypes.bool,
-  isDisabled:   PropTypes.bool
+  id:             PropTypes.string,
+  label:          PropTypes.string,
+  text:           PropTypes.string,
+  min:            PropTypes.number,
+  minLabel:       PropTypes.string,
+  max:            PropTypes.number,
+  maxLabel:       PropTypes.string,
+  step:           PropTypes.number,
+  defaultValue:   PropTypes.number,
+  measurement:    PropTypes.string,
+  mappingValues:  PropTypes.array,
+  isError:        PropTypes.bool,
+  isRequired:     PropTypes.bool,
+  isDisabled:     PropTypes.bool
 }
 
 Slider.defaultProps = {
-  isRequired: false,
-  isDisabled: false,
-  isChecked: false
+  mappingValues:  null,
+  isError:      false,
+  isRequired:   false,
+  isDisabled:   false
 }
 
 export default Slider
