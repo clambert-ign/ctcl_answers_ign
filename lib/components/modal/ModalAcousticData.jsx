@@ -9,6 +9,7 @@ import ModalContent from "./ModalContent"
 import ModalFooter from "@components/modal/ModalFooter"
 import ConfirmationDialog from "@patterns/confirmationDialog/ConfirmationDialog"
 import Button from '@atoms/button/Button'
+import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
 import EditorialAcousticData from "@patterns/editorial/EditorialAcousticData"
 
 const ModalAcousticData = (props) => {
@@ -17,6 +18,7 @@ const ModalAcousticData = (props) => {
     type
   } = props
 
+  const modalData = data?.value?.elements
   const dispatch = useDispatch()
   const { t } = useTranslation()
   const showModal = useSelector((state) => state?.modal?.open)
@@ -37,22 +39,29 @@ const ModalAcousticData = (props) => {
   return type === 'modal' ? (
     <Modal 
       show={showModal} 
-      title={getValue(data?.value?.elements?.title)}
-      titleTag={getSelectionValue(data?.value?.elements?.titleTag)}
-      align={getSelectionValue(data?.value?.elements?.align)}
+      title={getValue(modalData?.title)}
+      titleTag={getSelectionValue(modalData?.titleTag)}
+      align={getSelectionValue(modalData?.align)}
       onClose={(value) => {
         toggleModal(value)
       }}
     >
       <ModalContent>
-        {
-          getValues(data?.value?.elements?.content).map((content, index) => {
-            if(getComponentName(content.type) === 'Editorial') {
-              return <EditorialAcousticData key={`${content.type}${index}`} data={content?.elements} />
-            }
-          })
-        }
-      </ModalContent>
+        {getValues(modalData?.content).map((content, index) => {
+          if(getComponentName(content.type) === 'Editorial') {
+            return <EditorialAcousticData key={`${content.type}${index}`} data={content?.elements} />
+          }
+        })}
+      </ModalContent>      
+      {(getValues(modalData?.footerLinks)) && (
+        <ModalFooter>
+          {getValues(modalData?.footerLinks).map((button, i) => {
+            return (
+              <ButtonAcousticData key={i} data={button?.elements} />
+            )
+          })}
+        </ModalFooter>
+      )}      
     </Modal>
   ) : (
     <ConfirmationDialog>

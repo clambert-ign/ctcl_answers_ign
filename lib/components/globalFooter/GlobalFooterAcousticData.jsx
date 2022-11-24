@@ -2,12 +2,10 @@ import GlobalFooter from './GlobalFooter'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { getValue, convertAcousticDateToPublishDate } from '@services/utilities/utilityHelper'
-import { getLibraryCode, getLibraryList } from '@services/utilities/libraryUtils'
-import { dynamicSort, groupBy } from '@services/utilities/arrayUtils'
+import { getLibraryCode, getActiveLibrariesLocalised } from '@services/utilities/libraryUtils'
 import '@i18n/config'
 import { useTranslation } from 'react-i18next'
 import RichText from '@lib/richText/RichText'
-
 import Image from "@atoms/image/Image"
 import Button from '@atoms/button/Button'
 import ButtonAcousticData from '@atoms/button/ButtonAcousticData'
@@ -27,30 +25,19 @@ const GlobalFooterAcousticData = (props) => {
     footerSignoff
   } = props.data  
 
-  const [openModal, setOpenModal] = useState(false)
+  const { t } = useTranslation()  
+  const [showModal, setShowModal] = useState(false)
   const languagePath = useSelector((state) => state.acoustic.language)
   const languageCode = getLibraryCode(languagePath)
   const date = datePublished?.value ? convertAcousticDateToPublishDate(datePublished?.value, languageCode) : ''
-  const { t } = useTranslation()  
-  const libraries = getLibraryList()
   const activeCountriesTranslations = t('activeCountries', { returnObjects: true })
-  
-  const result = libraries.map((item) => {
-    const obj = activeCountriesTranslations.find((o) => o.id === item.id)
-    return { ...item, ...obj }
-  })
-  const activeLib = groupBy(result.filter((library) => library.active === true), 'region')
-  Object.keys(activeLib).map((region) => {
-    activeLib[region].sort(dynamicSort('country'))
-  })
-  const changeLanguage = (e,locale) => {
-    e.stopPropagation()
-    if (typeof window !== 'undefined') {
-      window.location.href = "/"+locale;
-    }
+  const activeLib = getActiveLibrariesLocalised(activeCountriesTranslations)
+  const toggleModal = (e) => {
+    e ? e.preventDefault() : null
+    setShowModal(!showModal)
   }
   const getRichText = (text) => {
-    if (!text) return ''
+    if (!text) return null
     return <RichText data={text} />
   }
 
@@ -60,7 +47,7 @@ const GlobalFooterAcousticData = (props) => {
       logo=<Image src="/images/kki-logo-orange.png" altText="Kyowa Kirin Logo" />
       languageIcon="globe"
       languageText={t('countryRegion')} 
-      languageLink=<Button type='tertiary' link="#" text="United Kingdom" onClick={() => setOpenModal(true)} />
+      languageLink=<Button type='tertiary' link="#" text="United Kingdom" onClick={toggleModal} />
       datePublished={date}
       complianceCode={getValue(globalComplianceCode)}
       footerSignoff={getRichText(getValue(footerSignoff))}
@@ -75,7 +62,13 @@ const GlobalFooterAcousticData = (props) => {
         })}
       </List>
     </GlobalFooter>
-    <Modal show={openModal} title={t('pleaseSelectYourCountryOrRegion')} onClose={setOpenModal}>
+    <Modal 
+      show={showModal} 
+      title={t('pleaseSelectYourCountryOrRegion')}
+      onClose={(value) => {
+        toggleModal(value)
+      }}
+    >
       <ModalContent>
         <CountrySelector>
           {Object.keys(activeLib).map((region, i) => {

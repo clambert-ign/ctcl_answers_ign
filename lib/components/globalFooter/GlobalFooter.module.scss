@@ -39,7 +39,7 @@
   row-gap: 16px;
   align-items: center;
   @include media(medium, large, extraLarge, extraExtraLarge) {
-    grid-template-columns: minmax(max-content,100%) 200px;
+    grid-template-columns: auto 200px;
     row-gap: 0;
   }
 }

@@ -9,7 +9,7 @@
   background-color: var(--cctile-bgcolor, transparent);
   border-radius: var(--cctile-border-radius, 8px);
   filter: drop-shadow(var(--cctile-dropshadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)));
-  padding: 0 0 32px;
+  padding: 0;
   margin: 0;
   display: inline-grid;
   grid-template-columns: auto;
@@ -86,6 +86,10 @@
   font-size: var(--cctile-item-label-font-size, 16px);
   font-weight: var(--cctile-item-label-font-weight, 400);
   line-height: var(--cctile-item-label-line-height, 25.6px);
+}
+
+.contentCard .contentCardItem-left {
+  border: none;
 }
 
 .contentCard .contentCardItem-right {

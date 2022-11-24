@@ -12,7 +12,7 @@
   max-width: 100%;
   position: relative;
   padding: 24px 24px 64px;
-  margin: 0;
+  margin: 0 0 24px;
   text-align: center;  
   display: inline-grid;
   grid-template-columns: 0fr 12fr 0fr;
@@ -31,6 +31,10 @@
 
 .heroHeader.heroHeader-left {
   text-align: left;
+}
+
+.heroHeader.heroHeader-center {
+  text-align: center;
 }
 
 .heroHeader.showSide {
@@ -76,7 +80,7 @@
     width: 100%;
     object-fit: cover;
     object-position: 50%;
-    @include media(large, extraLarge, extraExtraLarge) {
+    @include media(medium, large, extraLarge, extraExtraLarge) {
       object-fit: fill;
     }
   }
@@ -219,7 +223,7 @@
 .heroHeader-content-btn {
   display: inline-block;
   width: 100%;
-  margin-bottom: 40px;
+  margin: 24px 0;
   --primary-btn-font-weight: var(--hh-primary-btn-font-weight);
   --primary-btn-line-height: var(--hh-primary-btn-line-height);
   --primary-btn-text-color: var(--hh-primary-btn-text-color);

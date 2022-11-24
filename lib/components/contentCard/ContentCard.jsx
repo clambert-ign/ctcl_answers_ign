@@ -29,7 +29,7 @@ const ContentCard = React.forwardRef((props, ref) => {
       ref={columnRef}
       className={`
         ${styles.contentCard} 
-        ${(props?.children?.length > 1 || isMultiple) ? styles['contentCard-multiple'] : '' }
+        ${(props?.children?.length > 1 || isMultiple) ? styles['contentCard-multiple'] : null }
       `}
     >
       {props.children}
