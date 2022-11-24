@@ -10,10 +10,10 @@
     }
     @include media(medium, large, extraLarge, extraExtraLarge) {
       li:first-of-type {
-        justify-self: right;
+        justify-self: center;
       }
       li:last-of-type {
-        justify-self: left;
+        justify-self: center;
       }
     }
   }
