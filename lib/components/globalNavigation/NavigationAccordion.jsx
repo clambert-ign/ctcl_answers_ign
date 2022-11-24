@@ -35,25 +35,25 @@ const NavigationAccordion = (props) => {
                 className={`${open ? styles['active'] : ''}`} 
                 onClick={(e) => openDropdown(e,index, 1)}
             >
-              {menuItems.length > 0 ? (
+              {menuItem.length > 0 ? (
                 <>
                   <Button 
                     type="tertiary"
-                    link={menuItem?.linkUrl}
-                    text={menuItem?.linkText}
-                    icon="chevronDown"
+                    link={menuItem?.url}
+                    text={menuItem?.text}
+                    icon="chevrondown"
                     iconAlign="right"
                   />
 
                   {open && (
                     <ul>
-                      {menuItems.map(({ linkUrl, linkText }, i) => {
+                      {menuItems.map(({ url, text }, i) => {
                         return (
                           <li key={`list${i}`}>
                             <Button 
                               type="tertiary" 
-                              link={linkUrl} 
-                              text={linkText} 
+                              link={url} 
+                              text={text} 
                             />
                           </li>
                         )
@@ -65,8 +65,8 @@ const NavigationAccordion = (props) => {
                 <div className={styles['accordion-list-item']} onClick={() => closeMenu()} >
                   <Button 
                     type="tertiary" 
-                    link={menuItem.linkUrl} 
-                    text={menuItem.linkText} 
+                    link={menuItem.url} 
+                    text={menuItem.text} 
                   />
                 </div>
               )}

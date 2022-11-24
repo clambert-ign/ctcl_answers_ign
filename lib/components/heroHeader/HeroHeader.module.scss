@@ -76,7 +76,7 @@
     width: 100%;
     object-fit: cover;
     object-position: 50%;
-    @include media(medium, large, extraLarge, extraExtraLarge) {
+    @include media(large, extraLarge, extraExtraLarge) {
       object-fit: fill;
     }
   }
@@ -219,7 +219,7 @@
 .heroHeader-content-btn {
   display: inline-block;
   width: 100%;
-  margin: 24px 0;
+  margin-bottom: 40px;
   --primary-btn-font-weight: var(--hh-primary-btn-font-weight);
   --primary-btn-line-height: var(--hh-primary-btn-line-height);
   --primary-btn-text-color: var(--hh-primary-btn-text-color);

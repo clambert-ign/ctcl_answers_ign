@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import utilityHelper from '@services/utilities/utilityHelper'
+import utilityHelper from '@services/utilities/utilityHelperPlus'
 import PropTypes from 'prop-types'
 import Button from "@atoms/button/Button"
 import styles from "./Carousel.module.scss"

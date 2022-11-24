@@ -7,8 +7,11 @@
 }
 
 .pageSectionWrapper .pageSection {
-  width: calc(100% - 64px);
-  padding: 32px;
+  width: calc(100% - 110px);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 55px;
+  padding-right: 55px;
   background-color: var(--ps-bgcolor, #fff);   
   color: var(--ps-text-color, #4B4C53);
   position: relative;
