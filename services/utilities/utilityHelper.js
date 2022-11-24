@@ -21,7 +21,7 @@ export const getValue = (element) => {
     if (element.value) {
         return element.value
     }
-
+    
     return null
 }
 

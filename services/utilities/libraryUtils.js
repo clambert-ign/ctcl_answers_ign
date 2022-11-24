@@ -1,4 +1,4 @@
-import { groupBy } from './arrayUtils'
+import { dynamicSort, groupBy } from './arrayUtils'
 
 const libraries = [
   {
@@ -6,7 +6,7 @@ const libraries = [
     path: '/de-de',
     language: 'de',
     code: 'de-de',
-    active: true,
+    active: false,
     secondaryDomain: 'https://www.verstopfungimgespraech.de',
     libraryId: 'b72ac361-4410-4cfd-af6e-a3453cdb10af',
     oneTrustScriptURL:'',
@@ -226,4 +226,17 @@ export const getGroupId = (path) => {
     const lib = libraries.filter((library) => library.path === path)
     return lib[0].performanceCookieId
   }
+}
+
+export const getActiveLibrariesLocalised = (activeCountriesTranslations) => {
+  const libraries = getLibraryList()
+  const result = libraries.map((item) => {
+    const obj = activeCountriesTranslations.find((o) => o.id === item.id)
+    return { ...item, ...obj }
+  })
+  const activeLib = groupBy(result.filter((library) => library.active === true), 'region')
+  Object.keys(activeLib).map((region) => {
+    activeLib[region].sort(dynamicSort('country'))
+  })
+  return activeLib
 }
