@@ -16,11 +16,11 @@ const AudioAcousticData = (props) => {
     <Audio
       description={getValue(description)}
       duration={getValue(duration)}
-      image={getFullUrl(image?.url)}
-      src={getFullUrl(src?.url)}
+      image={image?.url ? getFullUrl(image?.url) : null}
+      src={src?.url ? getFullUrl(src?.url) : null}
       title={getValue(title)}
       titleTag={getSelectionValue(titleTag)}
-      transcript={getFullUrl(transcript?.url)}
+      transcript={transcript?.url ? getFullUrl(transcript?.url) : null}
     />
   )
 }

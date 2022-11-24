@@ -15,12 +15,12 @@ const VideoAcousticData = (props) => {
   return  src ? (
     <Video
       caption={getValue(caption)}
-      image={getFullUrl(image?.url)}
-      src={getFullUrl(src?.url)}
-      subtitle={getFullUrl(subtitle?.url)}
+      image={image?.url ? getFullUrl(image?.url) : null}
+      src={src?.url ? getFullUrl(src?.url) : null}
+      subtitle={subtitle?.url ? getFullUrl(subtitle?.url) : null}
       title={getValue(title)}
       titleTag={getSelectionValue(titleTag)}
-      transcript={getFullUrl(transcript?.url)}
+      transcript={transcript?.url ? getFullUrl(transcript?.url) : null}
     />
   ) : null
 }

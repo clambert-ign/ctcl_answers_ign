@@ -18,7 +18,7 @@ const ImageAcousticData = (props) => {
       caption={getValue(caption)}
       downloadText={getValue(downloadText)}
       position={getSelectionValue(position)}
-      src={getFullImageStr(src.url)}
+      src={src?.url ? getFullImageStr(src?.url) : null}
       title={getValue(title)}
       titleTag={getSelectionValue(titleTag)}
     />

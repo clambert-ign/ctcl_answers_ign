@@ -5,13 +5,27 @@
   font-size: var(--st-font-size, var(--base-font-size));
   font-weight: var(--st-font-weight, var(--base-font-weight));
   line-height: var(--st-line-height, var(--base-line-height));
-  color: var(--st-text-color, var(--base-font-color));  
+  color: var(--st-text-color, var(--base-font-color));
+}
+
+.sectionTitle.sectionTitle.sectionTitle-left {
   justify-content: left;
   text-align: left;
 }
 
+.sectionTitle.sectionTitle-center {
+  justify-content: center;
+  text-align: center;    
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  p {
+    margin: 0 auto;
+  }
+}
+
 .sectionTitle p {
-  margin: 0 0 32px;
+  margin: 0;
   @include media(medium) {
     max-width: 66%;
   }
@@ -25,15 +39,4 @@
   font-weight:  var(--st-headline-font-weight, 700);
   line-height:  var(--st-headline-line-height, 76.8px);
   margin: 0 0 16px 0;
-}
-
-.sectionTitle.sectionTitle--center {
-  justify-content: center;
-  text-align: center;    
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  p {
-    margin: 0 auto;
-  }
 }

@@ -17,7 +17,6 @@ import Image from "@atoms/image/Image"
  * @param {string}  src            - The location of the media source file.
  * @param {string}  srcType        - The type of media.
  * @param {string}  transcript     - The location of the media transcript file.
- * @param {string}  layout         - The type of media layout (list, compact).
  * @returns React Component
  */
 
@@ -72,7 +71,7 @@ const Audio = React.forwardRef((props, ref) => {
 
   return (
     <div className={styles.audio} ref={audioRef}>
-      <div className={`${styles['audio-container']} ${layout ? styles[`audio-container--${layout}`] : ''}`}>
+      <div className={`${styles['audio-container']} ${layout ? styles[`audio-container-${layout}`] : ''}`}>
         {image && (
           <div className={styles['audio-image']}>        
             <Image src="/images/_blue-orange.png" altText="" />

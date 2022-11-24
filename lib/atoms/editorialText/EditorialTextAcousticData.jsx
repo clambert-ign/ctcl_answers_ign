@@ -32,7 +32,7 @@ const EditorialTextAcousticData = (props) => {
         <>
           {getValues(linksButtons).map((button, i) => {
             return (
-              <ButtonAcousticData key={i} data={button.elements} />
+              <ButtonAcousticData key={i} data={button?.elements} />
             )
           })}
         </>

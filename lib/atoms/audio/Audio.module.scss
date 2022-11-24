@@ -36,7 +36,11 @@
   }
 }
 
-.audio .audio-container.audio-container--compact {  
+.audio .audio-container.audio-container-list {  
+  border: none;
+}
+
+.audio .audio-container.audio-container-compact {  
   grid-template-columns: 1fr;
 }
 
@@ -103,7 +107,7 @@
 }
 
 .audio .audio-transcript {
-  margin: 12px 0 32px 0;
+  margin: 12px 0 0;
   --tertiary-btn-font-size: var(--audio-transcript-font-size, 16px);
   --tertiary-btn-font-weight: var(--audio-transcript-font-weight, 700);
   --tertiary-btn-line-height: var(--audio-transcript-line-height, 19.2px);

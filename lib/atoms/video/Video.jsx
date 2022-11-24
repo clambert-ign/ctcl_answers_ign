@@ -52,7 +52,7 @@ const Video = React.forwardRef((props, ref) => {
         type: srcType
       }
     ],
-    poster: image,
+    poster: image ? image : null,
     tracks: [
       {
         kind: 'captions',

@@ -22,7 +22,7 @@ const SectionTitle = (props) => {
   const HeadingTag = `${titleTag}`
 
   return (
-    <div className={`${styles.sectionTitle} ${styles['sectionTitle--' + align]}`}>
+    <div className={`${styles.sectionTitle} ${styles['sectionTitle-' + align]}`}>
       {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
       {description && (
         <p>
