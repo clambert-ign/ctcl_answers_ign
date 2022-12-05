@@ -92,7 +92,6 @@ const libraries = [
     code: 'en-gb',
     active: true,
     secondaryDomain: '',
-    //libraryId: 'fac4a68b-89bc-4188-8673-9ce1e14493ca',
     libraryId: '51190713-9d43-4377-80ea-7c294e42c490',
     oneTrustScriptURL:'',
     oneTrustDomainID:'',
@@ -139,35 +138,35 @@ const libraries = [
 // Returns active libraries as array.
 // If active parameter is false, it will return all defined libraries above.
 export const getLibraryList = (active = true) => {
-    if(active) {
-      return libraries.filter((library) => library.active === true)
-    } else {
-      return libraries
-    }
+  if(active) {
+    return libraries.filter((library) => library.active === true)
+  } else {
+    return libraries
+  }
 }
 
 export const getLibraryLanguage = (path) => {
-    if(path) {
-      const lib = libraries.filter((library) => library.path === path)
-      return lib[0].language
-    }
+  if(path) {
+    const lib = libraries.filter((library) => library.path === path)
+    return lib[0].language
+  }
 }
 
 export const checkLibraryExistsAndActive = (path) => {
-    if(path) {
-      const activeLibraries = getLibraryList()
-      const lib = activeLibraries.filter((library) => library.path === path)
-      const libExists = (lib.length > 0) ? true : false
+  if(path) {
+    const activeLibraries = getLibraryList()
+    const lib = activeLibraries.filter((library) => library.path === path)
+    const libExists = (lib.length > 0) ? true : false
 
-      return libExists
-    }
+    return libExists
+  }
 }
 
 export const getLibraryHomePageId = (path) => {
-    if(path) {
-      const lib = libraries.filter((library) => library.path === path)
-      return lib[0].homePageId
-    }
+  if(path) {
+    const lib = libraries.filter((library) => library.path === path)
+    return lib[0].homePageId
+  }
 }
 
 // Returns active libraries as array grouped by region

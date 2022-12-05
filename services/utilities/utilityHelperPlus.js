@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 function debounce(fn, ms) {
   let timer
@@ -13,49 +13,58 @@ function debounce(fn, ms) {
 
 const utilityHelper = {}
 
-utilityHelper.useWindowDimensions = () => {
+utilityHelper.useScreenDimensions = () => {
 
   const hasWindow = typeof window !== 'undefined'
+  const hasDoc = typeof document !== 'undefined'
 
-  function getWindowDimensions() {
-    const width = hasWindow ? window.innerWidth : null
-    const height = hasWindow ? window.innerHeight : null
-    return { width, height }
+  function getDimensions() {
+    const screenWidth = hasWindow ? window.screen.width : null
+    const screenHeight = hasWindow ? window.screen.height : null
+    const winWidth = hasWindow ? window.innerWidth : null
+    const winHeight = hasWindow ? window.innerHeight : null
+    const winScrollX = hasWindow ? window.scrollX : null
+    const winScrollY = hasWindow ? window.scrollY : null
+    const docWidth = hasDoc ? document.body.offsetWidth : null
+    const docHeight = hasDoc ? document.body.scrollHeight : null
+    return { screenWidth, screenHeight, winWidth, winHeight, winScrollX, winScrollY, docWidth, docHeight }
   }
 
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
+  const [screenDimensions, setScreenDimensions] = useState(getDimensions())
 
   useEffect(() => {
-    if (hasWindow) {
+    if (hasWindow && hasDoc) {
       const debouncedHandleResize = debounce(function handleResize() {
-        setWindowDimensions(getWindowDimensions())
+        setScreenDimensions(getDimensions())
       }, 100)
       
       window.addEventListener('resize', debouncedHandleResize)
       return () => window.removeEventListener('resize', debouncedHandleResize)
     }
-  }, [hasWindow])
+  }, [hasWindow, hasDoc])
 
-  return windowDimensions
+  return screenDimensions
 }
 
 utilityHelper.useComponentDimensions = (componentRef) => {
-
+  if(componentRef?.current) {
+    console.log('utilHelper', componentRef.current)
+  }
+ 
   function getComponentDimensions() {
-    const width = componentRef?.current?.offsetWidth ? componentRef.current.offsetWidth : 0
-    const height = componentRef?.current?.offsetHeight ? componentRef.current.offsetHeight : 0
-    return { width, height }
+    const { width, height, x, y } = componentRef?.current?.getBoundingClientRect()
+    return { width, height, x, y }
   }
 
   const [componentDimensions, setComponentDimensions] = useState(getComponentDimensions())
 
   useEffect(() => {
-    if (componentRef.current) {
+    if(componentRef?.current) {
       const debouncedHandleResize = debounce(function handleResize() {
         setComponentDimensions(getComponentDimensions())
       }, 100)
 
-      if (componentRef.current) {
+      if(componentRef?.current) {
         setComponentDimensions(getComponentDimensions())
       }
 
@@ -66,7 +75,7 @@ utilityHelper.useComponentDimensions = (componentRef) => {
     }
   }, [componentRef])
 
-  return componentDimensions;
+  return componentDimensions
 }
 
 utilityHelper.breakPointsDefault = {
@@ -79,13 +88,43 @@ utilityHelper.breakPointsDefault = {
 }
 
 utilityHelper.detectBreakpoint = (breakpointSize) => {
-  const isBreakpoint = (utilityHelper.useWindowDimensions().width >= utilityHelper.breakPointsDefault[breakpointSize]) ? false : true
+  const isBreakpoint = (utilityHelper?.useScreenDimensions().winWidth >= utilityHelper?.breakPointsDefault[breakpointSize]) ? false : true
   return isBreakpoint
 }
 
 utilityHelper.detectComponentBreakpoint = (breakpointSize, width) => {
-  const isBreakpoint = (width >= (utilityHelper.breakPointsDefault[breakpointSize]/2)) ? false : true
+  const isBreakpoint = (width >= (utilityHelper?.breakPointsDefault[breakpointSize]/2)) ? false : true
   return isBreakpoint
+}
+
+utilityHelper.clickOutside = (ref) => {
+  const [isOutside, setIsOutside] = useState(false)
+  function handleClickOutside(event) {
+    (ref?.current && !ref?.current?.contains(event.target)) ? setIsOutside(true) : setIsOutside(false)
+  }
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [ref])
+  return isOutside
+}
+
+utilityHelper.useTimeout = (callback, delay) => {
+  const timeoutRef = useRef(null)
+  const savedCallback = useRef(callback)
+  useEffect(() => {
+    savedCallback.current = callback
+  }, [callback])
+  useEffect(() => {
+    const tick = () => savedCallback.current()
+    if (typeof delay === 'number') {
+      timeoutRef.current = window.setTimeout(tick, delay)
+      return () => window.clearTimeout(timeoutRef.current)
+    }
+  }, [delay])
+  return timeoutRef
 }
 
 export default utilityHelper

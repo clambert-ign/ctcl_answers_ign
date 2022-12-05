@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import _ from 'lodash'
 import config from '@config/config'
 import initializeBasicAuth from 'nextjs-basic-auth'

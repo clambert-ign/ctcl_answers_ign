@@ -13,6 +13,7 @@ iconHelper.init = (iconName) => {
       return svgIcons[key]
     }
   }
+  return ''
 }
 
 export default iconHelper

@@ -12,7 +12,7 @@ const ipstackHelper = {}
 ipstackHelper.apiUrl = `${config.ipstackHelper.domain}check?access_key=${config.ipstackHelper.accessKey}`
 
 export const getLanguagePath = (country, lang) => {
-    return getLibraryPath(`/${lang}-${country.toLowerCase()}`)
+  return getLibraryPath(`/${lang}-${country.toLowerCase()}`)
 }
 
 export default ipstackHelper

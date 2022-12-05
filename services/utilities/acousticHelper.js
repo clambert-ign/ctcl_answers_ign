@@ -184,18 +184,13 @@ acousticHelper.getAcousticPageByUuid = (locale, uuid) => {
  * @return {string} Delivery rendering context URL
  */
 acousticHelper.getAcousticPageContent = (locale, category, renderUrl) => {
-    const libraryId = acousticHelper.libraryIdByPath(locale)
-
-    // Build query string
-    const parameters = ['q=*:*', 'fq=classification:content', `fq=libraryId:${libraryId}`, `fq=categories:*${category}*`, 'fl=categoryLeaves', 'fl=*,document:[json]']
-
-    const searchParameters = parameters.join('&')
-
-    if (renderUrl) {
-        return acousticHelper.apiUrl + config.acoustic.deliveryPath + config.acoustic.renderContextPath + config.acoustic.searchQueryPath + searchParameters
-    } else {
-        return acousticHelper.apiUrl + config.acoustic.searchPath + searchParameters
-    }
+  const libraryId = acousticHelper.libraryIdByPath(locale)
+  const parameters = ['q=*:*', 'fq=classification:content', `fq=libraryId:${libraryId}`, `fq=categories:*${category}*`, 'fl=categoryLeaves', 'fl=*,document:[json]']
+  const searchParameters = parameters.join('&')
+  if(renderUrl) {
+    return acousticHelper.apiUrl + config.acoustic.deliveryPath + config.acoustic.renderContextPath + config.acoustic.searchQueryPath + searchParameters
+  } 
+  return acousticHelper.apiUrl + config.acoustic.searchPath + searchParameters
 }
 
 const buildTypeStr = (typeTemplates) => {

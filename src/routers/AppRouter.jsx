@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { initAcoustic, apiError } from '@src/ducks/acousticSlice'
 import ipstackAPI from '@services/api/ipstackAPI'
@@ -16,16 +16,6 @@ const AppRouter = (props) => {
   const [defaultLocale, setDefaultLocale] = useState(`/${router.defaultLocale}`)
   const [languageCode, setLanguageCode] = useState(null)
   const dispatch = useDispatch()
-
-  const loading = useSelector((state) => state.acoustic.loading)
-  const error = useSelector((state) => state.acoustic.error)
-
-  // console.log('loading', loading)
-  // console.log('error', error)
-
-  /**
-   * IPStack API is used for Geolocation, more details about this process can be found in the localisation specification
-   */
 
   useEffect(() => {
     const getLocation = async () => {
