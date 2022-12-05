@@ -40,7 +40,7 @@ const ShareMenuAcousticData = (props) => {
   const isBreakPoint = utilityHelper.detectBreakpoint('m')
   const isOutside = utilityHelper.clickOutside(shareRef)
   const currentURL = window.location.protocol + '//' + window.location.hostname + window.location.pathname
-  const pageURL = shareUrl ? getValue(shareUrl) + '#' + getValue(shareId) : shareId ? currentURL + '#' + getValue(shareId) :  currentURL
+  const pageURL = getValue(shareUrl) ? getValue(shareUrl) + '#' + getValue(shareId) : shareId ? currentURL + '#' + getValue(shareId) :  currentURL
 
   if(isOutside) {
     dispatch(setShareOpen(false))
