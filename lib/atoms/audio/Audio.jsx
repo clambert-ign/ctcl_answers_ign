@@ -3,7 +3,7 @@ import utilityHelper from '@services/utilities/utilityHelperPlus'
 import PropTypes from 'prop-types'
 import Button from '@atoms/button/Button'
 import Plyr from 'plyr-react'
-import 'plyr-react/dist/plyr.css'
+import 'plyr-react/plyr.css'
 import styles from './Audio.module.scss'
 import Image from "@atoms/image/Image"
 
@@ -46,15 +46,16 @@ const Audio = React.forwardRef((props, ref) => {
   const plyrRef = useRef()
   const audioRef = useRef()
   useImperativeHandle(ref, () => plyrRef?.current)
-  const { width } = utilityHelper.useComponentDimensions(audioRef)
-  const isBreakPoint = utilityHelper.detectComponentBreakpoint('m', width)
+  const { winWidth } = utilityHelper.useScreenDimensions()
   const [layout, setLayout] = useState(null)  
   const [audioPlaying, setAudioPlaying] = useState(false)
   const HeadingTag = `${titleTag}`
 
-  useLayoutEffect(() => {
+  useEffect(() => {    
+    const { width } = audioRef?.current?.getBoundingClientRect()
+    const isBreakPoint = utilityHelper.detectComponentBreakpoint('m', width)
     isBreakPoint ? setLayout("compact") : setLayout("list")
-  }, [width])
+  }, [audioRef, winWidth])
 
   useEffect(() => {    
     if(audioPlaying){
@@ -63,7 +64,7 @@ const Audio = React.forwardRef((props, ref) => {
       //plyrref.current.plyr.pause()
     } 
   }, [audioPlaying])
-  
+
   const toggleAudio = (e) => {
     e.preventDefault()    
     setAudioPlaying(!audioPlaying)
@@ -112,7 +113,7 @@ Audio.propTypes = {
   image:       PropTypes.string,
   src:         PropTypes.string.isRequired,
   srcType:     PropTypes.string.isRequired,
-  srcType:     PropTypes.oneOf(['audio/mp3']),
+  srcType:     PropTypes.oneOf(['audio/mpeg']),
   transcript:  PropTypes.string.isRequired
 }
 

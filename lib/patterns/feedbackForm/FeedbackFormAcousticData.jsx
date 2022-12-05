@@ -14,11 +14,6 @@ const FeedbackFormAcousticData = (props) => {
     successMessage
   } = props.data
 
-  console.log('feedbackad', props.data)
-
-  // Styles + CSS Props
-  // Range value CSS!!!
-
   const [mapping, setMapping] = useState([])
   const [showForm, setShowForm] = useState(true)
   const createMapping = (mappingData) => {

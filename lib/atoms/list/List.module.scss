@@ -8,7 +8,7 @@
   color: var(--list-text-color, var(--base-font-color));
 
   ul, ol {
-    margin: 0;
+    margin: var(--list-margin, 0 0 24px);
     padding: 0;    
     display: grid;
     grid-template-columns: 1fr;
@@ -32,8 +32,12 @@
       a {        
         --tertiary-btn-font-size: var(--list-item-tertiary-btn-font-size, 16px);
         --tertiary-btn-text-color: var(--list-item-tertiary-btn-text-color, #6267a1);
+        --tertiary-btn-icon-color: var(--list-item-tertiary-btn-icon-color, #6267a1);
         --tertiary-btn-hover-text-color: var(--list-item-tertiary-btn-hover-text-color, #6267a1);
+        --tertiary-btn-hover-icon-color: var(--list-item-tertiary-btn-hover-icon-color, #6267a1);
+        --tertiary-btn-hover-bgcolor: var(--list-item-tertiary-btn-hover-bgcolor, transparent);
         --tertiary-btn-active-text-color:var(--list-item-tertiary-btn-active-text-color, #6267a1);
+        --tertiary-btn-active-icon-color:var(--list-item-tertiary-btn-active-icon-color, #6267a1);
         --tertiary-btn-active-bgcolor: var(--list-item-tertiary-btn-active-bgcolor, #f5f5f6);
       }
     }

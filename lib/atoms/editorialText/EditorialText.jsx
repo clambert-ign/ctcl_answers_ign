@@ -25,7 +25,7 @@ const EditorialText = (props) => {
 
   const textRef  = useRef(null)
   const textWrapperRef  = useRef(null)
-  const HeadingTag = `${titleTag}`
+  const HeadingTag = titleTag ? `${titleTag}` : 'h3'
 
   useEffect(() => {
     if(text && textRef?.current){

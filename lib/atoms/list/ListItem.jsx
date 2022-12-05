@@ -10,7 +10,7 @@ const ListItem = (props) => {
 
   useEffect(() => {
     if(itemStyle){
-      listRef?.current?.style?.setProperty(
+      listRef.current.style.setProperty(
         "--list-item-before-content",
         '"'+itemStyle+'"'
       )

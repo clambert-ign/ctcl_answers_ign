@@ -25,21 +25,21 @@ const List = (props) => {
   const listRef  = useRef(null)
 
   useEffect(() => {
-    listRef?.current?.style?.setProperty(
+    listRef.current.style.setProperty(
       "--list-column-count",
       `${columns}`
     )
-    listRef?.current?.style?.setProperty(
+    listRef.current.style.setProperty(
       "--list-ol-start-value",
       `${startValue}`
     )
     if(isReversed) {
-      listRef?.current?.style?.setProperty(
+      listRef.current.style.setProperty(
         "--list-ol-increment-value",
         `-1`
       )
     } else {
-      listRef?.current?.style?.setProperty(
+      listRef.current.style.setProperty(
         "--list-ol-increment-value",
         `1`
       )

@@ -39,17 +39,6 @@ const Modal = (props) => {
     setShowModal(show) 
   }, [show])
 
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.keyCode === 27 || event.key === 'Escape') 
-        closeModal()
-    }
-    window.addEventListener('keydown', handleEsc)
-    return () => {
-      window.removeEventListener('keydown', handleEsc)
-    }
-  }, [])
-
   return (
     <>
       {showModal ? (

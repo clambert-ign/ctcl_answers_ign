@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 /*
   Import base theme css props for approved KANSO components
 */ 
-
+@import '../../styles/mixin.scss';
 @import './designTokens/base.scss';
 @import './designTokens/atoms.scss';
 @import './designTokens/components.scss';
@@ -19,6 +20,13 @@
   img {
     max-width: 100%;
   }   
+}
+
+// separate this into new print.scss and import
+@media print {
+  body * {
+    display: none;
+  }
 }
 
 //page section element spacing

@@ -1,5 +1,5 @@
 import GlobalFooter from './GlobalFooter'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getValue, convertAcousticDateToPublishDate } from '@services/utilities/utilityHelper'
 import { getLibraryCode, getActiveLibrariesLocalised } from '@services/utilities/libraryUtils'
@@ -40,6 +40,17 @@ const GlobalFooterAcousticData = (props) => {
     if (!text) return null
     return <RichText data={text} />
   }
+  
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.keyCode === 27 || e.key === 'Escape') 
+      setShowModal(false)
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => {
+      window.removeEventListener('keydown', handleEsc)
+    }
+  }, [])
 
   return (
     <>

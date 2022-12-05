@@ -7,16 +7,21 @@ import CalloutQuoteAcousticData from '@components/calloutQuote/CalloutQuoteAcous
 import PersonListAcousticData from '@patterns/personList/PersonListAcousticData'
 import ImageListAcousticData from '@patterns/imageList/ImageListAcousticData'
 import { getComponentName } from '@services/utilities/acousticMappings'
-import { getValues } from '@services/utilities/utilityHelper'
+import { getValue, getValues } from '@services/utilities/utilityHelper'
 
 const EditorialAcousticData = (props) => {
   const { 
     contentLeft,
-    contentRight
+    contentRight,
+    cssClass,
+    id
   } = props.data
  
   return (  
-    <Editorial>
+    <Editorial 
+      cssClass={getValue(cssClass)}
+      id={getValue(id)}
+    >
       {getValues(contentLeft) && (
         <div>
           {contentLeft?.values?.map((content, index) => {

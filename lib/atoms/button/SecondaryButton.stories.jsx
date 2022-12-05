@@ -9,6 +9,10 @@ import ModalContent from "@components/modal/ModalContent"
 import ModalFooter from "@components/modal/ModalFooter"
 import * as ModalArgs from "@components/modal/Modal.stories"
 import ConfirmationDialog from "@patterns/confirmationDialog/ConfirmationDialog"
+import List from '@atoms/list/List'
+import ListItem from '@atoms/list/ListItem'
+import PanelList from "@components/panelList/PanelList"
+import ShareMenu from "@components/shareMenu/ShareMenu"
 
 export default {
   title: 'Atoms/Buttons & Links/Secondary Buttons',
@@ -344,4 +348,75 @@ const TemplateModal = (args) => {
 export const ModalLink = TemplateModal.bind()
 ModalLink.args = {
     text: 'Open Modal'
+}
+
+const TemplateShare = (args) => {    
+  const [showShareMenu, setShowShareMenu] = useState(false)
+  const toggleMenu = (e) => {
+    e.preventDefault()           
+    setShowShareMenu(!showShareMenu)
+  }  
+  const handleClick = (e,type) => {
+    e.preventDefault()
+    const y = window.top.outerHeight / 2 + window.top.screenY - ( 300 / 2);
+    const x = window.top.outerWidth / 2 + window.top.screenX - ( 400 / 2);
+    switch(type) {
+      case "facebook":
+        console.log('share: facebook')
+        window.open('https://www.facebook.com/sharer.php?u=https://www.google.co.uk', 'test', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=400, height=300, top=${y}, left=${x}`);
+        // https://www.facebook.com/sharer.php?u=
+        break;
+      case "twitter":
+        console.log('share: twitter')
+        window.open('https://twitter.com/intent/tweet?url=https://www.google.co.uk', 'test', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=400, height=300, top=${y}, left=${x}`);
+        // https://twitter.com/intent/tweet?url=
+        break;
+      case "email":
+        console.log('share: email')
+        window.location.href = "mailto:user@example.com?subject=Subject&body=message%20goes%20here";
+        // mailto:user@example.com?subject=Subject&body=message%20goes%20here
+        break;
+      case "link":
+        console.log('share: link')
+        navigator.clipboard.writeText('https://www.google.co.uk');
+        // https://www.google.co.uk
+        break;
+      case "print":
+        console.log('share: print')
+        window.print()
+        // code block
+        break;
+      default:
+        // code block
+    }
+    setShowShareMenu(!showShareMenu)
+  }        
+  return (
+    <>
+    <Button {...args} text="Share" onClick={toggleMenu} >
+        {args.children}
+    </Button>
+    {showShareMenu ? 
+      <ShareMenu>
+        <PanelList>
+          <List>
+            <ListItem><Button type="tertiary" icon="shareFacebook" text="Facebook" onClick={(e) => handleClick(e,'facebook')} /></ListItem>
+            <ListItem><Button type="tertiary" icon="shareTwitter" text="Twitter" onClick={(e) => handleClick(e,'twitter')} /></ListItem>
+            <ListItem><Button type="tertiary" icon="shareEmail" text="Email" onClick={(e) => handleClick(e,'email')} /></ListItem>
+            <ListItem><Button type="tertiary" icon="shareLink" text="Copy Link" onClick={(e) => handleClick(e,'link')} /></ListItem>
+            <ListItem><Button type="tertiary" icon="sharePrint" text="Print" onClick={(e) => handleClick(e,'print')} /></ListItem>
+          </List>
+        </PanelList>
+      </ShareMenu>
+      :
+      null
+    }
+    </>
+  )
+}
+
+export const Share = TemplateShare.bind()
+Share.args = {
+  icon: 'share',
+  iconAlign: 'right'
 }

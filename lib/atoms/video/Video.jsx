@@ -2,7 +2,7 @@ import React, { useRef, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
 import Plyr from 'plyr-react'
 import styles from './Video.module.scss'
-import 'plyr-react/dist/plyr.css'
+import 'plyr-react/plyr.css'
 import Button from '@atoms/button/Button'
 
 /**

@@ -25,5 +25,11 @@
     "confirm": "Confirm",
     "cancel": "Cancel",
     "warning": "Warning!",  
-    "externalLink": "You are about to navigate away from this website, are you sure you want to continue?"  
+    "externalLink": "You are about to navigate away from this website, are you sure you want to continue?",
+    "clipboard": "Copied to Clipboard.",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "link": "Copy Link",
+    "print": "Print",
+    "email": "Email"  
 }

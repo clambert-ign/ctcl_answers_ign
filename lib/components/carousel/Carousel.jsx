@@ -23,7 +23,7 @@ const Carousel = (props) => {
     settings
   } = props
   
-  const { width } = utilityHelper.useWindowDimensions()
+  const { winWidth } = utilityHelper.useScreenDimensions()
   const isBreakPoint = utilityHelper.detectBreakpoint('m')
   const sliderRef = useRef()
   const carouselRef = useRef()  
@@ -112,7 +112,7 @@ const Carousel = (props) => {
         : null
     ))}
     setSlideHeight(constSlideHeight)
-  }, [width, isBreakPoint])
+  }, [winWidth, isBreakPoint])
   
   useEffect(() => {
     if(carouselRef?.current) {

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getValue, getValues, getSelectionValue } from '@services/utilities/utilityHelper'
 import { getComponentName } from '@services/utilities/acousticMappings'
@@ -36,6 +37,18 @@ const ModalAcousticData = (props) => {
       window.open(getValue(data.link), '_blank')
     }
   }
+  
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.keyCode === 27 || e.key === 'Escape') 
+      dispatch(setModalOpen(false))
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => {
+      window.removeEventListener('keydown', handleEsc)
+    }
+  }, [])
+
 
   return type === 'modal' ? (
     <Modal 

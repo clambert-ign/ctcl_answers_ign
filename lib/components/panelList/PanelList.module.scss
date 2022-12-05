@@ -1,19 +1,20 @@
 @import "../../assets/styles/global.scss";
 
 .panelList {
+  width: 100%;
   font-family: var(--base-font-family);
   font-size: var(--pl-font-size, 16px);
   font-weight: var(--pl-font-weight, 200);
   line-height: var(--pl-line-height, 25.6px);
   color: var(--pl-text-color, var(--base-font-color));
-  padding: 32px 24px;
+  padding: var(--pl-padding, 32px 24px);
   background:  var(--pl-bgcolor, #F5F5F6);
   border-radius: var(--pl-border-radius,  0px 8px 8px 0px);
-  box-shadow: 0px 7.48582px 30px rgba(50, 50, 50, 0.2);
+  box-shadow: var(--pl-box-shadow,  0px 7.48582px 30px rgba(50, 50, 50, 0.2));
 
-  --list-item-border-color: #6267a1;
-  --list-ol-item-padding: 16px 0 16px 40px;
-  --list-ul-item-padding: 16px 0 16px 16px;
+  --list-item-border-color: var(--pl-list-item-border-color, #6267a1);
+  --list-ol-item-padding: var(--pl-list-item-ol-padding, 16px 0 16px 40px);
+  --list-ul-item-padding: var(--pl-list-item-ul-padding, 16px 0 16px 16px);
 }
 
 .panelList .headline {
@@ -33,9 +34,12 @@
   a {        
     --tertiary-btn-font-size: var(--pl-list-tertiary-btn-font-size, 16px);
     --tertiary-btn-text-color: var(--pl-list-tertiary-btn-text-color, #6267a1);
+    --tertiary-btn-icon-color: var(--pl-list-tertiary-btn-icon-color, #6267a1);
     --tertiary-btn-hover-text-color: var(--pl-list-tertiary-btn-hover-text-color, #6267a1);
+    --tertiary-btn-hover-icon-color: var(--pl-list-tertiary-btn-hover-icon-color, #6267a1);
     --tertiary-btn-hover-bgcolor: var(--pl-list-tertiary-btn-hover-bgcolor, transparent);
     --tertiary-btn-active-text-color:var(--pl-list-tertiary-btn-active-text-color, #6267a1);
+    --tertiary-btn-active-icon-color:var(--pl-list-tertiary-btn-active-icon-color, #6267a1);
     --tertiary-btn-active-bgcolor: var(--pl-list-tertiary-btn-active-bgcolor, #f5f5f6);
   }
 }

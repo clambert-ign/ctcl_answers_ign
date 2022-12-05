@@ -1,0 +1,53 @@
+@import '../../assets/styles/global.scss';
+
+.shareMenu {
+  display: flex;
+  width: 200px;
+  text-align: left;
+  position: absolute;
+  top: var(--share-position-y, 0);
+  left: var(--share-position-x, 0);
+  --pl-box-shadow: var(--share-box-shadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2));
+  --pl-border-radius: var(--share-border-radius, 8px);
+  --pl-bgcolor: var(--share-bgcolor, #fff);
+  --pl-list-item-border-color: var(--share-border-color, none);
+  --pl-padding: var(--share-padding, 0);
+  --list-margin: var(--share-margin, 0);
+  --pl-list-item-ul-padding: var(--share-list-padding, 0);
+  --tertiary-btn-width: var(--share-item-width, calc(100% - 16px));
+  --tertiary-btn-padding: var(--share-item-padding, 12px 0 12px 16px);
+  --pl-list-tertiary-btn-font-size: var(--share-item-font-size, 16px);
+  --pl-list-tertiary-btn-text-color: var(--share-item-text-color, #4b4c53);
+  --pl-list-tertiary-btn-icon-color: var(--share-item-icon-color, #4b4c53);
+  --pl-list-tertiary-btn-hover-text-color: var(--share-item-hover-text-color, #fff);
+  --pl-list-tertiary-btn-hover-icon-color: var(--share-item-hover-icon-color, #fff);
+  --pl-list-tertiary-btn-hover-bgcolor: var(--share-item-hover-bgcolor, #fa7b51);
+  --tertiary-btn-hover-text-decoration: var(--share-item-hover-text-decoration, none);
+  --pl-list-tertiary-btn-active-text-color: var(--share-item-active-text-color, #fff);
+  --pl-list-tertiary-btn-active-icon-color: var(--share-item-active-icon-color, #fff);
+  --pl-list-tertiary-btn-active-bgcolor: var(--share-item-active-bgcolor, #fa7b51);
+  --tertiary-btn-active-text-decoration: var(--share-item-active-text-decoration, none);
+
+  div div ul li {
+    &:first-of-type {
+      --tertiary-btn-border-radius: var(--share-item-first-border-radius, 8px 8px 0 0);
+    }
+    &:last-of-type {
+      --tertiary-btn-border-radius: var(--share-item-last-border-radius, 0 0 8px 8px);
+    }
+    a {
+      width: 100%;
+      span {
+        align-self: center;
+
+        &:first-of-type {
+          padding: 0 4px 0 0;
+        }
+      }
+    }
+  }
+
+  &--top {
+    top: calc(var(--share-position-y, 0) - var(--share-position-y-top-offset, 300px));
+  }
+}

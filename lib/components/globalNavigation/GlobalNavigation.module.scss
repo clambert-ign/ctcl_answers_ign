@@ -27,7 +27,7 @@
 
   @include media(extraLarge,extraExtraLarge) {
       margin: 60px 0 0;
-      grid-template-columns: 1fr 0fr 6fr;
+      grid-template-columns: 1fr 1fr 6fr;
   }
 
   &-logo { 
@@ -48,7 +48,7 @@
   
   @include media(extraLarge,extraExtraLarge) {      
       img {
-          padding: 0px 0 0;
+          padding: 16px 0 0;
       }
       &-logokki {
           img {
@@ -251,7 +251,7 @@
 
 .globalNav.globalNav-fixed {
     max-width: unset;
-    position: fixed;
+    position: sticky;
     padding: 0;
     top: 0;
     left: 0;

@@ -189,6 +189,17 @@
   --toast-link-disabled-icon-color: #F5F5F6;
   --toast-link-disabled-text-decoration: none;
   --toast-link-disabled-bgcolor: transparent;
+
+  //Alert
+  --alert-font-size: 16px;
+  --alert-font-weight: 600;
+  --alert-line-height: 25.6px;
+  --alert-text-color: #fff;
+  --alert-width: auto;
+  --alert-bgcolor: #f62900;
+  --alert-border: none;
+  --alert-border-radius: 8px;
+  --alert-position-y: 20px;
   
   //Hero Header
   --hh-font-size: 24px;
@@ -581,23 +592,31 @@
    --cq-quote-text-color: #6267A1;
  
    //PanelList
-  --pl-font-size: 16px;
-  --pl-font-weight: 200;
-  --pl-line-height: 25.6px;
-  --pl-text-color: #4b4c53;
-  --pl-bgcolor: #F5F5F6;
-  --pl-border-radius: 0 8px 8px 0;
-  --pl-heading-font-size: 28px;
-  --pl-heading-font-weight: 400;
-  --pl-heading-line-height: 33.6px;
-  --pl-compliance-font-size: 16px;
-  --pl-compliance-font-weight: 400;
-  --pl-list-tertiary-btn-font-size: 16px;
-  --pl-list-tertiary-btn-text-color: #6267a1;
-  --pl-list-tertiary-btn-hover-text-color: #6267a1;
-  --pl-list-tertiary-btn-hover-bgcolor: transparent;
-  --pl-list-tertiary-btn-active-text-color: #6267a1;
-  --pl-list-tertiary-btn-active-bgcolor: #f5f5f6;
+   --pl-font-size: 16px;
+   --pl-font-weight: 200;
+   --pl-line-height: 25.6px;
+   --pl-text-color: #4b4c53;
+   --pl-bgcolor: #F5F5F6;
+   --pl-padding: 32px 24px;
+   --pl-border-radius: 0 8px 8px 0;
+   --pl-box-shadow: 0px 7.48582px 30px rgba(50, 50, 50, 0.2);
+   --pl-heading-font-size: 28px;
+   --pl-heading-font-weight: 400;
+   --pl-heading-line-height: 33.6px;
+   --pl-compliance-font-size: 16px;
+   --pl-compliance-font-weight: 400;
+   --pl-list-item-border-color: #6267a1;
+   --pl-list-item-ol-padding: 16px 0 16px 40px;
+   --pl-list-item-ul-padding: 16px 0 16px 16px;
+   --pl-list-tertiary-btn-font-size: 16px;
+   --pl-list-tertiary-btn-text-color: #6267a1;
+   --pl-list-tertiary-btn-icon-color: #6267a1;
+   --pl-list-tertiary-btn-hover-text-color: #6267a1;
+   --pl-list-tertiary-btn-hover-icon-color: #6267a1;
+   --pl-list-tertiary-btn-hover-bgcolor: transparent;
+   --pl-list-tertiary-btn-active-text-color: #6267a1;
+   --pl-list-tertiary-btn-active-icon-color: #6267a1;
+   --pl-list-tertiary-btn-active-bgcolor: #f5f5f6;
   
   //Person
   --person-font-size: 16px;

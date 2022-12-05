@@ -15,7 +15,7 @@ const EditorialTextAcousticData = (props) => {
   } = props.data
 
   const getRichText = (text) => {
-    if (!text) return undefined
+    if (!text) return null
     return <RichText data={text} />
   }
   

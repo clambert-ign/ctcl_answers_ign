@@ -3,9 +3,9 @@ import styles from './PageSection.module.scss'
 import Image from '@atoms/image/Image'
 
 /**
-* HeroHeader Component
-* @param {string} bgImage   - The background image of the Page Section Component to be displayed.
-* @param {string} cssClass  - The CSS Class of the Page Section Component to be displayed.
+* Page Section Pattern
+* @param {string} bgImage   - The background image of the Page Section Pattern to be displayed.
+* @param {string} cssClass  - The CSS Class of the Page Section Pattern to be displayed.
 * @return React component
 */
 

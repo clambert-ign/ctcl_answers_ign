@@ -1,0 +1,37 @@
+@import "../../assets/styles/global.scss";
+
+.alert {
+  font-family: var(--base-font-family);
+  font-size: var(--alert-font-size, var(---base-font-size));
+  font-weight: var(--alert-font-weight, var(--base-font-weight));
+  line-height: var(--alert-line-height, var(--base-line-height));
+  color: var(--alert-text-color, var(--base-font-color));
+  background-color: var(--alert-bgcolor, #fff);
+  border: var(--alert-border, 2px dashed #2F345A);
+  border-radius: var(--alert-border-radius, 8px);
+  margin: 0;
+  padding: 0;
+  width: var(--alert-width, auto);
+  max-width: 100%;
+  position: fixed;
+  top: var(--alert-position-y, 20px);
+  left: var(--alert-position-x, 0);
+  z-index: 200;
+}
+
+.alert.alert--left {
+  justify-content: left;
+  text-align: left;
+}
+
+.alert.alert--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.alert .alert-container {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+  padding: 16px;
+}

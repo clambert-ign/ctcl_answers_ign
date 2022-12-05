@@ -12,6 +12,7 @@
   --primary-btn-text-color: #fff;
   --primary-btn-icon-color: #fff;
   --primary-btn-bgcolor: #EA5724;
+  --primary-btn-border-radius: 8px;
   --primary-btn-border-color: #EA5724;
   --primary-btn-hover-box-shadow: 0px 6px 14px -4px rgba(98, 103, 161, 0.6);
   --primary-btn-hover-text-color: #fff;
@@ -41,6 +42,7 @@
   --secondary-btn-icon-color: #EA5724;
   --secondary-btn-bgcolor: transparent;
   --secondary-btn-border-color: #EA5724;
+  --secondary-btn-border-radius: 8px;
   --secondary-btn-hover-box-shadow: none;
   --secondary-btn-hover-text-color: #fff;
   --secondary-btn-hover-icon-color: #fff;
@@ -64,10 +66,13 @@
   --tertiary-btn-font-size: 16px;
   --tertiary-btn-font-weight: 700;
   --tertiary-btn-line-height: 19.2px;
+  --tertiary-btn-width: unset;
+  --tertiary-btn-padding: 0;
   --tertiary-btn-text-color: #EA5724;
   --tertiary-btn-icon-color: #EA5724;
   --tertiary-btn-text-decoration: none;
   --tertiary-btn-bgcolor: transparent;
+  --tertiary-btn-border-radius: 0;
   --tertiary-btn-hover-text-color: #EA5724;
   --tertiary-btn-hover-icon-color: #EA5724;
   --tertiary-btn-hover-text-decoration: underline;
@@ -290,6 +295,7 @@
   --list-font-weight: 200;
   --list-line-height: 25.6px;
   --list-text-color: #4b4c53;
+  --list-margin: 0 0 24px;
   --list-ul-item-padding: 16px 0 8px 16px;
   --list-ol-item-padding: 16px 0 8px 40px;
   --list-item-border-color: transparent;
@@ -297,9 +303,13 @@
   --list-item-before-font-size: 16px;
   --list-item-tertiary-btn-font-size: 16px;
   --list-item-tertiary-btn-text-color: #6267a1;
+  --list-item-tertiary-btn-icon-color: #6267a1;
   --list-item-tertiary-btn-hover-text-color: #6267a1;
+  --list-item-tertiary-btn-hover-icon-color: #6267a1;
+  --list-item-tertiary-btn-hover-bgcolor: transparent;
   --list-item-tertiary-btn-active-text-color: #6267a1;
-  --list-item-tertiary-btn-active-bgcolor: #f5f5f6;
+  --list-item-tertiary-btn-active-icon-color: #6267a1;
+  --list-item-tertiary-btn-active-bgcolor: transparent;
 
   //Checkbox
   --chkbox-font-size: 16px;

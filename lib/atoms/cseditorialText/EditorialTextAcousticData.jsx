@@ -5,7 +5,6 @@ import { getValue, getSelectionValue, capitaliseFirstLetter } from '@services/ut
 import RichText from '@lib/richText/RichText'
 import Button from '@atoms/button/Button'
 import Modal from '@components/modal/Modal'
-import { linkHelperConstants } from '@services/utilities/linkHelper'
 
 const EditorialTextAcousticData = (props) => {
   const { 
