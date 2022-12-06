@@ -7,6 +7,7 @@
   position: absolute;
   top: var(--share-position-y, 0);
   left: var(--share-position-x, 0);
+  z-index: 9999;
   --pl-box-shadow: var(--share-box-shadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2));
   --pl-border-radius: var(--share-border-radius, 8px);
   --pl-bgcolor: var(--share-bgcolor, #fff);
