@@ -16,7 +16,7 @@ const FlexiTemplate = (props) => {
 
   useEffect(() => {
     if(window.location.hash) {
-      setTimeout(() => document.getElementById(hash.substring(1)).scrollIntoView({inline: 'center', behavior: 'smooth'}), 500)
+      setTimeout(() => document.getElementById(window.location.hash.substring(1)).scrollIntoView({inline: 'center', behavior: 'smooth'}), 500)
     }
   })
   
