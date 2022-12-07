@@ -27,7 +27,7 @@ const Tabs = (props) => {
   const [tabListItemsNext, setTabListItemsNext] = useState(1)
   const [tabListItemsPrev, setTabListItemsPrev] = useState(0)
 
-  const tabList = getChildrenByType(props.children, [Button])
+  const tabList = getChildrenByType(props.children, ['Button'])
   const tabContent = getChildrenByType(props.children, [TabContent])
  
   const isTabListScroll = () => {
