@@ -234,3 +234,30 @@
     border-radius: var(--cc-item-2col-image-top-border-radius, 8px 8px 0 0);
   }
 }
+
+@media print {
+  .contentCard {
+    box-shadow: none;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    filter: none;
+    .headline {
+      font-size: 18px;
+      line-height: 1.7rem;
+    }
+    .contentCardItem-content-btn a {
+      text-align: left !important;
+    }
+    .contentCardItem {
+      display: block !important;
+      width: 100%;
+      p {
+        margin: 0 0 5px !important;
+      }
+      .contentCardItem-image {
+        display: none;
+      }
+    }
+  }
+}

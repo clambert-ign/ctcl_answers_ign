@@ -154,3 +154,24 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media print {
+  .contentCard {
+    box-shadow: none;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    filter: none;
+    .headline {
+      font-size: 18px;
+      line-height: 1.7rem;
+    }
+    .contentCardItem {
+      display: block !important;
+      width: 100%;
+      .contentCardItem-image {
+        display: none;
+      }
+    }
+  }
+}

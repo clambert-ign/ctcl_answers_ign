@@ -148,3 +148,17 @@
     --tertiary-btn-disabled-bgcolor: var(--gf-menu-link-disabled-bgcolor, transparent);
   }
 }
+
+@media print {
+  .footer {
+    svg {
+      display: none;
+    }
+    .footer-menuItems {
+      display: none;
+    }
+    .footer-container .footer-container-content .country-selector {
+      display: none;
+    }
+  }
+}

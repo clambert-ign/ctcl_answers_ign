@@ -136,3 +136,22 @@
     }
   }
 }
+
+@media print {
+  .accordion {
+    svg {
+      display: none;
+    }
+    dt, dd {
+      margin: 0 0 8px !important;
+    }
+    dt.closed a, dt a {
+      grid-column-gap: 0px !important;
+    }
+    dd.closed, dd {
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+  }
+}

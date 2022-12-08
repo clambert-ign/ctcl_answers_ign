@@ -52,3 +52,9 @@
     top: calc(var(--share-position-y, 0) - var(--share-position-y-top-offset, 300px));
   }
 }
+
+@media print {
+  .shareMenu {
+    display: none;
+  }
+}

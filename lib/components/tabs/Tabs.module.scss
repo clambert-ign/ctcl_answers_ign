@@ -154,3 +154,38 @@
     display: none;
   }
 }
+
+@media print {
+  .tabs {
+    padding: 0 !important;
+    padding-top: 0.15in !important;
+    margin: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    .tabList-wrapper ul {
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+      width: 100% !important;
+    }
+    .tabList-wrapper ul li {
+      display: none;
+    }
+    .tabList-wrapper ul li.active {
+      display: block;
+      a {
+        border-bottom: 0px !important;
+        font-size: 24px;
+        line-height: 1.7rem;
+        margin: 0;
+        padding-bottom: 0.15in !important;  
+      }
+    }
+    .tabContent {
+      &--open {
+        margin: 0;
+      }
+    }
+  }
+}

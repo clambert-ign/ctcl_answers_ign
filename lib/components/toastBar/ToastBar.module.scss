@@ -65,3 +65,9 @@
   --tertiary-btn-disabled-text-decoration: var(--toast-link-disabled-text-decoration, none);
   --tertiary-btn-disabled-bgcolor: var(--toast-link-disabled-bgcolor, transparent);
 }
+
+@media print {
+  .toastbar {
+    display: none;
+  }
+}

@@ -31,16 +31,19 @@
   img {
     aspect-ratio: 1/1;
     width: 56px;
+    height: 56px;
     border-radius: 50%;
   }
   @include media(medium,large) {
     img {
       width: 72px;
+      height: 72px;
     }
   }
   @include media(extraLarge,extraExtraLarge) {
     img {
       width: 80px;
+      height: 80px;
     }
   }
 }

@@ -301,3 +301,30 @@
         opacity: 1;
     }
 }
+
+@media print {
+  .globalNav.globalNav-fixed {
+    position: unset;
+  }
+  .globalNav, .globalNav .globalNav-container {
+    padding: 0.1in 0 !important;
+    margin: 0 0 0.2in !important;
+    width: 100% !important;
+    background-color: #000 !important;
+    .globalNav-container-menu {
+      display: none;
+    }
+    .globalNav-container {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      grid-template-columns: 1fr 1fr !important;
+      .globalNav-desktopMenu {
+        display: none;
+      }
+    }
+    .globalNav-container-logokki {
+      justify-self: flex-end;
+    }
+  }
+}

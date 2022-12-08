@@ -276,4 +276,31 @@
       }
     }
   }
+
+@media print {
+  .carousel {
+    width: 100%;
+    display: block;
+    .headline {
+      font-size: 18px;
+      line-height: 1.7rem;
+    }
+    [class$="slick-track"] {
+      display: block !important;
+      width: 100% !important;
+    }
+    [class$="slick-dots"] {
+      display: none;
+    }
+    &.carousel-height {
+      [class$="slick-list"] {
+        height: auto !important;
+      }
+    }
+    [class~="slick-slide"] {
+      float: none;
+      width: 100% !important;
+      padding-bottom: 0in !important;
+    }
+  }
 }
