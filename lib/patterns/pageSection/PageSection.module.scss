@@ -42,3 +42,15 @@
     }
   }
 }
+
+@media print {
+  .pageSectionWrapper .pageSection {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    padding-bottom: 0.15in !important;
+    .pageSection-background {
+      display: none;
+    }
+  }
+}

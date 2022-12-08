@@ -20,3 +20,14 @@
     column-gap: 32px;
   }
 }
+
+@media print {
+  .editorial {
+    display: block;
+    margin: 0 !important;
+    padding-bottom: 0.15in !important;
+  }
+  .editorial > div > div > span > img {
+    display: none;
+  }
+}
