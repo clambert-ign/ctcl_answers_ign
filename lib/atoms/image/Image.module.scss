@@ -73,3 +73,14 @@
 .image .image--fixed {
   border: none;
 }
+
+@media print {
+  .image {
+    display: block !important;
+    .image-wrapper {
+      display: block !important;
+      break-before: avoid !important;
+      break-after: avoid !important;
+    }
+  }
+}

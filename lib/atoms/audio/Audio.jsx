@@ -57,12 +57,11 @@ const Audio = React.forwardRef((props, ref) => {
     isBreakPoint ? setLayout("compact") : setLayout("list")
   }, [audioRef, winWidth])
 
-  useEffect(() => {    
-    if(audioPlaying){
-      plyrRef?.current?.plyr?.play()
-    } else {
-      //plyrref.current.plyr.pause()
-    } 
+  useEffect(() => { 
+    console.log('audio playing:', plyrRef?.current?.plyr)
+    if(audioPlaying) {
+      plyrRef?.current?.plyr?.decreaseVolume(-2)
+    }
   }, [audioPlaying])
 
   const toggleAudio = (e) => {
@@ -75,7 +74,7 @@ const Audio = React.forwardRef((props, ref) => {
       <div className={`${styles['audio-container']} ${layout ? styles[`audio-container-${layout}`] : ''}`}>
         {image && (
           <div className={styles['audio-image']}>        
-            <Image src="/images/_blue-orange.png" altText="" />
+            <Image src={image} altText="" />
             <span className={styles.playIcon}>
               <Button type="tertiary" text="" link="#" icon="audioPlay" iconAlign="left" onClick={toggleAudio} />
             </span>
@@ -113,13 +112,13 @@ Audio.propTypes = {
   image:       PropTypes.string,
   src:         PropTypes.string.isRequired,
   srcType:     PropTypes.string.isRequired,
-  srcType:     PropTypes.oneOf(['audio/mpeg']),
+  srcType:     PropTypes.oneOf(['audio/mpeg'],['audio/mp3']),
   transcript:  PropTypes.string.isRequired
 }
 
 Audio.defaultProps = {
   titleTag: 'h3',
-  srcType:  'audio/mp3'
+  srcType:  'audio/mpeg'
 }
 
 export default Audio

@@ -109,3 +109,9 @@
     @include transition(opacity);
   }
 }
+
+@media print {
+  .video {
+    display: none;
+  }
+}

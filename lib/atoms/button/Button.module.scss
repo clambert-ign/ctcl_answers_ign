@@ -294,3 +294,14 @@
     }
   }
 }
+
+@media print {
+  .btn.btn.btn-primary, .btn.btn-secondary, .btn.btn-tertiary {
+    border: none;
+    display: block;
+    text-align: left;
+    svg {
+      display: none;
+    }
+  }
+}

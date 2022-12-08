@@ -40,3 +40,14 @@
   line-height:  var(--st-headline-line-height, 76.8px);
   margin: 0 0 16px 0;
 }
+
+@media print {
+  .sectionTitle {
+    .headline {
+      font-size: 22px;
+      line-height: 1.5rem;
+      margin: 0;
+      padding-bottom: 0.15in !important;
+    }
+  }
+}
