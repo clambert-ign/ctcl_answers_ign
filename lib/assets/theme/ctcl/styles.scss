@@ -22,13 +22,6 @@
   }   
 }
 
-// separate this into new print.scss and import
-@media print {
-  body * {
-    display: none;
-  }
-}
-
 //page section element spacing
 .body > div > div > section > div > div {
   margin: 0 0 32px;
@@ -153,4 +146,22 @@
 .pagesection-res-sign-off{
   --et-headline-font-size: 28px;
   --et-headline-font-weight: 600;
+}
+
+
+@media print {
+  .body * {
+    color: #000 !important;
+    background: none !important;
+    padding: 0 !important;
+    text-align: left;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    .pagesection-feedback-section {
+      display: none;
+    }
+  }
+  .body > div > div > section > div > div {
+    margin: 0;
+  }
 }
