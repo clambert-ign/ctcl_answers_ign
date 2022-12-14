@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect, useImperativeHandle, useLayoutEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import utilityHelper from '@services/utilities/utilityHelperPlus'
 import PropTypes from 'prop-types'
 import Button from '@atoms/button/Button'
-import Plyr from 'plyr-react'
-import 'plyr-react/plyr.css'
+import { usePlyr } from "plyr-react";
+import "plyr-react/plyr.css";
 import styles from './Audio.module.scss'
 import Image from "@atoms/image/Image"
 
@@ -20,7 +20,87 @@ import Image from "@atoms/image/Image"
  * @returns React Component
  */
 
-const Audio = React.forwardRef((props, ref) => {
+const CustomPlyrInstance = React.forwardRef((props, ref) => {
+
+  const { 
+    source, 
+    options = null,
+    image,
+    duration,
+    title,
+    titleTag,
+    description,
+    layout
+  } = props
+
+  const raptorRef = usePlyr(ref, { options, source })
+  const [audioPlaying, setAudioPlaying] = useState(false)
+  const [firstTimePlay, setFirstTimePlay] = useState(true)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [audioDuration, setAudioDuration] = useState()
+  const HeadingTag = `${titleTag}`
+
+  useEffect(() => {
+    if (ref?.current?.plyr?.source === null) return
+    ref?.current?.plyr?.on("ready", () => {
+      console.log('Audio is ready')
+    })
+    ref?.current?.plyr?.on("canplay", () => {
+      setAudioDuration(ref?.current?.plyr?.duration)
+    })
+    ref?.current?.plyr?.on("playing", () => {
+      console.log('Audio is playing')
+    })
+    ref?.current?.plyr?.on("pause", () => {
+      setCurrentTime(ref?.current?.plyr?.currentTime)
+      //dataLayer.push({event: 'podcast pause', event_name: 'podcast pause', event label: %podcast name%, duration: %podcast duration%});
+      //podcast name = title
+      //podcast duration = audioDuration
+      console.log('Audio is paused')
+    })
+    ref?.current?.plyr?.on("ended", () => {
+      //dataLayer.push({event: 'podcast complete', event_name: 'podcast complete', event label: %podcast name%, duration: %podcast duration%});
+      //podcast name = title
+      //podcast duration = audioDuration
+      console.log('Audio has ended')
+    })
+  })
+
+  const togglePlay = (e) => {
+    if(firstTimePlay) {
+      //dataLayer.push({event: 'podcast start', event_name: 'podcast start', event label: %podcast name%, duration: %podcast duration%});
+      //podcast name = title
+      //podcast duration = audioDuration
+      console.log('Audio is playing for the first time')
+      setFirstTimePlay(false)
+    }
+    e.preventDefault()
+    ref?.current?.plyr?.togglePlay()
+    setAudioPlaying(!audioPlaying)
+  }
+
+  return (
+    <div className={`${styles['audio-container']} ${layout ? styles[`audio-container-${layout}`] : ''}`}>
+      {image && (
+        <div className={styles['audio-image']}>        
+          <Image src={image} altText="" />
+          <span className={`${styles['playIcon']}`}>
+            <Button type="tertiary" text="" link="#" icon={audioPlaying ? 'audioPause' : 'audioPlay'} iconAlign="left" onClick={togglePlay} />
+          </span>
+        </div>
+      )}
+      <div className={styles.plyrContainer}>
+        <audio ref={raptorRef} className="plyr-react plyr" />
+        {duration && <div className={styles['audio-label']}>Audio | {duration}</div>}
+        {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
+        {description && <div className={styles['audio-description']}>{description}</div>}
+      </div>
+    </div>
+  )
+})
+
+const Audio = (props) => {
+
   const {
     title,
     titleTag,
@@ -32,24 +112,24 @@ const Audio = React.forwardRef((props, ref) => {
     transcript
   } = props
 
+  const plyrRef = useRef(null)
+  const audioRef = useRef()
+  const { winWidth } = utilityHelper.useScreenDimensions()
+  const [layout, setLayout] = useState('compact')
+
   const mediaSrc = {
     type: 'audio',
     title: title,
-    sources: [
-      {
-        src: src,
-        type: srcType
-      }
-    ]
+    sources: [{
+      type: srcType,
+      src: src
+    }]
   }
-  
-  const plyrRef = useRef()
-  const audioRef = useRef()
-  useImperativeHandle(ref, () => plyrRef?.current)
-  const { winWidth } = utilityHelper.useScreenDimensions()
-  const [layout, setLayout] = useState(null)  
-  const [audioPlaying, setAudioPlaying] = useState(false)
-  const HeadingTag = `${titleTag}`
+
+  const mediaOptions = {
+    controls: ['play', 'current-time', 'duration', 'progress', 'mute', 'volume'],
+    tooltips: { controls: false, seek: true }
+  }
 
   useEffect(() => {    
     const { width } = audioRef?.current?.getBoundingClientRect()
@@ -57,43 +137,21 @@ const Audio = React.forwardRef((props, ref) => {
     isBreakPoint ? setLayout("compact") : setLayout("list")
   }, [audioRef, winWidth])
 
-  useEffect(() => { 
-    console.log('audio playing:', plyrRef?.current?.plyr)
-    if(audioPlaying) {
-      plyrRef?.current?.plyr?.decreaseVolume(-2)
-    }
-  }, [audioPlaying])
-
-  const toggleAudio = (e) => {
-    e.preventDefault()    
-    setAudioPlaying(!audioPlaying)
-  }
-
   return (
     <div className={styles.audio} ref={audioRef}>
-      <div className={`${styles['audio-container']} ${layout ? styles[`audio-container-${layout}`] : ''}`}>
-        {image && (
-          <div className={styles['audio-image']}>        
-            <Image src={image} altText="" />
-            <span className={styles.playIcon}>
-              <Button type="tertiary" text="" link="#" icon="audioPlay" iconAlign="left" onClick={toggleAudio} />
-            </span>
-          </div>
-        )}
-        <div className={styles.plyrContainer}>
-          <Plyr
-            id="player"
-            ref={plyrRef}
-            source={mediaSrc}
-            options={{
-              controls: ['play', 'current-time', 'duration', 'progress', 'mute', 'volume']
-            }}
-          />
-          {duration && <div className={styles['audio-label']}>Audio | {duration}</div>}
-          {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
-          {description && <div className={styles['audio-description']}>{description}</div>}
-        </div>
-      </div>
+      {mediaSrc && (
+        <CustomPlyrInstance
+          ref={plyrRef}
+          source={mediaSrc}
+          options={mediaOptions}
+          image={image}
+          duration={duration}
+          title={title}
+          titleTag={titleTag}
+          description={description}
+          layout={layout}
+        />
+      )}
       {transcript && (
         <div className={styles['audio-transcript']}>
           <Button type="tertiary" text="Download Transcript" link={transcript} icon="download" iconAlign="right" download />
@@ -101,7 +159,7 @@ const Audio = React.forwardRef((props, ref) => {
       )}
     </div>
   )
-})
+}
 
 Audio.propTypes = {
   title:       PropTypes.string,
@@ -112,7 +170,7 @@ Audio.propTypes = {
   image:       PropTypes.string,
   src:         PropTypes.string.isRequired,
   srcType:     PropTypes.string.isRequired,
-  srcType:     PropTypes.oneOf(['audio/mpeg'],['audio/mp3']),
+  srcType:     PropTypes.oneOf(['audio/wav','audio/mpeg','audio/mp3']),
   transcript:  PropTypes.string.isRequired
 }
 
@@ -121,4 +179,4 @@ Audio.defaultProps = {
   srcType:  'audio/mpeg'
 }
 
-export default Audio
+export default Audio;

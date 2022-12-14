@@ -70,8 +70,7 @@
       padding: 50%;
       svg {
         position: absolute;
-        left: 45%;
-        top: 45%;
+        transform: translate(-10px, -10px);
         z-index: 10;
         margin: 0;
         padding: 0;

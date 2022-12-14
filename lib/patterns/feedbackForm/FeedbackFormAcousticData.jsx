@@ -28,23 +28,22 @@ const FeedbackFormAcousticData = (props) => {
   }
   const validate = (e) => {
     e.preventDefault()
-    console.log('=========================')
-    console.log('Form submitted')
+    //dataLayer.push({event: 'submit feedback click', event_name: 'submit feedback click', event_label: 'feedback-form_link'});
     const formData = new FormData(document.getElementById('feedbackformid'))
     for (const [key, value] of formData) {
-      console.log(key, ':', value)
       if(key === 'rating') {
         let selectedMapValue = mapping?.filter((mappingDataItem) => mappingDataItem.value === parseInt(value))
         console.log(key, ':', selectedMapValue[0].label)
       }      
     }
-    console.log('=========================')
     setShowForm(false)
   }  
-  const toggleElement = (e) => {
-    console.log('=========================')
-    console.log('Element toggled')
-    console.log('=========================')
+  const toggleElement = (e) => {    
+    if(e.target.value === "Myself") {
+      //dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
+    } else {
+      //dataLayer.push({event: 'information someone', event_name: 'information someone', event_label: 'feedback-form_link'});
+    }
   }
   return showForm ? (  
     <FeedbackForm id={getValue(id)}>

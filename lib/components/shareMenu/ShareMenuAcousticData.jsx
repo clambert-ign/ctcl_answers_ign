@@ -79,6 +79,9 @@ const ShareMenuAcousticData = (props) => {
     const y = isBreakPoint ? 0 : (screenHeight*0.5)/2
     const width = isBreakPoint ? screenWidth : screenWidth*0.3
     const height = isBreakPoint ? screenHeight : screenHeight*0.4
+    //dataLayer.push({event: 'each social channel click', event_name: 'each social channel click', event_label: %page path%, social_channel: %name of social channel%});
+    //name of social channel: type
+    //page path : window.location.protocol + '//' + window.location.hostname + window.location.pathname
     switch(type) {
       case "facebook":
         window.open(`https://www.facebook.com/sharer.php?u=${encodeURIComponent(pageURL)}`, 'Facebook Share', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${y}, left=${x}`)

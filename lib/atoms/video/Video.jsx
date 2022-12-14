@@ -1,9 +1,18 @@
-import React, { useRef, useImperativeHandle } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import utilityHelper from '@services/utilities/utilityHelperPlus'
 import PropTypes from 'prop-types'
-import Plyr from 'plyr-react'
-import styles from './Video.module.scss'
-import 'plyr-react/plyr.css'
 import Button from '@atoms/button/Button'
+import { usePlyr } from "plyr-react";
+import "plyr-react/plyr.css";
+import styles from './Video.module.scss'
+import Image from "@atoms/image/Image"
+
+// import React, { useRef, useImperativeHandle } from 'react'
+// import PropTypes from 'prop-types'
+// import Plyr from 'plyr-react'
+// import styles from './Video.module.scss'
+// import 'plyr-react/plyr.css'
+// import Button from '@atoms/button/Button'
 
 /**
  * Video Atom
@@ -23,7 +32,74 @@ import Button from '@atoms/button/Button'
  * @returns React Component
  */
 
-const Video = React.forwardRef((props, ref) => {
+ const CustomPlyrInstance = React.forwardRef((props, ref) => {
+
+  const { 
+    source, 
+    options = null,
+    title,
+    titleTag,
+    caption,
+    transcript
+  } = props
+
+  const raptorRef = usePlyr(ref, { options, source })
+  const [firstTimePlay, setFirstTimePlay] = useState(true)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [videoDuration, setVideoDuration] = useState()
+  const HeadingTag = `${titleTag}`
+
+  useEffect(() => {
+    if (ref?.current?.plyr?.source === null) return
+    ref?.current?.plyr?.on("ready", () => {
+      console.log('Video is ready')
+    })
+    ref?.current?.plyr?.on("canplay", () => {
+      setVideoDuration(ref?.current?.plyr?.duration)
+    })
+    ref?.current?.plyr?.on("playing", () => {
+      console.log('Video is playing')
+      console.log(firstTimePlay)
+      if(firstTimePlay) {
+        //dataLayer.push({event: 'video start', event_name: 'video start', event label: %video name%, duration: %video duration%});
+        //video name = title
+        //video duration = videoDuration
+        console.log('Video is playing for the first time')
+        setFirstTimePlay(false)
+      }
+    })
+    ref?.current?.plyr?.on("pause", () => {
+      setCurrentTime(ref?.current?.plyr?.currentTime)
+      //dataLayer.push({event: 'video pause', event_name: 'video pause', event label: %video name%, duration: %video duration%});
+      //video name = title
+      //video duration = videoDuration
+      console.log('Video is paused')
+    })
+    ref?.current?.plyr?.on("ended", () => {
+      //dataLayer.push({event: 'video complete', event_name: 'video complete', event label: %video name%, duration: %video duration%});
+      //video name = title
+      //video duration = videoDuration
+      console.log('Video has ended')
+    })
+  })
+
+  return (
+    <>
+      {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
+      <div className={`${styles.plyrContainer}`}>
+        <video ref={raptorRef} className="plyr-react plyr" />
+      </div>
+      {caption && <p className={styles['video-caption']}>{caption}</p>}
+      {transcript && (
+        <div className={styles['video-transcript']}>
+          <Button type='tertiary' text='Download Transcript' link={transcript} icon="download" iconAlign="right" download="transcript.txt" />
+        </div>
+      )}
+    </>
+  )
+})
+
+const Video = (props) => {
   const {
     title,
     titleTag,
@@ -40,9 +116,6 @@ const Video = React.forwardRef((props, ref) => {
     isMuted
   } = props
   
-  const videoRef  = useRef(null)  
-  useImperativeHandle(ref, () => videoRef?.current)
-
   const mediaSrc = {
     type: 'video',
     title: title,
@@ -64,8 +137,8 @@ const Video = React.forwardRef((props, ref) => {
     ]
   }
   
-  const controls = {
-    controls: [
+  const mediaOptions = {
+    controls: showControls ?  [
       'play-large', // The large play button in the center
       'play', // Play/pause playback
       'progress', // The progress bar and scrubber for playback and buffering
@@ -76,39 +149,34 @@ const Video = React.forwardRef((props, ref) => {
       'captions', // Toggle captions
       'settings', // Settings menu
       'fullscreen', // Toggle fullscreen
-    ],
+    ]: '',
+    autoPause: true,
+    autoPlay: autoPlay ? autoPlay : false,
+    clickToPlay: clickToPlay,
+    invertTime: false,
+    loop: {active:isLooped},
+    muted: isMuted,
+    tooltips: { controls: false, seek: true }
   }
   
-  const HeadingTag = `${titleTag}`
+  const plyrRef = useRef(null)
 
   return src ? (
-    <div className={`${styles.video}`} ref={videoRef}>
-      {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
-      <div className={`${styles.plyrContainer}`}>
-        <Plyr
+    <div className={`${styles.video}`}>
+      {mediaSrc && (
+        <CustomPlyrInstance
+          ref={plyrRef}
           source={mediaSrc}
-          autoPlay={autoPlay ? autoPlay : false}
-          options={
-            {
-              controls: showControls ? controls : '',
-              invertTime: false,
-              clickToPlay: clickToPlay,
-              autoPause: true,
-              loop: {active:isLooped},
-              muted: isMuted
-            }
-          }
+          options={mediaOptions}
+          title={title}
+          titleTag={titleTag}
+          caption={caption}
+          transcript={transcript}
         />
-      </div>
-      {caption && <p className={styles['video-caption']}>{caption}</p>}
-      {transcript && (
-        <div className={styles['video-transcript']}>
-          <Button type='tertiary' text='Download Transcript' link={transcript} icon="download" iconAlign="right" download="transcript.txt" />
-        </div>
       )}
     </div>
   ) : null
-})
+}
 
 Video.propTypes = {
   title:        PropTypes.string,
