@@ -36,7 +36,7 @@ const ShareMenuAcousticData = (props) => {
   const shareRef = useRef()
   const [menuPos, setMenuPos] = useState(null)
   const { screenWidth, screenHeight, winWidth, winHeight } = utilityHelper.useScreenDimensions()
-  const { width, height, x, y } = elementRef?.current?.getBoundingClientRect()
+  const { width, height, x, y } = elementRef?.getBoundingClientRect()
   const isBreakPoint = utilityHelper.detectBreakpoint('m')
   const isOutside = utilityHelper.clickOutside(shareRef)
   const currentURL = window.location.protocol + '//' + window.location.hostname + window.location.pathname
