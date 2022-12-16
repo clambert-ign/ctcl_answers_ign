@@ -11,13 +11,10 @@ import Button from '@atoms/button/Button'
 import PanelList from "@components/panelList/PanelList"
 import List from "@atoms/list/List"
 import ListItem from "@atoms/list/ListItem"
-
 const ShareMenuAcousticData = (props) => {
-
   const { 
     elementRef
   } = props
-
   const {
     customBehaviourSharingPlatforms,
     emailSubject,
@@ -30,22 +27,19 @@ const ShareMenuAcousticData = (props) => {
     twitterText,
     twitterVia
   } = props.data
-
   const dispatch = useDispatch()
   const { t } = useTranslation()
-  const shareRef = useRef()
+  const shareRef = useRef(null)
   const [menuPos, setMenuPos] = useState(null)
   const { screenWidth, screenHeight, winWidth, winHeight } = utilityHelper.useScreenDimensions()
   const { width, height, x, y } = elementRef?.getBoundingClientRect()
   const isBreakPoint = utilityHelper.detectBreakpoint('m')
   const isOutside = utilityHelper.clickOutside(shareRef)
   const currentURL = window.location.protocol + '//' + window.location.hostname + window.location.pathname
-  const pageURL = getValue(shareUrl) ? getValue(shareUrl) + '#' + getValue(shareId) : shareId ? currentURL + '#' + getValue(shareId) :  currentURL
-
+  const pageURL = getValue(shareUrl) ? getValue(shareUrl) + '#' + getValue(shareId) : getValue(shareId) ? currentURL + '#' + getValue(shareId) :  currentURL
   if(isOutside) {
     dispatch(setShareOpen(false))
   }
-  
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.keyCode === 27 || e.key === 'Escape') 
@@ -54,7 +48,6 @@ const ShareMenuAcousticData = (props) => {
     window.addEventListener('keydown', handleEsc)
     return () => { window.removeEventListener('keydown', handleEsc)}
   }, [])
-
   useEffect(() => {
     if(shareRef?.current) {
       ((((y+height)/winHeight)*100) > 60) ? setMenuPos("top") : setMenuPos("bottom")
@@ -72,7 +65,6 @@ const ShareMenuAcousticData = (props) => {
       )
     }
   }, [shareRef, winWidth, winHeight, x, y, width, height])
-
   const handleShareClick = (e, type) => {
     e.preventDefault()
     const x = isBreakPoint ? 0 : (screenWidth*0.7)/2
@@ -88,7 +80,12 @@ const ShareMenuAcousticData = (props) => {
         dispatch(setShareOpen(false))
         break;
       case "twitter":
-        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageURL)}&text=${getValue(twitterText)}&hashtags=${getValue(twitterHashtags)}&via=${getValue(twitterVia)}&related=${getValue(twitterRelated)}&in_reply_to=${getValue(twitterInReplyTo)}`, 'Twitter Share', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${y}, left=${x}`)
+        const tText = getValue(twitterText) ? `&text=${getValue(twitterText)}` : ''
+        const tHash = getValue(twitterHashtags) ? `&hashtags=${getValue(twitterHashtags)}` : ''
+        const tVia = getValue(twitterVia) ? `&via=${getValue(twitterVia)}` : ''
+        const tRel = getValue(twitterRelated) ? `&related=${getValue(twitterRelated)}` : ''
+        const tReplyTo = getValue(twitterInReplyTo) ? `&in_reply_to=${getValue(twitterInReplyTo)}` : ''
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageURL)}${tText}${tHash}${tVia}${tRel}${tReplyTo}`, 'Twitter Share', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${y}, left=${x}`)
         dispatch(setShareOpen(false))
         break;
       case "email":
@@ -109,7 +106,6 @@ const ShareMenuAcousticData = (props) => {
         break;
     }
   }
-  
   return (
     <ShareMenu ref={shareRef} menuPos={menuPos}>
       <PanelList>
@@ -126,5 +122,4 @@ const ShareMenuAcousticData = (props) => {
     </ShareMenu>
   )
 }
-
 export default ShareMenuAcousticData
