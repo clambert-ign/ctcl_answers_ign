@@ -20,6 +20,7 @@ const Tabs = (props) => {
 
   const HeadingTag = `${headingTag}`
   const tabListRef = useRef()
+  const tabRef = useRef()
   const tabListItemRefs = useRef([])
   const [active, setActive] = useState({[0]:true})
   const [tabListScroll, setTabListScroll] = useState(false)
@@ -27,11 +28,12 @@ const Tabs = (props) => {
   const [tabListItemsNext, setTabListItemsNext] = useState(1)
   const [tabListItemsPrev, setTabListItemsPrev] = useState(0)
 
+  
   const tabList = getChildrenByType(props.children, ['Button'])
   const tabContent = getChildrenByType(props.children, [TabContent])
  
   const isTabListScroll = () => {
-    tabListRef.current.scrollWidth > window.innerWidth ? setTabListScroll(true) : setTabListScroll(false)
+    (tabListRef.current.scrollWidth+(tabRef?.current?.offsetLeft*2)) > window.innerWidth ? setTabListScroll(true) : setTabListScroll(false)
   }
 
   const scrollTabListItemIntoView = (index) => {
@@ -73,7 +75,7 @@ const Tabs = (props) => {
   })
   
   return (
-    <div className={styles['tabs']}>
+    <div className={styles['tabs']} ref={tabRef}>
       {heading && (
         <HeadingTag className={styles['headline']}>{heading}</HeadingTag>
       )}
@@ -84,10 +86,10 @@ const Tabs = (props) => {
           {tabListScroll && ( 
             <>
               <span className={styles['tabList-scroll-icon--left']}>
-                <Button type="tertiary" icon="chevronLeft" text="" onClick={() => scrollTabListItemIntoView(tabListItemsPrev)} />
+                <Button type="tertiary" icon="chevronLeft" text="" link="" onClick={(e) => scrollTabListItemIntoView(tabListItemsPrev)} />
               </span>
               <span className={styles['tabList-scroll-icon--right']}>
-                <Button type="tertiary" icon="chevronRight" text="" onClick={() => scrollTabListItemIntoView(tabListItemsNext)} />
+                <Button type="tertiary" icon="chevronRight" text="" link="" onClick={(e) => scrollTabListItemIntoView(tabListItemsNext)} />
               </span>
             </>
           )} 
