@@ -31,10 +31,10 @@ const libraries = [
     language: 'fr',
     code: 'fr-fr',
     active: false,
-    secondaryDomain: 'https://www.parlonsconstipation.fr',
-    libraryId: '38806463-713e-47df-960a-2786a0158645',
-    oneTrustScriptURL:'',
-    oneTrustDomainID:'',
+    secondaryDomain: '',
+    libraryId: '51190713-9d43-4377-80ea-7c294e42c490',
+    oneTrustScriptURL:'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
+    oneTrustDomainID:'6f13fe5d-9efe-4d8e-9d9c-0085907f2806-test',
     performanceCookieId:''
   },
   {
