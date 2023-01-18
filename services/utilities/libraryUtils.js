@@ -30,7 +30,7 @@ const libraries = [
     path: '/fr-fr',
     language: 'fr',
     code: 'fr-fr',
-    active: false,
+    active: true,
     secondaryDomain: '',
     libraryId: '51190713-9d43-4377-80ea-7c294e42c490',
     oneTrustScriptURL:'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
