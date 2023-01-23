@@ -23,7 +23,7 @@ const AppRouter = (props) => {
         const res = await ipstackAPI.get().then((resp) => {
           if (resp) {
             resp.data.error ? setIpStackError(true) : setIpStackError(false)
-            if (!ipStackError) {
+            if (!resp.data.error) {
               setIpstackData(resp)                      
               let currentUrl = window.location.href.split('/')
               let urlLocale = `/${currentUrl[3]}`
