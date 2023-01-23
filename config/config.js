@@ -30,7 +30,8 @@ config.acoustic = {
 
 config.ipstackHelper = {
   domain: 'https://api.ipstack.com/',
-  accessKey: 'e89cb496cbef14293f461c291800afa6'
+  accessKey: 'e89cb496cbef14293f461c291800afa6',
+  active: false
 }
 
 config.homepageId = (uuid) => {

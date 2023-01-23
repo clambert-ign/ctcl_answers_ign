@@ -6,6 +6,7 @@ import ipstackAPI from '@services/api/ipstackAPI'
 import { getLanguagePath } from '@services/utilities/ipstackHelper'
 import { getLibraryLanguage } from '@services/utilities/libraryUtils'
 import { useTranslation } from 'react-i18next'
+import config from '@config/config'
 
 const AppRouter = (props) => {
   const { i18n, t } = useTranslation()
@@ -23,7 +24,7 @@ const AppRouter = (props) => {
         const res = await ipstackAPI.get().then((resp) => {
           if (resp) {
             resp.data.error ? setIpStackError(true) : setIpStackError(false)
-            if (!resp.data.error) {
+            if (!resp.data.error && config.ipstackHelper.active) {
               setIpstackData(resp)                      
               let currentUrl = window.location.href.split('/')
               let urlLocale = `/${currentUrl[3]}`
