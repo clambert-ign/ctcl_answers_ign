@@ -5,7 +5,8 @@ const GlobalNavigationAcousticData = (props) => {
   const { 
     menuLevel1, 
     siteLogoText, 
-    yourLogo = '' 
+    yourLogo = '',
+    routerPath
   } = props.data  
   let menuData = { menu: [] }
   if (getValues(menuLevel1)) {
@@ -25,6 +26,7 @@ const GlobalNavigationAcousticData = (props) => {
       menuData={menuData}
       logoText={getValue(siteLogoText)}
       logo={getFullImageStr(yourLogo.url)}
+      routerPath={routerPath}
     />
   )
 }
