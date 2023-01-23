@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 import GlobalNavigationAcousticData from '@components/globalNavigation/GlobalNavigationAcousticData'
 import GlobalFooterAcousticData from '@components/globalFooter/GlobalFooterAcousticData'
 import ToastBarAcousticData from '@components/toastBar/ToastBarAcousticData'
@@ -24,10 +23,7 @@ const Layout = ({children}) => {
   const elementRef = useSelector((state) => state?.share?.shareData?.elementRef)
   const showAlert = useSelector((state) => state?.alert?.alertOpen)
   const showAlertData = useSelector((state) => state?.alert?.alertData?.content)
-  const router = useRouter()
-  const globalNavigationData = {...globalNavigation}
-  globalNavigationData.routerPath = router.asPath
-
+  
   return (
     <>
       {!loading && (
@@ -38,7 +34,7 @@ const Layout = ({children}) => {
             )}
             
             {globalNavigation && (
-              <GlobalNavigationAcousticData data={globalNavigationData} />
+              <GlobalNavigationAcousticData data={globalNavigation} />
             )}
             
             {children}

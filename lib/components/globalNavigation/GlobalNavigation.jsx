@@ -187,7 +187,7 @@ const GlobalNavigation = (props) => {
             <ul ref={menuContentRef}>
               {menuData?.menu &&
                 menuData.menu.map(({ menuItem, menuItems }, index) => {
-                  const selected = menuItem?.url === routerPath
+                  const selected = openSection === index
                   return (
                     <li
                       key={`menuItem${index}`}
