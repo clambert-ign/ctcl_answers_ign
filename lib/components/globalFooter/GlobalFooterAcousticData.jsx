@@ -55,7 +55,7 @@ const GlobalFooterAcousticData = (props) => {
   return (
     <>
     <GlobalFooter
-      logo=<Image src="/images/kki-logo-orange.png" altText="Kyowa Kirin Logo" />
+      logo=<Image src="/images/KyowaKirin_Logo_Orange.svg" altText="Kyowa Kirin Logo" />
       languageIcon="globe"
       languageText={t('countryRegion')} 
       languageLink=<Button type='tertiary' link="#" text="United Kingdom" onClick={toggleModal} />

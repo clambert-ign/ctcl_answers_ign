@@ -176,7 +176,7 @@ const GlobalNavigation = (props) => {
           </div>
           
           <div className={styles["globalNav-container-logokki"]}>
-            <Image src="/images/kki-logo.png" altText="Kyowa Kirin Logo" />
+            <Image src="/images/KyowaKirin_Logo.svg" altText="Kyowa Kirin Logo" />
           </div>
           
           <span className={styles["globalNav-container-menu"]} ref={burgerMenuRef} onClick={(e) => burgerOnClick(e)}>

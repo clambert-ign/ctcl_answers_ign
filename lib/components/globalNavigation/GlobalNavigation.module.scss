@@ -21,11 +21,11 @@
       grid-template-columns: 2fr 2fr 4fr;
   }
   
-  @include media(large) {
+  @include media(large, extraLarge) {
       grid-template-columns: 1.5fr 2.5fr 4fr;
   }
 
-  @include media(extraLarge,extraExtraLarge) {
+  @include media(menuExtraLarge,extraExtraLarge) {
       margin: 60px 0 0;
       grid-template-columns: 1fr 0fr 6fr;
   }
@@ -33,20 +33,21 @@
   &-logo { 
       img {
           width: 100%;
-          max-width: 166px;
+          max-width: 166px!important;
           vertical-align: middle;
+          padding-left:15px;
       }
   }
 
   &-logokki div {
       img {
           width: unset;
-          max-width: 166px;
+          max-width: 166px!important;
           vertical-align: middle;
       }
   }
   
-  @include media(extraLarge,extraExtraLarge) {      
+  @include media(menuExtraLarge,extraExtraLarge) {      
       img {
       }
       &-logokki {
@@ -73,8 +74,7 @@
               fill: var(--gn-menu-hamburger-icon-color, #4B4C53)
           }
       }
-
-      @include media(extraLarge, extraExtraLarge) {
+      @include media(menuExtraLarge, extraExtraLarge) {
           display: none;
       }
 
@@ -93,10 +93,10 @@
 .globalNav .globalNav-container .globalNav-desktopMenu {
   display: none;
 
-  @include media(extraLarge, extraExtraLarge) {
-      display: block;
-      text-align: right;
-  }
+  @include media(menuExtraLarge,extraExtraLarge) {
+    display: block;
+    text-align: right;
+}
 
   ul {
       margin: 0;

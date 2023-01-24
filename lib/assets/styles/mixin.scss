@@ -48,6 +48,7 @@ $medium: 832px;
 $large: 1088px;
 $extra-large: 1272px;
 $extra-extra-large: 1504px;
+$menu-extra-large: 1310px;
 
 @mixin extraSmall {
   @media (min-width: 0) and (max-width: #{$small - 1px}) {
@@ -79,6 +80,11 @@ $extra-extra-large: 1504px;
     @content;
   }
 }
+@mixin menuExtraLarge {
+  @media (min-width: #{$menu-extra-large}) and (max-width: #{$extra-extra-large - 1px}) {
+    @content;
+  }
+}
 
 @mixin media($keys...) {
   @each $key in $keys {
@@ -104,6 +110,10 @@ $extra-extra-large: 1504px;
       }
     } @else if ($key == extraExtraLarge) {
       @include extraExtraLarge {
+        @content;
+      }
+    } @else if ($key == menuExtraLarge) {
+      @include menuExtraLarge {
         @content;
       }
     }

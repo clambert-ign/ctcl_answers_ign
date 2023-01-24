@@ -16,7 +16,7 @@ ul.accordion {
             font-size: var(--gn-menu-slideout-font-size, 16px);
             font-weight:  var(--gn-menu-slideout-font-weight, 700);
             line-height:  var(--gn-menu-slideout-line-height, 19.2px);
-            color: #2f345a!important;
+            color: var(--gn-menu-slideout-text-color)!important;
             grid-template-columns: 6fr 2fr;
             width: 100%;
             
@@ -32,8 +32,8 @@ ul.accordion {
                 }
             }
             &:hover {
-                color: var(--gn-menu-slideout-hover-text-color, var(--tertiary-btn-hover-text-color));
-                text-decoration: none;
+                color: var(--gn-menu-slideout-hover-text-color, var(--tertiary-btn-hover-text-color))!important;
+                text-decoration: none!important;
                 svg {
                     path {
                         fill: var(--gn-menu-slideout-hover-text-color, var(--tertiary-btn-hover-text-color));
@@ -41,7 +41,7 @@ ul.accordion {
                 }
             }
             &:active {
-                color: var(--gn-menu-slideout-active-text-color, var(--tertiary-btn-active-text-color));
+                color: var(--gn-menu-slideout-active-text-color, var(--tertiary-btn-active-text-color))!important;
                 background-color: var(--gn-menu-slideout-active-bgcolor, var(--tertiary-btn-active-bgcolor));
                 svg {
                     path{
@@ -119,6 +119,11 @@ ul.accordion {
             path {
                 fill: var(--gn-menu-slideout-active-text-color, #4B4C53);
             }
+        }
+    }
+    li.selected {
+        a {
+            color: var(--gn-menu-slideout-hover-text-color)!important;
         }
     }
 }
