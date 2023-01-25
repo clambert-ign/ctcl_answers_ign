@@ -11,9 +11,12 @@
   filter: drop-shadow(var(--cctile-dropshadow, 0px 7.48582px 30px rgba(50, 50, 50, 0.2)));
   padding: 0;
   margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
   display: inline-grid;
   grid-template-columns: auto;
-  gap: 10px;
+  row-gap: 32px;
+  column-gap: 32px;
 }
 
 .contentCard .headline {
