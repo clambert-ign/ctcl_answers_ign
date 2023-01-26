@@ -112,6 +112,9 @@
     circle {
       fill: var(--gf-scroll-circle-color, #4B4C53);
     }
+    circle:hover{
+      fill: #FABDA8;
+    }
     polygon {
       fill: var(--gf-scroll-arrow-color, #fff);
     }                       

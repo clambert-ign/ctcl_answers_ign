@@ -22,14 +22,14 @@
     "cookie-accept-necessary": "Strictly necessary cookies (always on)",
     "audio-transcript": "Download transcript",
     "error404": "The page you are looking for cannot be found",
-    "confirm": "Confirm",
+    "confirm": "OK",
     "cancel": "Cancel",
-    "warning": "Warning!",  
-    "externalLink": "You are about to navigate away from this website, are you sure you want to continue?",
+    "warning": "",  
+    "externalLink": "You are about to navigate away from this website bitch, are you sure you want to continue?",
     "clipboard": "Copied to Clipboard.",
     "facebook": "Facebook",
     "twitter": "Twitter",
-    "link": "Copy Link",
+    "link": "Copy link",
     "print": "Print",
     "email": "Email"  
 }

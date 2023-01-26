@@ -190,7 +190,7 @@
 }
 
 .contentCard.contentCard-multiple .contentCardItem {
-  grid-template-rows: min-content auto;
+  grid-template-rows: 260px;
   grid-template-columns: 1fr;
   grid-template-areas: "ccimage" "cccontent";
 
