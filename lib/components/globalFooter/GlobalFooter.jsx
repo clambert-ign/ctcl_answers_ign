@@ -47,8 +47,8 @@ const GlobalFooter = (props) => {
           )}          
           <div className={styles['compliance']}>
             <span>
-              <p>{date}</p>
-              <p>{complianceCode}</p>
+{/*               <p>{date}</p>
+              <p>{complianceCode}</p> */}
             </span>
             <ScrollToTop />
           </div>
