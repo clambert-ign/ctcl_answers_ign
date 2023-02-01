@@ -28,7 +28,7 @@ const FeedbackFormAcousticData = (props) => {
   }
   const validate = (e) => {
     e.preventDefault()
-    //dataLayer.push({event: 'submit feedback click', event_name: 'submit feedback click', event_label: 'feedback-form_link'});
+    dataLayer.push({event: 'submit feedback click', event_name: 'submit feedback click', event_label: 'feedback-form_link'});
     const formData = new FormData(document.getElementById('feedbackformid'))
     for (const [key, value] of formData) {
       if(key === 'rating') {
