@@ -67,11 +67,11 @@ const Slider = React.forwardRef((props, ref) => {
   const customMapping = (sliderMapValue) => {
     let selectedMapValue = mappingValues?.filter((mappingValue) => mappingValue.value === parseInt(sliderMapValue))
     if(selectedMapValue[0].label === "Not Very Useful") {
-      //dataLayer.push({event: 'not very useful', event_name: 'not very useful', event_label: 'feedback-form_link'});
+      dataLayer.push({event: 'not very useful', event_name: 'not very useful', event_label: 'feedback-form_link'});
     } else if(selectedMapValue[0].label === "Useful") {
-      //dataLayer.push({event: 'useful', event_name: 'useful', event_label: 'feedback-form_link'});
+      dataLayer.push({event: 'useful', event_name: 'useful', event_label: 'feedback-form_link'});
     } else if(selectedMapValue[0].label === "Very Useful") {
-      //dataLayer.push({event: 'very useful ', event_name: 'very useful ', event_label: 'feedback-form_link'});
+      dataLayer.push({event: 'very useful ', event_name: 'very useful ', event_label: 'feedback-form_link'});
     }
     if(selectedMapValue[0].show === true) {
       setSliderValueLabel(selectedMapValue[0].label ? selectedMapValue[0].label : null)
