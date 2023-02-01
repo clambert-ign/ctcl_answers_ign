@@ -40,9 +40,9 @@ const FeedbackFormAcousticData = (props) => {
   }  
   const toggleElement = (e) => {    
     if(e.target.value === "Myself") {
-      //dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
+      dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
     } else {
-      //dataLayer.push({event: 'information someone', event_name: 'information someone', event_label: 'feedback-form_link'});
+      dataLayer.push({event: 'information someone', event_name: 'information someone', event_label: 'feedback-form_link'});
     }
   }
   return showForm ? (  
