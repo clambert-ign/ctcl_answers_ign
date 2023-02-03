@@ -53,24 +53,18 @@ const CustomPlyrInstance = React.forwardRef((props, ref) => {
     })
     ref?.current?.plyr?.on("pause", () => {
       setCurrentTime(ref?.current?.plyr?.currentTime)
-      //dataLayer.push({event: 'podcast pause', event_name: 'podcast pause', event label: %podcast name%, duration: %podcast duration%});
-      //podcast name = title
-      //podcast duration = audioDuration
+      dataLayer.push({event: 'podcast pause', event_name: 'podcast pause', event_label: title, pausetime_seconds: currentTime});
       console.log('Audio is paused')
     })
     ref?.current?.plyr?.on("ended", () => {
-      //dataLayer.push({event: 'podcast complete', event_name: 'podcast complete', event label: %podcast name%, duration: %podcast duration%});
-      //podcast name = title
-      //podcast duration = audioDuration
+      dataLayer.push({event: 'podcast complete', event_name: 'podcast complete', event_label: title, duration_seconds: audioDuration});
       console.log('Audio has ended')
     })
   })
 
   const togglePlay = (e) => {
     if(firstTimePlay) {
-      //dataLayer.push({event: 'podcast start', event_name: 'podcast start', event label: %podcast name%, duration: %podcast duration%});
-      //podcast name = title
-      //podcast duration = audioDuration
+      dataLayer.push({event: 'podcast start', event_name: 'podcast start', event_label: title, duration_seconds: audioDuration});
       console.log('Audio is playing for the first time')
       setFirstTimePlay(false)
     }

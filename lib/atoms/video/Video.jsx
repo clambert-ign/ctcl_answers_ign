@@ -61,24 +61,18 @@ import Image from "@atoms/image/Image"
       console.log('Video is playing')
       console.log(firstTimePlay)
       if(firstTimePlay) {
-        //dataLayer.push({event: 'video start', event_name: 'video start', event label: %video name%, duration: %video duration%});
-        //video name = title
-        //video duration = videoDuration
+        dataLayer.push({event: 'video start', event_name: 'video start', event_label: title, duration_seconds: videoDuration});
         console.log('Video is playing for the first time')
         setFirstTimePlay(false)
       }
     })
     ref?.current?.plyr?.on("pause", () => {
       setCurrentTime(ref?.current?.plyr?.currentTime)
-      //dataLayer.push({event: 'video pause', event_name: 'video pause', event label: %video name%, duration: %video duration%});
-      //video name = title
-      //video duration = videoDuration
+      dataLayer.push({event: 'video pause', event_name: 'video pause', event_label: title, duration_seconds: videoDuration});
       console.log('Video is paused')
     })
     ref?.current?.plyr?.on("ended", () => {
-      //dataLayer.push({event: 'video complete', event_name: 'video complete', event label: %video name%, duration: %video duration%});
-      //video name = title
-      //video duration = videoDuration
+      dataLayer.push({event: 'video complete', event_name: 'video complete', event_label: title, duration_seconds: videoDuration});
       console.log('Video has ended')
     })
   })
