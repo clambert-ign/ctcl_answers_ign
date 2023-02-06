@@ -34,17 +34,27 @@ const FeedbackFormAcousticData = (props) => {
       if(key === 'rating') {
         let selectedMapValue = mapping?.filter((mappingDataItem) => mappingDataItem.value === parseInt(value))
         console.log(key, ':', selectedMapValue[0].label)
+        dataLayer.push({event: selectedMapValue[0].label, event_name: selectedMapValue[0].label, event_label: 'feedback-form_link'});
+      }
+      if(key === 'infoFor') {
+        if(e.target.value === "Myself") {
+          dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
+          console.log(key, ':', 'Myself')
+        } else {
+          dataLayer.push({event: 'information someone else', event_name: 'information someone else', event_label: 'feedback-form_link'});
+          console.log(key, ':', 'Someone Else')
+        }
       }      
     }
     setShowForm(false)
   }  
-  const toggleElement = (e) => {    
-    if(e.target.value === "Myself") {
-      dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
-    } else {
-      dataLayer.push({event: 'information someone', event_name: 'information someone', event_label: 'feedback-form_link'});
-    }
-  }
+  // const toggleElement = (e) => {    
+  //   if(e.target.value === "Myself") {
+  //     // dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
+  //   } else {
+  //     // dataLayer.push({event: 'information someone', event_name: 'information someone', event_label: 'feedback-form_link'});
+  //   }
+  // }
   return showForm ? (  
     <FeedbackForm id={getValue(id)}>
       <div className={styles['form-wrapper']}>
@@ -66,7 +76,7 @@ const FeedbackFormAcousticData = (props) => {
                         isRequired={getValue(radioItem?.elements?.isRequired)}
                         isDisabled={getValue(radioItem?.elements?.isDisabled)}
                         isChecked={getValue(radioItem?.elements?.isChecked)}
-                        onChange={(e) => toggleElement(e)}
+                        // onChange={(e) => toggleElement(e)}
                       />
                     )
                   })}
