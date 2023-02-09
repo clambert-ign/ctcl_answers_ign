@@ -84,7 +84,7 @@ const ButtonAcousticData = (props) => {
         return
       case 'clickToShare':
         console.log('Analytics: Event: Click to Share')
-        dataLayer.push({event: 'click to share', event_name: 'click to share', event_label: window.location.protocol + '//' + window.location.hostname + window.location.pathname});
+        dataLayer.push({event: 'click to share', event_name: 'click to share', event_label:getValue(analyticsEventValue)});
         //page path : 
         return
       case 'ratingsButtonClick':
