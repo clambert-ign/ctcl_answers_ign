@@ -37,7 +37,7 @@ const FeedbackFormAcousticData = (props) => {
         dataLayer.push({event: selectedMapValue[0].label, event_name: selectedMapValue[0].label, event_label: 'feedback-form_link'});
       }
       if(key === 'infoFor') {
-        if(e.target.value === "Myself") {
+        if(value === "Myself") {
           dataLayer.push({event: 'information for myself', event_name: 'information for myself', event_label: 'feedback-form_link'});
           console.log(key, ':', 'Myself')
         } else {
