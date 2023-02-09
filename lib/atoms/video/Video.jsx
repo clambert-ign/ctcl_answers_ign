@@ -6,14 +6,12 @@ import { usePlyr } from "plyr-react";
 import "plyr-react/plyr.css";
 import styles from './Video.module.scss'
 import Image from "@atoms/image/Image"
-
 // import React, { useRef, useImperativeHandle } from 'react'
 // import PropTypes from 'prop-types'
 // import Plyr from 'plyr-react'
 // import styles from './Video.module.scss'
 // import 'plyr-react/plyr.css'
 // import Button from '@atoms/button/Button'
-
 /**
  * Video Atom
  * @param {string}  title         - The title of the media to be displayed.
@@ -31,9 +29,7 @@ import Image from "@atoms/image/Image"
  * @param {boolean} isMuted       - Should the video be muted?
  * @returns React Component
  */
-
  const CustomPlyrInstance = React.forwardRef((props, ref) => {
-
   const { 
     source, 
     options = null,
@@ -42,57 +38,68 @@ import Image from "@atoms/image/Image"
     caption,
     transcript
   } = props
-
   const raptorRef = usePlyr(ref, { options, source })
-  const [firstTimePlay, setFirstTimePlay] = useState(true)
-  const [currentTime, setCurrentTime] = useState(0)
+  const HeadingTag = titleTag ? `${titleTag}` : `h3`
+  const [videoReady, setVideoReady] = useState(false)
+  const [videoEnded, setVideoEnded] = useState(false)
   const [videoDuration, setVideoDuration] = useState()
-  const HeadingTag = `${titleTag}`
-
+  const [playing, setPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
   useEffect(() => {
     if (ref?.current?.plyr?.source === null) return
     ref?.current?.plyr?.on("ready", () => {
       console.log('Video is ready')
+      setVideoReady(true)
     })
     ref?.current?.plyr?.on("canplay", () => {
       setVideoDuration(ref?.current?.plyr?.duration)
     })
-    ref?.current?.plyr?.on("playing", () => {
-      console.log('Video is playing')
-      console.log(firstTimePlay)
-      if(firstTimePlay) {
-        dataLayer.push({event: 'video start', event_name: 'video start', event_label: title, duration_seconds: videoDuration});
-        console.log('Video is playing for the first time')
-        setFirstTimePlay(false)
-      }
-    })
-    ref?.current?.plyr?.on("pause", () => {
-      setCurrentTime(ref?.current?.plyr?.currentTime)
-      dataLayer.push({event: 'video pause', event_name: 'video pause', event_label: title, duration_seconds: videoDuration});
+  }, [ref?.current])
+  useEffect(() => {
+    if(videoReady) {
+      ref?.current?.plyr?.on("playing", () => {
+        setPlaying(true)
+      })
+      ref?.current?.plyr?.on("pause", () => {
+        setCurrentTime(ref?.current?.plyr?.currentTime)
+      })
+      ref?.current?.plyr?.on("ended", () => {
+        setVideoEnded(true)
+      })
+    }    
+  }, [videoReady])
+  useEffect(() => {
+    if(videoDuration) {
+      console.log('duration:', videoDuration)   
+    } 
+  }, [videoDuration])
+  useEffect(() => {
+    if(currentTime) {
+      dataLayer.push({event: 'video pause', event_name: 'video pause', event_label: title, duration_seconds: currentTime});
       console.log('Video is paused')
-    })
-    ref?.current?.plyr?.on("ended", () => {
+      console.log('current:', currentTime)   
+    } 
+  }, [currentTime])
+  useEffect(() => {
+    if(playing) {
+      console.log('Video is playing')
+      dataLayer.push({event: 'video start', event_name: 'video start', event_label: title, duration_seconds: videoDuration});
+      setPlaying(false)  
+    }
+  }, [playing])
+  useEffect(() => {
+    if(videoEnded) {
       dataLayer.push({event: 'video complete', event_name: 'video complete', event_label: title, duration_seconds: videoDuration});
       console.log('Video has ended')
-    })
-  })
-
+    } 
+  }, [videoEnded])
   return (
-    <>
-      {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
-      <div className={`${styles.plyrContainer}`}>
-        <video ref={raptorRef} className="plyr-react plyr" />
-      </div>
-      {caption && <p className={styles['video-caption']}>{caption}</p>}
+    <>      {title && <HeadingTag className={styles['headline']}>{title}</HeadingTag>}
+      <div className={`${styles.plyrContainer}`}>        <video ref={raptorRef} className="plyr-react plyr" />      </div>      {caption && <p className={styles['video-caption']}>{caption}</p>}
       {transcript && (
-        <div className={styles['video-transcript']}>
-          <Button type='tertiary' text='Download Transcript' link={transcript} icon="download" iconAlign="right" download="transcript.txt" />
-        </div>
-      )}
-    </>
-  )
+        <div className={styles['video-transcript']}>          <Button type='tertiary' text='Download Transcript' link={transcript} icon="download" iconAlign="right" download="transcript.txt" />        </div>      )}
+    </>  )
 })
-
 const Video = (props) => {
   const {
     title,
@@ -109,7 +116,6 @@ const Video = (props) => {
     clickToPlay,
     isMuted
   } = props
-  
   const mediaSrc = {
     type: 'video',
     title: title,
@@ -130,7 +136,6 @@ const Video = (props) => {
       }
     ]
   }
-  
   const mediaOptions = {
     controls: showControls ?  [
       'play-large', // The large play button in the center
@@ -152,26 +157,18 @@ const Video = (props) => {
     muted: isMuted,
     tooltips: { controls: false, seek: true }
   }
-  
   const plyrRef = useRef(null)
-
-  return src ? (
-    <div className={`${styles.video}`}>
-      {mediaSrc && (
-        <CustomPlyrInstance
-          ref={plyrRef}
-          source={mediaSrc}
-          options={mediaOptions}
-          title={title}
-          titleTag={titleTag}
-          caption={caption}
-          transcript={transcript}
-        />
-      )}
-    </div>
-  ) : null
+  return (
+    <div className={`${styles.video}`}>      <CustomPlyrInstance
+        ref={plyrRef}
+        source={mediaSrc}
+        options={mediaOptions}
+        title={title}
+        titleTag={titleTag}
+        caption={caption}
+        transcript={transcript}
+      />    </div>  )
 }
-
 Video.propTypes = {
   title:        PropTypes.string,
   titleTag:     PropTypes.string.isRequired,
@@ -188,7 +185,6 @@ Video.propTypes = {
   clickToPlay:  PropTypes.bool,
   isMuted:      PropTypes.bool
 }
-
 Video.defaultProps = {
   titleTag:     'h3',
   srcType:      'video/mp4',
@@ -198,5 +194,4 @@ Video.defaultProps = {
   clickToPlay:  true,
   isMuted:      false
 }
-
 export default Video
