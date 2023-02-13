@@ -17,8 +17,8 @@ config.acoustic = {
   domain: 'https://content-eu-1.content-cms.com',    
   //Live Acoustic subscription
   //contentHubID: '7dd72924-538f-4876-a2c6-b384c797bccb',
-  //UAT Acoustic subscription
   //UAT Acoustic subscription//
+  contentHubID: 'c21df77d-c3dd-42a7-837d-0d360900e599',
   searchPath: '/delivery/v1/search?',
   searchQueryPath: '/search?',
   deliveryRenderingContextPath: '/delivery/v1/rendering/context',
