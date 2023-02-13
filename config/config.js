@@ -18,8 +18,7 @@ config.acoustic = {
   //Live Acoustic subscription
   //contentHubID: '7dd72924-538f-4876-a2c6-b384c797bccb',
   //UAT Acoustic subscription
-  // *original*contentHubID: 'c21df77d-c3dd-42a7-837d-0d360900e599',
-  contentHubID: 'c1d66ec6-0e37-458e-8969-5a5c864c8cd5',
+  //UAT Acoustic subscription//
   searchPath: '/delivery/v1/search?',
   searchQueryPath: '/search?',
   deliveryRenderingContextPath: '/delivery/v1/rendering/context',
